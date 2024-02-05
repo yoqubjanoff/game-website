@@ -17,7 +17,7 @@ const Target = () => {
             </TargetStyle.Desc>
           </TargetStyle.TextBox>
           <TargetStyle.ImgBox>
-            <TargetStyle.Img src={targetImg}/>
+            <TargetStyle.Img src={targetImg} alt='image heroe game'/>
           </TargetStyle.ImgBox>
         </TargetStyle.Wrapper>
       </TargetStyle.Container>

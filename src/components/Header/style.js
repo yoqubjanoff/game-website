@@ -4,8 +4,9 @@ export const HeaderStyle = styled.header`
   position: fixed;
   z-index: 10;
   width: 100%;
-  background-color: transparent;
-  padding: 40px 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  padding: 20px 0 0 0;
 `;
 
 HeaderStyle.Container = styled.div`

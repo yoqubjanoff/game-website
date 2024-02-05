@@ -14,7 +14,7 @@ const TeamSection = () => {
                     </Team.Desc>
                 </Team.TexBox>
                 <Team.ImageBox>
-                    <Team.Img src={teamImg}/>
+                    <Team.Img src={teamImg} alt='image heroes game'/>
                 </Team.ImageBox>
             </Team.Wrapper>
         </Team.Container>

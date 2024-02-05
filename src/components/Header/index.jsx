@@ -10,7 +10,7 @@ const Header = () => {
         <HeaderStyle.Wrapper>
           <Link to="/">
             {" "}
-            <HeaderStyle.Logo src={logo} />
+            <HeaderStyle.Logo src={logo} alt='logo site'/>
           </Link>
           <HeaderStyle.NavLangBox>
             <HeaderStyle.Nav>
