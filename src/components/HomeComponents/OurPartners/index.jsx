@@ -75,14 +75,6 @@ const OurPartner = () => {
                 <OurStyle.Img src={partners1} />
               </SwiperSlide>
             </Swiper>
-            <div className="slider-controler">
-              <div className="swiper-button-prev slide-arrow">
-                
-              </div>
-              <div className="swiper-button-next slide-arrow">
-                
-              </div>
-            </div>
           </OurStyle.CarouselBox>
         </OurStyle.Wrapper>
       </OurStyle.Container>

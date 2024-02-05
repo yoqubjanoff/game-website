@@ -1,10 +1,34 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import {MakeStyle} from './style'
 import makeImg from '../../../assets/images/makeImg.png'
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const MakesSec = () => {
+     
+  const sectionRef = useRef(null);
+
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const el = sectionRef.current;
+    gsap.set(el, { scale: 1, transformOrigin: "center center", });
+    gsap.to(el, {
+      scale: 0,
+      borderRadius: 150,
+      duration: 3,
+      ease: "power2.out", 
+      delay: 10, 
+      scrollTrigger: {
+        trigger: el,
+        start: "center center",
+        end: "bottom center",
+        scrub: 1,
+      },
+    },);
+  }, []);
   return (
-    <MakeStyle>
+    <MakeStyle ref={sectionRef}>
       <MakeStyle.Container>
         <MakeStyle.Wrapper>
           <MakeStyle.TextBox>

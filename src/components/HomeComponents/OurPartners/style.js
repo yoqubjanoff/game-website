@@ -43,14 +43,6 @@ export const OurStyle = styled.section`
   .swiper-pagination {
     top: 232px;
   }
-  .swiper-button-next {
-    top: 402px;
-    right: 703px;
-  }
-  .swiper-button-prev {
-    top: 402px;
-    left: 693px;
-  }
   .swiper-pagination-bullet {
     width: 20px;
     height: 20px;

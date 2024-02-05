@@ -22,14 +22,20 @@ HeroStyle.Textbox = styled.div`
   position: relative;
   padding-top: 170px;
   .first-img {
-    cursor: pointer;
-  }
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.first-img:hover {
+  transform: scale(1.17);
+}
+
+
   .second-img {
     position: absolute;
     top: 545px;
     left: -6px;
     z-index: -1;
-    
   }
 `;
 
@@ -71,6 +77,11 @@ HeroStyle.BtnTitle = styled.span`
   font-weight: 700;
   line-height: normal;
   cursor: pointer;
+  z-index: 1;
+  transition: 0.3s ease-in-out;
+  &:hover .first-img{
+    transform: scale(1.1);
+  }
 `;
 
 export const HeroVideo = styled.video`
@@ -83,3 +94,4 @@ export const HeroVideo = styled.video`
   object-fit: fill;
   z-index: -1;
 `;
+

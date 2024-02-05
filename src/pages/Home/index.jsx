@@ -8,8 +8,10 @@ import MakesSec from "../../components/HomeComponents/MakesSection";
 import OurPartner from "../../components/HomeComponents/OurPartners";
 
 const Home = () => {
+
+  
   return (
-    <>
+    <div>
       <Hero />
       <Target />
       <NumberSec/>
@@ -17,7 +19,7 @@ const Home = () => {
       <Programs/>
       <MakesSec/>
       <OurPartner/>
-    </>
+    </div>
   );
 };
 

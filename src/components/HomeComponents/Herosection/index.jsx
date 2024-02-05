@@ -4,43 +4,50 @@ import videoSource from "../../../assets/images/bgvideo.mp4";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-
 const Hero = () => {
   const imgRef = useRef(null);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-  
     const el = imgRef.current;
-  
-    // Boshlang'ich qiymatlarni sozlaymiz
+    const elVideo = videoRef.current;
+
     gsap.set(el, { scale: 1, transformOrigin: "center center" });
-  
-    // Animatsiyani boshlash
     gsap.to(el, {
       scale: 0,
-      duration: 3,
-      ease: "power2.out", // animatsiya usuli
-      delay: 3, // Animatsiya boshlanishi uchun gecikma (0.5 sekund)
+      duration: 10,
+      ease: "power2.out",
+      delay: 10,
       scrollTrigger: {
         trigger: el,
         start: "center center",
         end: "bottom center",
-        scrub: true,
+        scrub: 1,
+      },
+    });
+
+    gsap.to(elVideo, {
+      borderRadius: "100px",
+      duration: 10,
+      ease: "power2.out",
+      delay: 10,
+      scrollTrigger: {
+        trigger: el,
+        start: "center center",
+        end: "bottom center",
+        scrub: 1,
       },
     });
   }, []);
-  
-  
-
 
   return (
-    <HeroStyle ref={imgRef} >
-      <HeroVideo autoPlay loop muted>
+    <HeroStyle ref={imgRef} id="herosection">
+      <HeroVideo autoPlay loop muted ref={videoRef}>
         <source src={videoSource} type="video/mp4" />
       </HeroVideo>
       <HeroStyle.Container>
-        <HeroStyle.Textbox >
+        <HeroStyle.Textbox>
           <HeroStyle.Title>
             Covering every aspect of{" "}
             <HeroStyle.ColorTitle>Game Development</HeroStyle.ColorTitle>

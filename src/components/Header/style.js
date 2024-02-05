@@ -22,7 +22,10 @@ HeaderStyle.Wrapper = styled.div`
   width: 100%;
 `;
 
-HeaderStyle.Logo = styled.img``;
+HeaderStyle.Logo = styled.img`
+  width: 231px;
+  height: 88px;
+`;
 
 HeaderStyle.NavLangBox = styled.div`
   display: flex;
@@ -41,20 +44,41 @@ HeaderStyle.Nav = styled.nav`
     font-weight: 500;
     line-height: normal;
     opacity: 0.7;
+  }
+  .link::after,
+  .link::before {
+    content: "";
+    position: absolute;
+    display: block;
+    border: 0px solid transparent;
+    width: 0%;
+    height: 0%;
+    transition: all 0.3s ease;
+  }
+  .link::after {
+    width: 0%;
+    height: 0%;
+    top: 0;
+    left: 0;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+  }
 
-    &:focus-within::before {
-      content: "";
-      position: absolute;
-      top: 22px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: #00f6ff;
-      opacity: 1;
-    }
-    &:focus-within {
-      opacity: 1;
-    }
+  .link::before {
+    width: 0%;
+    height: 0%;
+    right: 0;
+    bottom: 68px;
+    padding: 3px;
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid transparent;
+  }
+  .link:hover::before,
+  .link:hover::after {
+    width: 100%;
+    height: 27%;
+    border-color: #fff;
+    opacity: 1;
   }
 `;
 
