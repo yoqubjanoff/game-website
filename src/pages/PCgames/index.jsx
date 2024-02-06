@@ -11,13 +11,13 @@ import './index.css'
 
 const Pcgame = () => {
   return (
-    <div className='pswrapper'>
+    <main className='pswrapper'>
       <PcGame/>
       <Box imageSrc={box1} title={'Billy'} desc={'Mine crystals and destroy enemies with Billy using the built-in Scratch programming window '} backgroundImage={box1}/>
       <Box imageSrc={boxImg2} title={'The Denominator'} desc={'Mine crystals and destroy enemies with Billy using the built-in Scratch programming window'} backgroundImage={box2}/>
       <Box imageSrc={boxImg3} title={'AO Oni'} desc={'Mine crystals and destroy enemies with Billy using the built-in Scratch programming window'} backgroundImage={box3}/>
       <Box imageSrc={boxImg4} title={'Shoot Strike'} desc={'Mine crystals and destroy enemies with Billy using the built-in Scratch programming window'} backgroundImage={boxImg4}/>
-    </div>
+    </main>
   )
 }
 

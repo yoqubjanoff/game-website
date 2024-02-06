@@ -11,13 +11,13 @@ import BlogComponent from '../../components/Blog';
 
 const Blog = () => {
   return (
-    <div className='pswrapper'>
+    <main className='pswrapper'>
       <BlogComponent/>
       <Box imageSrc={box1} title={'Interview'} desc={'On 24.09.2023, the largest games exhibition in Uzbekistan was held, in which the best game developers from all over Uzbekistan took part. Most of the developers are young guys with great motivation and desire to develop the gaming industry of Uzbekistan. The exhibition featured both mobile and computer games created using Unity and Unreal engine programs.​FacebookLinkedInInstagram'} backgroundImage={box1}/>
       <Box imageSrc={boxImg2} title={'Interview'} desc={'On 24.09.2023, the largest games exhibition in Uzbekistan was held, in which the best game developers from all over Uzbekistan took part. Most of the developers are young guys with great motivation and desire to develop the gaming industry of Uzbekistan. The exhibition featured both mobile and computer games created using Unity and Unreal engine programs.​FacebookLinkedInInstagram'} backgroundImage={box2}/>
       <Box imageSrc={boxImg3} title={'Interview'} desc={'On 24.09.2023, the largest games exhibition in Uzbekistan was held, in which the best game developers from all over Uzbekistan took part. Most of the developers are young guys with great motivation and desire to develop the gaming industry of Uzbekistan. The exhibition featured both mobile and computer games created using Unity and Unreal engine programs.​FacebookLinkedInInstagram'} backgroundImage={box3}/>
       <Box imageSrc={boxImg4} title={'Interview'} desc={'On 24.09.2023, the largest games exhibition in Uzbekistan was held, in which the best game developers from all over Uzbekistan took part. Most of the developers are young guys with great motivation and desire to develop the gaming industry of Uzbekistan. The exhibition featured both mobile and computer games created using Unity and Unreal engine programs.​FacebookLinkedInInstagram'} backgroundImage={boxImg4}/>
-    </div>
+    </main>
   )
 }
 
