@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Pcgame from "./pages/PCgames";
 import Footer from "./components/Footer";
 import { gsap, Power3} from "gsap/gsap-core";
+import MobileGames from "./pages/MobileGame";
+import Blog from "./pages/BlogPage";
 
 function App() {
   let tl = new gsap.timeline();
@@ -15,6 +17,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pcgame" element={<Pcgame />} />
+        <Route path="/mobilegame" element={<MobileGames />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
       <Footer/>
     </>

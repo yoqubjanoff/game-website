@@ -6,12 +6,14 @@ import TeamSection from "../../components/HomeComponents/TeamSection";
 import Programs from "../../components/HomeComponents/Programs";
 import MakesSec from "../../components/HomeComponents/MakesSection";
 import OurPartner from "../../components/HomeComponents/OurPartners";
+import './style.js'
+import { Main } from "./style.js";
 
 const Home = () => {
 
   
   return (
-    <div>
+    <Main>
       <Hero />
       <Target />
       <NumberSec/>
@@ -19,7 +21,7 @@ const Home = () => {
       <Programs/>
       <MakesSec/>
       <OurPartner/>
-    </div>
+    </Main>
   );
 };
 

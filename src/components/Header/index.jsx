@@ -79,7 +79,7 @@ const Header = ({ timeline, ease }) => {
               </Link>
               <Link
                 className="link"
-                to={"/mobile-game"}
+                to={"/mobilegame"}
                 ref={(el) => (nav__text3 = el)}
               >
                 Mobile Games

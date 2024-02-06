@@ -3,25 +3,59 @@ import bgimage from "../../../assets/images/box1.jpg";
 
 export const BoxStyle = styled.section`
   width: 100%;
+  max-width: 1930px;
+  height: 610px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    background-image: conic-gradient(
+      #00f6ff 0deg,
+      #00f6ff 90deg,
+      transparent 130deg,
+      transparent 180deg,
+      #00f6ff 180deg,
+      #00f6ff 270deg,
+      transparent 310deg,
+      transparent 360deg
+    );
+    width: 160%;
+    height: 380%;
+    animation: animate 12s linear infinite;
+    border-radius: 60px;
+  }
+  @keyframes animate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 `;
 
 BoxStyle.Container = styled.div`
   width: 100%;
   max-width: 1930px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 5px;
 `;
 
 BoxStyle.Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  height: 600px;
   background-image: url(${bgimage});
   background-repeat: no-repeat;
-  background-size: calc(50% - -934px) calc(50% - -307px);
+  background-size: calc(50% - -962px) calc(50% - -310px);;
   background-color: rgba(4, 17, 34, 0.5);
   backdrop-filter: blur(15px);
-  padding: 80px 202px 80px 190px;
+  padding: 80px 152px 80px 150px;
   &:before {
     content: "";
     position: absolute;

@@ -36,91 +36,91 @@ ProgStyle.Wrapper = styled.div`
   width: 100%;
 
   .main-items {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.items {
-  width: 283px;
-  height: 215px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.items::after,
-.items::before {
-  content: "";
-  position: absolute;
-  background-image: conic-gradient(
-    transparent,
-    #00f6ff,
-    transparent,
-    #00f6ff
-  );
-  width: 353px;
-  height: 355px;
-  animation: animate 6s linear infinite;
-  box-shadow: 0 0 20px rgba(0, 246, 255, 0.5); /* Shadov qo'shish */
-}
-
-.items::before {
-  animation-delay: -3s;
-}
-
-.items-img {
-  position: absolute;
-  width: 278px;
-  height: 210px;
-  top: 3px;
-  bottom: 0;
-  left: 2px;
-  right: 0;
-  z-index: 1;
-}
-
-@keyframes animate {
-  0% {
-    transform: rotate(0deg);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
-  100% {
-    transform: rotate(360deg);
+
+  .items {
+    width: 283px;
+    height: 215px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
-}
 
-.items:nth-child(1)::after,
-.items:nth-child(1)::before {
-  animation-delay: -3s;
-}
+  .items::after,
+  .items::before {
+    content: "";
+    position: absolute;
+    background-image: conic-gradient(
+      transparent,
+      #00f6ff,
+      transparent,
+      #00f6ff
+    );
+    width: 353px;
+    height: 355px;
+    animation: animate 6s linear infinite;
+    box-shadow: 0 0 20px rgba(0, 246, 255, 0.5); 
+    z-index: -1;
+  }
 
-.items:nth-child(2)::after,
-.items:nth-child(2)::before {
-  animation-delay: -2s;
-}
+  .items::before {
+    animation-delay: -3s;
+  }
 
-.items:nth-child(3)::after,
-.items:nth-child(3)::before {
-  animation-delay: -1s;
-}
+  .items-img {
+    position: absolute;
+    width: 278px;
+    height: 210px;
+    top: 3px;
+    bottom: 0;
+    left: 2px;
+    right: 0;
+    z-index: 1;
+  }
 
-.items:nth-child(4)::after,
-.items:nth-child(4)::before {
-  animation-delay: 0s;
-}
+  @keyframes animate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
-.items:nth-child(5)::after,
-.items:nth-child(5)::before {
-  animation-delay: 1s;
-}
+  .items:nth-child(1)::after,
+  .items:nth-child(1)::before {
+    animation-delay: -3s;
+  }
 
-.items:nth-child(6)::after,
-.items:nth-child(6)::before {
-  animation-delay: 2s;
-}
+  .items:nth-child(2)::after,
+  .items:nth-child(2)::before {
+    animation-delay: -2s;
+  }
 
+  .items:nth-child(3)::after,
+  .items:nth-child(3)::before {
+    animation-delay: -1s;
+  }
+
+  .items:nth-child(4)::after,
+  .items:nth-child(4)::before {
+    animation-delay: 0s;
+  }
+
+  .items:nth-child(5)::after,
+  .items:nth-child(5)::before {
+    animation-delay: 1s;
+  }
+
+  .items:nth-child(6)::after,
+  .items:nth-child(6)::before {
+    animation-delay: 2s;
+  }
 `;
 ProgStyle.Title = styled.h3`
   width: 100%;
