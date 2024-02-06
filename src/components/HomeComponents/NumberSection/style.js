@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import bgImg from "../../../assets/images/numberBg.jpg";
+import bgImg from "../../../assets/images/numSecBgImg.jpg";
 
 export const NumStyle = styled.section`
   width: 100%;
