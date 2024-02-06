@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BoxStyle } from "./style";
 
-const Box = ({ title, desc, imageSrc,backgroundImage }) => {
-
+const BoxBlog = ({ title, desc, imageSrc, backgroundImage }) => {
   return (
     <BoxStyle>
       <BoxStyle.Container>
@@ -12,7 +11,7 @@ const Box = ({ title, desc, imageSrc,backgroundImage }) => {
             <BoxStyle.Desc>{desc}</BoxStyle.Desc>
           </BoxStyle.TextBox>
           <BoxStyle.ImgBox>
-            <BoxStyle.Img src={imageSrc} alt={title} />
+            <BoxStyle.Img src={imageSrc} />
           </BoxStyle.ImgBox>
         </BoxStyle.Wrapper>
       </BoxStyle.Container>
@@ -20,6 +19,4 @@ const Box = ({ title, desc, imageSrc,backgroundImage }) => {
   );
 };
 
-export default Box;
-
-
+export default BoxBlog;

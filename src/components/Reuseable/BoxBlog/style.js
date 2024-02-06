@@ -38,6 +38,7 @@ export const BoxStyle = styled.section`
 `;
 
 BoxStyle.Container = styled.div`
+position: absolute;
   width: 100%;
   max-width: 1930px;
   margin: 0 auto;
@@ -52,8 +53,7 @@ BoxStyle.Wrapper = styled.div`
   background-image: url(${props => props.bgimage});
   background-repeat: no-repeat;
   background-size: calc(50% - -962px) calc(50% - -310px);;
-  background-color: rgba(4, 17, 34, 0.5);
-  backdrop-filter: blur(15px);
+  background-color: rgba(4, 17, 34, 1);
   padding: 80px 152px 80px 150px;
   &:before {
     content: "";

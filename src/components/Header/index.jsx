@@ -93,7 +93,7 @@ const Header = ({ timeline, ease }) => {
               </Link>
               <Link
                 className="link"
-                to={"/contact-us"}
+                to={"/contact"}
                 ref={(el) => (nav__text5 = el)}
               >
                 Contact us
