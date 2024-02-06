@@ -1,8 +1,10 @@
 import styled from "styled-components";
+import bgImg from "../../../assets/images/numberBg.jpg";
 
 export const NumStyle = styled.section`
   width: 100%;
   padding: 100px 0;
+  background-image: url(${bgImg});
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: 10px;

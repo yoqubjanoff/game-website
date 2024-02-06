@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import { NumStyle } from './style';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import bgImg from "../../../assets/images/numberBg.jpg";
 
 
 const NumberSec = () => {
@@ -48,7 +47,7 @@ const NumberSec = () => {
     }, []);
    
   return (
-    <NumStyle ref={sectionRef} style={{backgroundImage: `url(${bgImg})`}}>
+    <NumStyle ref={sectionRef}>
         <NumStyle.Container>
             <NumStyle.Wrapper>
                 <NumStyle.NumBox>
