@@ -28,7 +28,7 @@ const MakesSec = () => {
     },);
   }, []);
   return (
-    <MakeStyle ref={sectionRef}>
+    <MakeStyle>
       <MakeStyle.Container>
         <MakeStyle.Wrapper>
           <MakeStyle.TextBox>

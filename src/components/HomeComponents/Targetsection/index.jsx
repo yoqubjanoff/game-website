@@ -5,29 +5,29 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Target = () => {
-  const sectionRef = useRef(null);
-
+  const imgRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const el = sectionRef.current;
-    gsap.set(el, { scale: 1, transformOrigin: "center center", });
+    const el = imgRef.current;
+    gsap.set(el, { opacity: 0, transformOrigin: "center center", y:250});
     gsap.to(el, {
-      scale: 0,
-      borderRadius: 150,
+      opacity: 1,
+      y: 0, 
       duration: 3,
-      ease: "power2.out", 
-      delay: 10, 
+      ease: "power2.out",
+      delay: 10,
       scrollTrigger: {
         trigger: el,
-        start: "center center",
+        start: "center bottom",
         end: "bottom center",
-        scrub: 1,
+        scrub: true, 
       },
-    },);
+    });
   }, []);
+  
   return (
-    <TargetStyle ref={sectionRef}>
+    <TargetStyle>
       <TargetStyle.Container>
         <TargetStyle.Wrapper>
           <TargetStyle.TextBox>
@@ -39,7 +39,7 @@ const Target = () => {
               curve.
             </TargetStyle.Desc>
           </TargetStyle.TextBox>
-          <TargetStyle.ImgBox>
+          <TargetStyle.ImgBox ref={imgRef}>
             <TargetStyle.Img src={targetImg} alt='image heroe game'/>
           </TargetStyle.ImgBox>
         </TargetStyle.Wrapper>
@@ -49,4 +49,3 @@ const Target = () => {
 };
 
 export default Target;
-

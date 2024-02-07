@@ -1,5 +1,11 @@
 import React from "react";
 import { ContactStyle } from "./style";
+import phone from "../../assets/icons/phone.svg";
+import email from "../../assets/icons/email.svg";
+import linkedin from "../../assets/icons/linkedin.svg";
+import telegram from "../../assets/icons/telegram.svg";
+import instagram from "../../assets/icons/instagram.svg";
+import facebook from "../../assets/icons/facebook.svg";
 
 const Contact = () => {
   return (
@@ -9,7 +15,24 @@ const Contact = () => {
           <ContactStyle.InfoBox>
             <ContactStyle.MainItems>
               <ContactStyle.Items>
-                <ContactStyle.Bottom>
+                <ContactStyle.Title>Contact us</ContactStyle.Title>
+              </ContactStyle.Items>
+              <ContactStyle.Items>
+                <ContactStyle.Iput1 type="text" placeholder="Full name" />
+              </ContactStyle.Items>
+              <ContactStyle.Items>
+                <ContactStyle.Iput1 type="number" placeholder="Phone number" />
+                <ContactStyle.Iput1 type="email" placeholder="E-mail" />
+              </ContactStyle.Items>
+              <ContactStyle.Items>
+                <ContactStyle.Iput4 type="text" placeholder="Message" />
+              </ContactStyle.Items>
+              <ContactStyle.Items>
+                <ContactStyle.Btn>Send</ContactStyle.Btn>
+              </ContactStyle.Items>
+              <ContactStyle.Items>
+                <div className="socbox">
+                  <img src={phone} alt="" width={"24px"} />
                   <a
                     className="soc-link"
                     href="https://telegram.org"
@@ -17,6 +40,9 @@ const Contact = () => {
                   >
                     +998(94) 123-45-67
                   </a>
+                </div>
+                <div className="socbox">
+                  <img src={email} alt="" width={"24px"} />
                   <a
                     className="soc-link"
                     href="https://telegram.org"
@@ -24,6 +50,9 @@ const Contact = () => {
                   >
                     itic@info.uz
                   </a>
+                </div>
+                <div className="socbox">
+                  <img src={telegram} alt="" width={"24px"} />
                   <a
                     className="soc-link"
                     href="https://telegram.org"
@@ -31,6 +60,9 @@ const Contact = () => {
                   >
                     Telegram
                   </a>
+                </div>
+                <div className="socbox">
+                  <img src={instagram} alt="" width={"24px"} />
                   <a
                     className="soc-link"
                     href="https://telegram.org"
@@ -38,6 +70,9 @@ const Contact = () => {
                   >
                     Instagram
                   </a>
+                </div>
+                <div className="socbox">
+                  <img src={facebook} alt="" width={"24px"} />
                   <a
                     className="soc-link"
                     href="https://telegram.org"
@@ -45,6 +80,9 @@ const Contact = () => {
                   >
                     Facebook
                   </a>
+                </div>
+                <div className="socbox">
+                  <img src={linkedin} alt="" width={"24px"} />
                   <a
                     className="soc-link"
                     href="https://telegram.org"
@@ -52,7 +90,7 @@ const Contact = () => {
                   >
                     Linkedin
                   </a>
-                </ContactStyle.Bottom>
+                </div>
               </ContactStyle.Items>
             </ContactStyle.MainItems>
           </ContactStyle.InfoBox>
@@ -71,3 +109,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
+

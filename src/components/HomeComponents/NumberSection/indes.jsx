@@ -1,76 +1,53 @@
-import React, { useEffect, useRef } from 'react'
-import { NumStyle } from './style';
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import React, { useEffect, useRef, useState } from "react";
+import { NumStyle } from "./style";
+import ScrollTrigger from "react-scroll-trigger";
+import CountUp from "react-countup";
 
 const NumberSec = () => {
-   const sectionRef = useRef(null);
+  const [counterOn, setCounterOn] = useState(false);
 
-
-   useEffect(() => {
-     gsap.registerPlugin(ScrollTrigger);
-     const el = sectionRef.current;
-     gsap.set(el, { scale: 1, transformOrigin: "center center", });
-     gsap.to(el, {
-       scale: 0,
-       borderRadius: 150,
-       duration: 3,
-       ease: "power2.out", 
-       delay: 10, 
-       scrollTrigger: {
-         trigger: el,
-         start: "center center",
-         end: "bottom center",
-         scrub: 1,
-       },
-     },);
-   }, []);
-   
-   useEffect(() => {
-      gsap.registerPlugin(ScrollTrigger);
-      const el = sectionRef.current;
-      gsap.set(el, { scale: 1, transformOrigin: "center center", });
-      gsap.to(el, {
-        scale: 0,
-        borderRadius: 150,
-        duration: 3,
-        ease: "power2.out", 
-        delay: 10, 
-        scrollTrigger: {
-          trigger: el,
-          start: "center center",
-          end: "bottom center",
-          scrub: true,
-        },
-      },);
-    }, []);
-   
   return (
-    <NumStyle ref={sectionRef}>
+    <ScrollTrigger onEnter={() =>setCounterOn(true)} onExit={() =>setCounterOn(false)}>
+      <NumStyle>
         <NumStyle.Container>
-            <NumStyle.Wrapper>
-                <NumStyle.NumBox>
-                   <NumStyle.Num>150</NumStyle.Num> 
-                   <NumStyle.Title>Exmployees</NumStyle.Title>
-                </NumStyle.NumBox>
-                <NumStyle.NumBox>
-                   <NumStyle.Num>20</NumStyle.Num> 
-                   <NumStyle.Title>Projects</NumStyle.Title>
-                </NumStyle.NumBox>
-                <NumStyle.NumBox>
-                   <NumStyle.Num>230</NumStyle.Num> 
-                   <NumStyle.Title>Customers</NumStyle.Title>
-                </NumStyle.NumBox>
-                <NumStyle.NumBox>
-                   <NumStyle.Num>3</NumStyle.Num> 
-                   <NumStyle.Title>Offices</NumStyle.Title>
-                </NumStyle.NumBox>
-            </NumStyle.Wrapper>
+          <NumStyle.Wrapper>
+            <NumStyle.NumBox>
+              <ScrollTrigger>
+                <NumStyle.Num className="number">
+                  {counterOn && <CountUp start={0} end={150} duration={2} delay={0} />}
+                </NumStyle.Num>
+              </ScrollTrigger>
+              <NumStyle.Title>Employees</NumStyle.Title>
+            </NumStyle.NumBox>
+            <NumStyle.NumBox>
+              <ScrollTrigger>
+                <NumStyle.Num className="number">
+                 {counterOn &&  <CountUp start={0} end={20} duration={2} delay={0} />}
+                </NumStyle.Num>
+              </ScrollTrigger>
+              <NumStyle.Title>Projects</NumStyle.Title>
+            </NumStyle.NumBox>
+            <NumStyle.NumBox>
+              <ScrollTrigger>
+                <NumStyle.Num className="number">
+                  {counterOn && <CountUp start={0} end={230} duration={2} delay={0} />}
+                </NumStyle.Num>
+              </ScrollTrigger>
+              <NumStyle.Title>Customers</NumStyle.Title>
+            </NumStyle.NumBox>
+            <NumStyle.NumBox>
+              <ScrollTrigger>
+                <NumStyle.Num className="number">
+                 {counterOn &&  <CountUp start={0} end={23} duration={2} delay={0} />}
+                </NumStyle.Num>
+              </ScrollTrigger>
+              <NumStyle.Title>Offices</NumStyle.Title>
+            </NumStyle.NumBox>
+          </NumStyle.Wrapper>
         </NumStyle.Container>
-    </NumStyle>
-  )
-}
+      </NumStyle>
+    </ScrollTrigger>
+  );
+};
 
 export default NumberSec;
-

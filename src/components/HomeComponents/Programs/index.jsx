@@ -31,8 +31,9 @@ const Programs = () => {
       },
     },);
   }, []);
+  
   return (
-    <ProgStyle ref={sectionRef}>
+    <ProgStyle>
       <ProgStyle.Container>
         <ProgStyle.Wrapper>
           <ProgStyle.Title>Programs we use to create games</ProgStyle.Title>
