@@ -6,27 +6,27 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const MakesSec = () => {
      
-  const sectionRef = useRef(null);
-
+  const imgRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const el = sectionRef.current;
-    gsap.set(el, { scale: 1, transformOrigin: "center center", });
+    const el = imgRef.current;
+    gsap.set(el, { opacity: 0, transformOrigin: "center center", y:250});
     gsap.to(el, {
-      scale: 0,
-      borderRadius: 150,
+      opacity: 1,
+      y: 0, 
       duration: 3,
-      ease: "power2.out", 
-      delay: 10, 
+      ease: "power2.out",
+      delay: 10,
       scrollTrigger: {
         trigger: el,
-        start: "center center",
-        end: "bottom center",
-        scrub: 1,
+        start: "center bottom",
+        end: "center center",
+        scrub: true, 
       },
-    },);
+    });
   }, []);
+
   return (
     <MakeStyle>
       <MakeStyle.Container>
@@ -39,7 +39,7 @@ const MakesSec = () => {
             Explore a world of possibilities with our forward-thinking IT strategies. Our team of experts harnesses the latest technologies to ensure your business not only keeps pace but stays ahead of the curve.
             </MakeStyle.Desc>
           </MakeStyle.TextBox>
-          <MakeStyle.ImgBox>
+          <MakeStyle.ImgBox ref={imgRef}>
             <MakeStyle.Img src={makeImg} alt='image heros'/>
           </MakeStyle.ImgBox>
         </MakeStyle.Wrapper>

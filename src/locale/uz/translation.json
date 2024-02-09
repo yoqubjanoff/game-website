@@ -1,13 +1,18 @@
-
 {
-    "header": {
-      "nav": {
-        "home": "Bosh sahifa",
-        "pcGames": "PC o'yinlari",
-        "mobileGames": "Mobil o’yinlar",
-        "blog": "Bloglar",
-        "contactUs": "Biz bilan bog’lang"
-      }
+  "header": {
+    "nav": {
+      "home": "Bosh sahifa",
+      "pcGames": "PC o'yinlari",
+      "mobileGames": "Mobil o’yinlar",
+      "blog": "Bloglar",
+      "contactUs": "Biz bilan bog’lan"
     }
+  },
+  "contactPage": {
+    "fullName": "Ism Sharifiz",
+    "phoneNumber": "Telefon raqam",
+    "email": "Eletron pochta",
+    "message": "Xabar",
+    "send": "Yuborish"
+  }
 }
-  

@@ -6,8 +6,12 @@ import linkedin from "../../assets/icons/linkedin.svg";
 import telegram from "../../assets/icons/telegram.svg";
 import instagram from "../../assets/icons/instagram.svg";
 import facebook from "../../assets/icons/facebook.svg";
+import { useTranslation } from "react-i18next";
+
 
 const Contact = () => {
+  const { t } = useTranslation();
+
   return (
     <ContactStyle>
       <ContactStyle.Container>
@@ -15,7 +19,7 @@ const Contact = () => {
           <ContactStyle.InfoBox>
             <ContactStyle.MainItems>
               <ContactStyle.Items>
-                <ContactStyle.Title>Contact us</ContactStyle.Title>
+                <ContactStyle.Title>{t("header.nav.contactUs")}</ContactStyle.Title>
               </ContactStyle.Items>
               <ContactStyle.Items>
                 <ContactStyle.Iput1 type="text" placeholder="Full name" />
