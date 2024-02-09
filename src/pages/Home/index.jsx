@@ -9,6 +9,7 @@ import OurPartner from "../../components/HomeComponents/OurPartners";
 import './style.js'
 import { Main } from "./style.js";
 
+
 const Home = () => {
 
   

@@ -1,13 +1,24 @@
-
 {
-    "header": {
-      "nav": {
-        "home": "Home",
-        "pcGames": "PC Games",
-        "mobileGames": "Mobile Games",
-        "blog": "Blog",
-        "contactUs": "Contact Us"
-      }
+  "header": {
+    "nav": {
+      "home": "Home",
+      "pcGames": "PC Games",
+      "mobileGames": "Mobile Games",
+      "blog": "Blog",
+      "contactUs": "Contact Us"
     }
+  },
+  "hero": {
+    "title": " Covering every aspect of",
+    "titlePie": "Game Development",
+    "desc": "Explore a world of possibilities with our forward-thinking IT strategies. Our team of experts harnesses the latest technologies to ensure your business not only keeps pace but stays ahead of the curve",
+    "btn": "Contact Us"
+  },
+  "contactPage": {
+    "fullName": "Full Name",
+    "phoneNumber": "Phone number",
+    "email": "E-mail",
+    "message": "Message",
+    "send": "Send "
+  }
 }
-  

@@ -8,8 +8,14 @@
       "contactUs": "Biz bilan bog’lan"
     }
   },
+  "hero": {
+    "title": "O'yinning barcha",
+    "titlePie":"jihatlari rivojlantiriladi",
+    "desc": "Bizning IT strategiyalarimiz bilan imkoniyatlar dunyosini o'rganing. Mutaxassislarimiz sizning biznesingiz nafaqat tez sur'atda bo'lishini, balki oldinda bo'lishingizni ta'minlash uchun eng yangi texnologiyalardan foydalanadi.",
+    "btn": "Biz bilan bog’lan"
+  },
   "contactPage": {
-    "fullName": "Ism Sharifiz",
+    "fullName": "Ism Sharifingiz",
     "phoneNumber": "Telefon raqam",
     "email": "Eletron pochta",
     "message": "Xabar",

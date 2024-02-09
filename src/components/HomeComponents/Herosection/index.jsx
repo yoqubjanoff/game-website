@@ -3,8 +3,12 @@ import { HeroStyle, HeroVideo } from "./style";
 import videoSource from "../../../assets/images/bgvideo.mp4";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslation } from "react-i18next";
+
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   const imgRef = useRef(null);
   const videoRef = useRef(null);
 
@@ -50,16 +54,13 @@ const Hero = () => {
       <HeroStyle.Container>
         <HeroStyle.Textbox>
           <HeroStyle.Title>
-            Covering every aspect of{" "}
-            <HeroStyle.ColorTitle>Game Development</HeroStyle.ColorTitle>
+          {t("hero.title")}{" "}
+            <HeroStyle.ColorTitle>{t("hero.titlePie")}</HeroStyle.ColorTitle>
           </HeroStyle.Title>
           <HeroStyle.Desc>
-            Explore a world of possibilities with our forward-thinking IT
-            strategies. Our team of experts harnesses the latest technologies to
-            ensure your business not only keeps pace but stays ahead of the
-            curve.
+          {t("hero.desc")}
           </HeroStyle.Desc>
-          <HeroStyle.BtnTitle>Contact us</HeroStyle.BtnTitle>
+          <HeroStyle.BtnTitle>{t("hero.btn")}</HeroStyle.BtnTitle>
           <svg
             className="first-img"
             xmlns="http://www.w3.org/2000/svg"

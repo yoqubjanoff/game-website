@@ -22,17 +22,17 @@ const Contact = () => {
                 <ContactStyle.Title>{t("header.nav.contactUs")}</ContactStyle.Title>
               </ContactStyle.Items>
               <ContactStyle.Items>
-                <ContactStyle.Iput1 type="text" placeholder="Full name" />
+                <ContactStyle.Iput1 type="text" placeholder={t("contactPage.fullName")} />
               </ContactStyle.Items>
               <ContactStyle.Items>
-                <ContactStyle.Iput1 type="number" placeholder="Phone number" />
-                <ContactStyle.Iput1 type="email" placeholder="E-mail" />
+                <ContactStyle.Iput1 type="number" placeholder={t("contactPage.phoneNumber")} />
+                <ContactStyle.Iput1 type="email" placeholder={t("contactPage.email")} />
               </ContactStyle.Items>
               <ContactStyle.Items>
-                <ContactStyle.Iput4 type="text" placeholder="Message" />
+                <ContactStyle.Iput4 type="text" placeholder={t("contactPage.message")} />
               </ContactStyle.Items>
               <ContactStyle.Items>
-                <ContactStyle.Btn>Send</ContactStyle.Btn>
+                <ContactStyle.Btn>{t("contactPage.send")}</ContactStyle.Btn>
               </ContactStyle.Items>
               <ContactStyle.Items>
                 <div className="socbox">
