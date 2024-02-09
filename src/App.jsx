@@ -9,6 +9,7 @@ import MobileGames from "./pages/MobileGame";
 import Blog from "./pages/BlogPage";
 import Contact from "./pages/ContactUs";
 
+
 function App() {
   let tl = new gsap.timeline();
   let ease = Power3.easeOut();

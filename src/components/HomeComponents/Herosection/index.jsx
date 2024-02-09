@@ -13,9 +13,10 @@ const Hero = () => {
     const el = imgRef.current;
     const elVideo = videoRef.current;
 
-    gsap.set(el, { scale: 1, transformOrigin: "center center" });
+    gsap.set(el, { scale: 1, transformOrigin: "center center",borderRadius: '100px',});
     gsap.to(el, {
       scale: 0,
+      borderRadius: '100px',
       duration: 10,
       ease: "power2.out",
       delay: 10,

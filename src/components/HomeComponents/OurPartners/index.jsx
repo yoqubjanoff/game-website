@@ -41,8 +41,6 @@ const OurPartner = () => {
               }}
               pagination={{ clickable: true }}
               scrollbar={{ draggable: false }}
-              onSwiper={(swiper) => console.log(swiper)}
-              onSlideChange={() => console.log("slide change")}
             >
               <SwiperSlide>
                 <OurStyle.Img src={partners1} />

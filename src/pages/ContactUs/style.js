@@ -53,7 +53,7 @@ ContactStyle.Wrapper = styled.div`
   z-index: 10;
   display: flex;
   width: 99.5%;
-  height: 99.5%;
+  height: 99.2%;
   background-image: url(${boxImg3});
   background-repeat: no-repeat;
   background-size: cover;

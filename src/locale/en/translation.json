@@ -1,0 +1,13 @@
+
+{
+    "header": {
+      "nav": {
+        "home": "Home",
+        "pcGames": "PC Games",
+        "mobileGames": "Mobile Games",
+        "blog": "Blog",
+        "contactUs": "Contact Us"
+      }
+    }
+}
+  
