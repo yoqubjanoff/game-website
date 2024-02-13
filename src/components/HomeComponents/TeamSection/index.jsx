@@ -3,9 +3,12 @@ import { Team } from './style';
 import teamImg from '../../../assets/images/teamImg.png'
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslation } from "react-i18next";
+
 
 const TeamSection = () => {
-    
+  const { t } = useTranslation();
+
   const imgRef = useRef(null);
 
   useEffect(() => {
@@ -32,9 +35,9 @@ const TeamSection = () => {
         <Team.Container>
             <Team.Wrapper>
                 <Team.TexBox>
-                    <Team.Title>Best Team</Team.Title>
+                    <Team.Title>{t("home.team.title")}</Team.Title>
                     <Team.Desc>
-                    Explore a world of possibilities with our forward-thinking IT strategies. Our team of experts harnesses the latest technologies to ensure your business not only keeps pace but stays ahead of the curve.
+                    {t("home.team.desc")}
                     </Team.Desc>
                 </Team.TexBox>
                 <Team.ImageBox ref={imgRef}>

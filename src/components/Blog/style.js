@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import pcBg from '../../assets/icons/BLOGS.png'
+import pcBg from '../../assets/icons/BLOGS_En.png'
 
 export const PcStyle = styled.section`
 width: 100%;

@@ -6,6 +6,7 @@ import MobileGames from "./pages/MobileGame";
 import Blog from "./pages/BlogPage";
 import Contact from "./pages/ContactUs";
 import MainLayout from "./layout/MainLayout";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
         </Route>
+        <Route path="/register" element={<Register />}/>
       </Routes>
     </>
   );

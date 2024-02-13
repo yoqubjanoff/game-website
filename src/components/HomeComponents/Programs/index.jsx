@@ -7,10 +7,13 @@ import progImg4 from "../../../assets/images/programs4.jpg";
 import progImg5 from "../../../assets/images/programs5.jpg";
 import progImg6 from "../../../assets/images/programs6.jpg";
 import gsap from "gsap";
+import { useTranslation } from "react-i18next";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Programs = () => {
   const sectionRef = useRef(null);
+  const { t } = useTranslation();
+
 
 
   useEffect(() => {
@@ -36,7 +39,7 @@ const Programs = () => {
     <ProgStyle>
       <ProgStyle.Container>
         <ProgStyle.Wrapper>
-          <ProgStyle.Title>Programs we use to create games</ProgStyle.Title>
+          <ProgStyle.Title>{t("home.program.title")}</ProgStyle.Title>
           <ul className="main-items">
             <li className="items">
               <img className="items-img" src={progImg1} alt="image framer" />

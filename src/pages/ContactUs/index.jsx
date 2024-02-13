@@ -19,7 +19,7 @@ const Contact = () => {
           <ContactStyle.InfoBox>
             <ContactStyle.MainItems>
               <ContactStyle.Items>
-                <ContactStyle.Title>{t("header.nav.contactUs")}</ContactStyle.Title>
+                <ContactStyle.Title>{t("home.header.nav.contactUs")}</ContactStyle.Title>
               </ContactStyle.Items>
               <ContactStyle.Items>
                 <ContactStyle.Iput1 type="text" placeholder={t("contactPage.fullName")} />

@@ -11,7 +11,7 @@ const BoxBlog = ({ title, desc, imageSrc, backgroundImage }) => {
             <BoxStyle.Desc>{desc}</BoxStyle.Desc>
           </BoxStyle.TextBox>
           <BoxStyle.ImgBox>
-            <BoxStyle.Img src={imageSrc} />
+            <BoxStyle.Img src={imageSrc} alt='games heroe image'/>
           </BoxStyle.ImgBox>
         </BoxStyle.Wrapper>
       </BoxStyle.Container>

@@ -3,8 +3,10 @@ import { Link, animateScroll as scroll } from 'react-scroll';
 import { FooterStyle } from './style';
 import logo from "../../assets/icons/logoImg.svg";
 import arrow from "../../assets/icons/arrow-up.svg";
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const {t} = useTranslation()
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
@@ -38,11 +40,11 @@ const Footer = () => {
               <FooterStyle.Logo src={logo} alt="logo site" />
             </Link>
             <FooterStyle.Nav>
-              <Link className='foter-link' to="home" smooth={true} duration={1000}>Home</Link>
-              <Link className='foter-link' to="pc-games" smooth={true} duration={1000}>PC Games</Link>
-              <Link className='foter-link' to="mobile-games" smooth={true} duration={1000}>Mobile Games</Link>
-              <Link className='foter-link' to="blog" smooth={true} duration={1000}>Blog</Link>
-              <Link className='foter-link' to="contact" smooth={true} duration={1000}>Contact us</Link>
+              <Link className='foter-link' to="home" smooth={true} duration={1000}>{t('home.header.nav.home')}</Link>
+              <Link className='foter-link' to="pc-games" smooth={true} duration={1000}>{t('home.header.nav.pcGames')}</Link>
+              <Link className='foter-link' to="mobile-games" smooth={true} duration={1000}>{t('home.header.nav.mobileGames')}</Link>
+              <Link className='foter-link' to="blog" smooth={true} duration={1000}>{t('home.header.nav.blog')}</Link>
+              <Link className='foter-link' to="contact" smooth={true} duration={1000}>{t('home.header.nav.contactUs')}</Link>
             </FooterStyle.Nav>
           </FooterStyle.LoginNav>
           <FooterStyle.ArrowImg src={arrow} onClick={scrollToTop} className={scrollPosition ? "hidden" : ""} />

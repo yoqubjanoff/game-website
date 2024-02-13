@@ -3,21 +3,23 @@ import {MakeStyle} from './style'
 import makeImg from '../../../assets/images/makeImg.png'
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslation } from 'react-i18next';
 
 const MakesSec = () => {
+  const {t} = useTranslation()
      
   const imgRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const el = imgRef.current;
-    gsap.set(el, { opacity: 0, transformOrigin: "center center", y:250});
+    gsap.set(el, { opacity: 0, transformOrigin: "bottom bottom", y:350});
     gsap.to(el, {
       opacity: 1,
       y: 0, 
       duration: 3,
       ease: "power2.out",
-      delay: 10,
+      delay: 1,
       scrollTrigger: {
         trigger: el,
         start: "center bottom",
@@ -33,10 +35,10 @@ const MakesSec = () => {
         <MakeStyle.Wrapper>
           <MakeStyle.TextBox>
             <MakeStyle.Title>
-            What makes us stand up
+            {t('home.makes.title')}
             </MakeStyle.Title>
             <MakeStyle.Desc>
-            Explore a world of possibilities with our forward-thinking IT strategies. Our team of experts harnesses the latest technologies to ensure your business not only keeps pace but stays ahead of the curve.
+            {t('home.makes.desc')}
             </MakeStyle.Desc>
           </MakeStyle.TextBox>
           <MakeStyle.ImgBox ref={imgRef}>

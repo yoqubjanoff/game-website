@@ -51,7 +51,7 @@ FooterStyle.Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 710px;
+  max-width: 850px;
   margin-bottom: 5px;
 `;
 FooterStyle.ArrowImg = styled.img`

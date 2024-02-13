@@ -2,8 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { NumStyle } from "./style";
 import ScrollTrigger from "react-scroll-trigger";
 import CountUp from "react-countup";
+import { useTranslation } from "react-i18next";
+
 
 const NumberSec = () => {
+  const { t } = useTranslation();
   const [counterOn, setCounterOn] = useState(false);
 
   return (
@@ -17,7 +20,7 @@ const NumberSec = () => {
                   {counterOn && <CountUp start={0} end={150} duration={2} delay={0} />}
                 </NumStyle.Num>
               </ScrollTrigger>
-              <NumStyle.Title>Employees</NumStyle.Title>
+              <NumStyle.Title>{t("home.number.Employees")}</NumStyle.Title>
             </NumStyle.NumBox>
             <NumStyle.NumBox>
               <ScrollTrigger>
@@ -25,7 +28,7 @@ const NumberSec = () => {
                  {counterOn &&  <CountUp start={0} end={20} duration={2} delay={0} />}
                 </NumStyle.Num>
               </ScrollTrigger>
-              <NumStyle.Title>Projects</NumStyle.Title>
+              <NumStyle.Title>{t("home.number.Projects")}</NumStyle.Title>
             </NumStyle.NumBox>
             <NumStyle.NumBox>
               <ScrollTrigger>
@@ -33,7 +36,7 @@ const NumberSec = () => {
                   {counterOn && <CountUp start={0} end={230} duration={2} delay={0} />}
                 </NumStyle.Num>
               </ScrollTrigger>
-              <NumStyle.Title>Customers</NumStyle.Title>
+              <NumStyle.Title>{t("home.number.Customers")}</NumStyle.Title>
             </NumStyle.NumBox>
             <NumStyle.NumBox>
               <ScrollTrigger>
@@ -41,7 +44,7 @@ const NumberSec = () => {
                  {counterOn &&  <CountUp start={0} end={23} duration={2} delay={0} />}
                 </NumStyle.Num>
               </ScrollTrigger>
-              <NumStyle.Title>Offices</NumStyle.Title>
+              <NumStyle.Title>{t("home.number.Offices")}</NumStyle.Title>
             </NumStyle.NumBox>
           </NumStyle.Wrapper>
         </NumStyle.Container>

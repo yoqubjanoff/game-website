@@ -138,12 +138,12 @@ BoxStyle.ImgBox = styled.div`
   }
 `;
 BoxStyle.Img = styled.img`
-    width: 98.5%;
-    height: 98.5%;
+ width: 98.8%;
+    height: 98.8%;
     position: absolute;
     top: 3px;
     bottom: 0px;
-    left: 5.5px;
+    left: 5px;
     right: 0;
     z-index: 1;
 `;

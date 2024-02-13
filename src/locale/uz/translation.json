@@ -18,8 +18,31 @@
     "target": {
       "title": "Biz kimmiz?",
       "titlePie": "jihatlari rivojlantiriladi",
-      "desc": "Bizning IT strategiyalarimiz bilan imkoniyatlar dunyosini o'rganing. Mutaxassislarimiz sizning biznesingiz nafaqat tez sur'atda bo'lishini, balki oldinda bo'lishingizni ta'minlash uchun eng yangi texnologiyalardan foydalanadi.",
+      "desc": "Bizning jamoamiz 100 dan ortiq dasturchilardan iborat bolib, yangi qiziqarli va yuqori darajadagi loyihalarni yaratishga intiladi.",
       "btn": "Biz bilan bog’lan"
+    }
+    ,
+    "number": {
+      "Employees" :"Xodimlar",
+      "Projects" :"Loyihalar",
+      "Customers" :"Mijozlar",
+      "Offices" :"Ofislar"
+    }
+    ,
+    "team": {
+      "title" :"Eng yaxshi jamoa",
+      "desc" :"Bizning jamoamiz 100 dan ortiq dastirchidan iborat bolib, yangi qiziqarli va qiyin loyihalarni yaratishga intiladi. Bizni jamoamiz doimo izlanuvchan tirishqoq va yangi texnologiyalarni qo'llash boyicha yaxshi tajribaga ega."
+    },
+    "program": {
+      "title": "O'yinlar yaratish uchun foydalanadigan dasturlarimiz"
+    }
+    ,
+    "makes": {
+      "title" :"Nega rivojlanishdan to'htamaymiz !",
+      "desc" :"Bizni doimo o'z sohamiz ustida ishlab rivojlanishimizga majbur qilayotgan motiv bu biz o'z sohamizni yaxshi ko'rishimizdir. Biz yaratyotgan o'yinlarimiz bilan nafaqat ichki balki jahon bozorida xam o'z o'rnimizga egamiz."
+    },
+    "our": {
+      "title" :"Bizning hamkorlar"
     }
   },
   "contactPage": {

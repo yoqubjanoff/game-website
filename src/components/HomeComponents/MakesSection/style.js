@@ -2,6 +2,7 @@ import styled from "styled-components";
 import bgImg from "../../../assets/images/makeBgimg.png";
 
 export const MakeStyle = styled.section`
+position: relative;
   width: 100%;
   padding: 160px 0 205px 0;
   background-image: url(${bgImg});
@@ -62,11 +63,12 @@ MakeStyle.ImgBox = styled.div`
 position: relative;
 width: 100%;
 max-width: 996px;
+
 `;
 MakeStyle.Img = styled.img`
 position: absolute;
-top: -65px;
-right: -18px;
+top: -100px;
+left: -18px;
 width: 100%;
 height: 550px;
 `;

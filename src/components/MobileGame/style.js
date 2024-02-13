@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import pcBg from '../../assets/icons/MOBILE_GAMES.png'
+import pcBg from '../../assets/icons/MOBILE_GAMES_En.png'
 
 export const PcStyle = styled.section`
 width: 100%;

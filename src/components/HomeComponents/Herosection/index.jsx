@@ -5,11 +5,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslation } from "react-i18next";
 import border from '../../../assets/icons/border.svg'
+import { useNavigate } from "react-router-dom";
 
 
 const Hero = () => {
   const { t } = useTranslation();
-
+  const navigate = useNavigate()
   const imgRef = useRef(null);
   const videoRef = useRef(null);
 
@@ -61,7 +62,7 @@ const Hero = () => {
           <HeroStyle.Desc>
           {t("home.hero.desc")}
           </HeroStyle.Desc>
-          <HeroStyle.Btn>{t("home.header.nav.contactUs")}</HeroStyle.Btn>
+          <HeroStyle.Btn onClick={() =>navigate('/contact') }>{t("home.header.nav.contactUs")}</HeroStyle.Btn>
           <img src={border} alt="border" className="border" /> 
         </HeroStyle.Textbox>
       </HeroStyle.Container>
