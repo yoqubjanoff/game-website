@@ -2,8 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { HeaderStyle } from "./style";
 import logo from "../../assets/icons/logoImg.svg";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { Suspense } from "react";
+import { useTranslation } from "react-i18next";;
 import i18n from "../../i18n";
 
 const Header = ({ timeline, ease }) => {
@@ -68,35 +67,35 @@ const Header = ({ timeline, ease }) => {
           <HeaderStyle.NavLangBox>
             <HeaderStyle.Nav>
               <Link className="link" to={"/"} ref={(el) => (nav__text1 = el)}>
-                {t("header.nav.home")}
+                {t("home.header.nav.home")}
               </Link>
               <Link
                 className="link"
                 to={"/pcgame"}
                 ref={(el) => (nav__text2 = el)}
               >
-                {t("header.nav.pcGames")}
+                {t("home.header.nav.pcGames")}
               </Link>
               <Link
                 className="link"
                 to={"/mobilegame"}
                 ref={(el) => (nav__text3 = el)}
               >
-                {t("header.nav.mobileGames")}
+                {t("home.header.nav.mobileGames")}
               </Link>
               <Link
                 className="link"
                 to={"/blog"}
                 ref={(el) => (nav__text4 = el)}
               >
-                {t("header.nav.blog")}
+                {t("home.header.nav.blog")}
               </Link>
               <Link
                 className="link"
                 to={"/contact"}
                 ref={(el) => (nav__text5 = el)}
               >
-                {t("header.nav.contactUs")}
+                {t("home.header.nav.contactUs")}
               </Link>
             </HeaderStyle.Nav>
             <HeaderStyle.LangBox>

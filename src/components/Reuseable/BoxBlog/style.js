@@ -92,7 +92,9 @@ BoxStyle.Desc = styled.p`
 BoxStyle.ImgBox = styled.div`
   width: 100%;
   max-width: 738px;
+  height: 450px;
 `;
 BoxStyle.Img = styled.img`
   width: 100%;
+  height: 100%;
 `;

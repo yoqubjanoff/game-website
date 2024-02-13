@@ -1,11 +1,11 @@
 import React from 'react'
 import Box from '../../components/Reuseable/Box'
-import box1 from "../../assets/images/box1.jpg";
-import box2 from "../../assets/images/box2.jpg";
-import boxImg2 from "../../assets/images/boxImg.jpg";
-import boxImg3 from "../../assets/images/boxImg2.jpg";
-import boxImg4 from "../../assets/images/boxImg3.jpg";
-import box3 from "../../assets/images/box3Bg.jpg";
+import box1 from "../../assets/images/blogimg1.jpg";
+import box2 from "../../assets/images/blogimg2.jpg";
+import boxImg2 from "../../assets/images/blogimg2.jpg";
+import boxImg3 from "../../assets/images/blogimg3.jpg";
+import boxImg4 from "../../assets/images/blogimg4.jpg";
+import box3 from "../../assets/images/blogimg3.jpg";
 import './index.css'
 import MobileGame from '../../components/MobileGame';
 

@@ -3,8 +3,11 @@ import { TargetStyle } from "./styl";
 import targetImg from '../../../assets/images/targetImg.png'
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslation } from "react-i18next";
+
 
 const Target = () => {
+  const { t } = useTranslation();
   const imgRef = useRef(null);
 
   useEffect(() => {
@@ -31,12 +34,9 @@ const Target = () => {
       <TargetStyle.Container>
         <TargetStyle.Wrapper>
           <TargetStyle.TextBox>
-            <TargetStyle.Title>Who we are?</TargetStyle.Title>
+            <TargetStyle.Title>{t("home.target.title")}{" "}</TargetStyle.Title>
             <TargetStyle.Desc>
-              Explore a world of possibilities with our forward-thinking IT
-              strategies. Our team of experts harnesses the latest technologies
-              to ensure your business not only keeps pace but stays ahead of the
-              curve.
+            {t("home.target.desc")}
             </TargetStyle.Desc>
           </TargetStyle.TextBox>
           <TargetStyle.ImgBox ref={imgRef}>

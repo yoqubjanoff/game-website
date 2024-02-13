@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const HeroStyle = styled.section`
   width: 100%;
   height: 100vh;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,23 +17,20 @@ HeroStyle.Container = styled.div`
 
 HeroStyle.Textbox = styled.div`
   width: 100%;
-  max-width: 880px;
+  max-width: 929px;
   position: relative;
   padding-top: 170px;
   .first-img {
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-}
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
 
-.first-img:hover {
-  transform: scale(1.17);
-}
-
-
-  .second-img {
+  .border {
     position: absolute;
-    top: 545px;
-    left: -6px;
+    width: 229px;
+    height: 56px;
+    bottom: -8px;
+    left: -10px;
     z-index: -1;
   }
 `;
@@ -67,20 +63,36 @@ HeroStyle.Desc = styled.p`
   margin-bottom: 40px;
 `;
 
-HeroStyle.BtnTitle = styled.span`
-  position: absolute;
+HeroStyle.Btn = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 229px;
+  height: 58px;
   color: #fff;
-  top: 555px;
-  right: 715px;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   cursor: pointer;
-  z-index: 1;
-  transition: 0.3s ease-in-out;
-  &:hover .first-img{
-    transform: scale(1.1);
+  background-image: radial-gradient(
+    289.94% 116.98% at 50% 62.22%,
+    #00f6ff 0%,
+    #11c0c7 92.4%
+  );
+  border: none;
+  border-radius: 9px;
+  clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 80% 100%, 0 100%, 0 39%);
+  transition: background-image 0.8s ease-in-out, fill 0.8s ease-in-out;
+  &:hover {
+    bottom: -8px;
+    left: -11px;
+    background-image: radial-gradient(
+      289.94% 116.98% at 50% 62.22%,
+      #11c0c7 0%,
+      #00f6ff 56.71%
+    );
   }
 `;
 
@@ -94,4 +106,3 @@ export const HeroVideo = styled.video`
   object-fit: fill;
   z-index: -1;
 `;
-

@@ -69,14 +69,16 @@ HeaderStyle.Nav = styled.nav`
     height: 0%;
     right: 0;
     bottom: 68px;
-    padding: 3px;
     border-bottom: 2px solid transparent;
     border-right: 2px solid transparent;
   }
   .link:hover::before,
   .link:hover::after {
-    width: 100%;
-    height: 27%;
+    width: 115%;
+    position: absolute;
+    right: -3px;
+    left: -5px;
+    height: 29%;
     border-color: #fff;
     opacity: 1;
   }

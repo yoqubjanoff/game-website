@@ -49,9 +49,9 @@ BoxStyle.Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 600px;
-  background-image: url(${props => props.bgimage});
+  background-image: url(${(props) => props.bgimage});
   background-repeat: no-repeat;
-  background-size: calc(50% - -962px) calc(50% - -310px);;
+  background-size: calc(50% - -962px) calc(50% - -310px);
   background-color: rgba(4, 17, 34, 0.5);
   backdrop-filter: blur(15px);
   padding: 80px 152px 80px 150px;
@@ -92,7 +92,58 @@ BoxStyle.Desc = styled.p`
 BoxStyle.ImgBox = styled.div`
   width: 100%;
   max-width: 738px;
+  height: 450px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    background-image: conic-gradient(
+      transparent,transparent,
+      #00f6ff,
+      transparent,
+      transparent,
+      #00f6ff
+    );
+    width: 200%;
+    height: 200%;
+    animation: animate 12s linear infinite;
+    box-shadow: 0 0 20px rgba(0, 246, 255, 0.5);
+    z-index: -1;
+  }
+
+  &::before {
+    animation-delay: -6s;
+  }
+
+  
+
+  @keyframes animate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  &:nth-child(1)::after,
+  &:nth-child(1)::before {
+    animation-delay: -3s;
+  }
 `;
 BoxStyle.Img = styled.img`
-  width: 100%;
+    width: 98.5%;
+    height: 98.5%;
+    position: absolute;
+    top: 3px;
+    bottom: 0px;
+    left: 5.5px;
+    right: 0;
+    z-index: 1;
 `;

@@ -1,18 +1,26 @@
 {
-  "header": {
-    "nav": {
-      "home": "Bosh sahifa",
-      "pcGames": "PC o'yinlari",
-      "mobileGames": "Mobil o’yinlar",
-      "blog": "Bloglar",
-      "contactUs": "Biz bilan bog’lan"
+  "home": {
+    "header": {
+      "nav": {
+        "home": "Bosh sahifa",
+        "pcGames": "PC o'yinlari",
+        "mobileGames": "Mobil o’yinlar",
+        "blog": "Bloglar",
+        "contactUs": "Biz bilan bog’lan"
+      }
+    },
+    "hero": {
+      "title": "O‘yinlar yaratish bo‘yicha",
+      "titlePie": "iqtidorli jamoa",
+      "desc": "IT Investment Center - IT-ta'lim, frilans, creative iqtisodiyot va uni ichiga va kiruvchi oyin razrabotkasi bilan shugullanadi"
     }
-  },
-  "hero": {
-    "title": "O'yinning barcha",
-    "titlePie":"jihatlari rivojlantiriladi",
-    "desc": "Bizning IT strategiyalarimiz bilan imkoniyatlar dunyosini o'rganing. Mutaxassislarimiz sizning biznesingiz nafaqat tez sur'atda bo'lishini, balki oldinda bo'lishingizni ta'minlash uchun eng yangi texnologiyalardan foydalanadi.",
-    "btn": "Biz bilan bog’lan"
+    ,
+    "target": {
+      "title": "Biz kimmiz?",
+      "titlePie": "jihatlari rivojlantiriladi",
+      "desc": "Bizning IT strategiyalarimiz bilan imkoniyatlar dunyosini o'rganing. Mutaxassislarimiz sizning biznesingiz nafaqat tez sur'atda bo'lishini, balki oldinda bo'lishingizni ta'minlash uchun eng yangi texnologiyalardan foydalanadi.",
+      "btn": "Biz bilan bog’lan"
+    }
   },
   "contactPage": {
     "fullName": "Ism Sharifingiz",
