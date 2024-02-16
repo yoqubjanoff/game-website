@@ -33,7 +33,7 @@ const Header = ({ timeline, ease }) => {
         opacity: 0,
         y: -50,
         stagger: {
-          amount: 0.6,
+          amount: 0.1,
         },
         ease: ease,
       }
@@ -46,7 +46,7 @@ const Header = ({ timeline, ease }) => {
       opacity: 0,
       y: -50,
       stagger: {
-        amount: 0.6,
+        amount: 0.1,
       },
       ease: ease,
     });

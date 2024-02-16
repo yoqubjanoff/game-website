@@ -37,16 +37,16 @@
   0% {
     transform: scale(0);
     opacity: 0;
-    border-color: rgba(0, 205, 194, 1);
+    border-color: rgb(112, 255, 248);
   }
   50% {
     opacity: 1;
-    border-color: rgba(0, 246, 255, 1),;
+    border-color: rgb(126, 244, 248),;
   }
   100% {
-    transform: scale(1);
+    transform: scale(1.4);
     opacity: 0;
-    border-color: rgba(0, 246, 255, 1), rgba(17, 192, 199, 1);
+    border-color: rgb(76, 248, 254), rgb(90, 250, 255);
   }
 }
 
@@ -61,8 +61,8 @@
     border-color: rgba(0, 246, 255, 1),;
   }
   100% {
-    transform: scale(1);
+    transform: scale(1.4);
     opacity: 0;
-    border-color: rgba(0, 205, 194, 1);
+    border-color: rgb(80, 253, 245);
   }
 }
