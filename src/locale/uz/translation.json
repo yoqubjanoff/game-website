@@ -51,5 +51,18 @@
     "email": "Eletron pochta",
     "message": "Xabar",
     "send": "Yuborish"
-  }
+  },
+ "adminPage" :{
+  "admin": "Bosh sahifa",
+  "blog": "Bloglar",
+  "pcMbGame": "PC & MB o'yinlar",
+  "statistics": "Statiskilar",
+  "statements": "Xabarlar",
+  "ourPartners": "Hamkorlarimiz",
+  "daily": "Kundalik",
+  "weekly": "Haftalik",
+  "monthly": "Oylik",
+  "registrants": "Yangi ro'yxatdan o'tganlar",
+  "visits": "Jami tashriflar"
+ }
 }

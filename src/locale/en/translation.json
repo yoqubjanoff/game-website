@@ -28,18 +28,16 @@
     "team": {
       "title": "Best Team",
       "desc": "Our team consists of more than 100 developers and strives to create new interesting and challenging projects. Our team is always searching diligently and has a good experience in applying new technologies"
-    }
-    ,
+    },
     "program": {
       "title": "Programs we use to create games"
-    }
-    ,
+    },
     "makes": {
-      "title" :"What makes us stand up !",
-      "desc" :"The motivation that makes us always work on our field and develop is that we love our field. With the games we create, we have our place not only in the domestic but also in the world market."
+      "title": "What makes us stand up !",
+      "desc": "The motivation that makes us always work on our field and develop is that we love our field. With the games we create, we have our place not only in the domestic but also in the world market."
     },
     "our": {
-      "title" :"Our partners"
+      "title": "Our partners"
     }
   },
   "contactPage": {
@@ -48,5 +46,18 @@
     "email": "E-mail",
     "message": "Message",
     "send": "Send "
+  },
+  "adminPage": {
+    "admin": "Home",
+    "blog": "Blogs",
+    "pcMbGame": "PC & MB games",
+    "statistics": "Statistics",
+    "statements": "Messages",
+    "ourPartners": "Our partners",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "registrants": "New registrants",
+    "visits": "Total visits"
   }
 }

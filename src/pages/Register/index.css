@@ -82,3 +82,12 @@
   font-weight: 700;
   line-height: normal;
 }
+.errorText {
+  text-align: center;
+  color: #e30b0b;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 50px;
+}
