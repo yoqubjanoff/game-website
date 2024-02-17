@@ -20,7 +20,7 @@ const ActionRenderer = ({ data }) => {
 		try {
 			const res = await request.get('/admin/blog');
 			dispatch({
-				type: 'setBlogs',
+				type: 'setPartners',
 				payload: res?.data?.data,
 			});
 		} catch (error) {
@@ -29,7 +29,7 @@ const ActionRenderer = ({ data }) => {
 	};
 	const deleteF = async () => {
 		try {
-			const res = await request.delete(`/admin/blog/${data?.id}`);
+			const res = await request.delete(`/admin/partners/${data?.id}`);
 			getAdmins();
 			Toast({
 				type: 'success',
@@ -49,12 +49,12 @@ const ActionRenderer = ({ data }) => {
 		});
 	};
 	const editFunc = async () => {
-		const res = await request.get(`admin/blog/${data.id}`);
+		const res = await request.get(`admin/partners/${data.id}`);
 		dispatch({
 			type: 'setSelected',
 			payload: res?.data?.data,
 		});
-		navigate(`/admin/blog/modify/:${data?.id}`);
+		navigate(`/admin/partners/add/:${data?.id}`);
 	};
 	return (
 		<Wrapper.Flex style={{ width: '100%', justifyContent: 'start' }}>
@@ -91,16 +91,7 @@ const RendererTitle = ({ data }) => {
 		return <Wrapper.Flex>{data?.titleUz}</Wrapper.Flex>;
 	}
 };
-const RendererDesc = ({ data }) => {
-	const maxLength = 40;
 
-	if (data?.title?.length > maxLength) {
-		const truncatedWord = data?.contentUz?.slice(0, maxLength) + '...';
-		return <Wrapper.Flex>{truncatedWord}</Wrapper.Flex>;
-	} else {
-		return <Wrapper.Flex>{data?.contentUz}</Wrapper.Flex>;
-	}
-};
 
 const RendererStatus = ({ data }) => {
 	const { t } = useTranslation();
@@ -118,7 +109,7 @@ const RendererStatus = ({ data }) => {
 	};
 
 	return (
-		<Wrapper.Flex>
+		<Wrapper.Flex style={{justifyContent:'center',width:'100%'}}>
 			<Switch
 				onClick={(e) => statusChange(e)}
 				checked={data?.isActive ? 1 : 0}
@@ -141,11 +132,6 @@ export const TalentTableHeader = () => {
 		{
 			headerName: t('adminPage.title'),
 			cellRenderer: RendererTitle,
-			flex: 1,
-		},
-		{
-			headerName: t('adminPage.desc'),
-			cellRenderer: RendererDesc,
 			flex: 1,
 		},
 		{

@@ -19,6 +19,17 @@ const Sidebar = () => {
 			title: t('adminPage.blog'),
 			path: '/admin/blog',
 		},
+		,
+		{
+			id: 3,
+			title: t('adminPage.partner'),
+			path: '/admin/partner',
+		},
+		{
+			id: 4,
+			title: t('adminPage.pcmbgame'),
+			path: '/admin/pcmbgame',
+		},
 		
 	];
 	return (
@@ -29,7 +40,7 @@ const Sidebar = () => {
 						<Wrapper.Flex
 							className="FlexBox"
 							onClick={() => !disable && navigate(path)}
-							active={pathname === path}
+							active={pathname === path || pathname === path + '/add'}
 							key={i}
 							disable={disable ? 1 : 0}
 						>

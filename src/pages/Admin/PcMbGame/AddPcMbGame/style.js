@@ -25,16 +25,16 @@ export const Wrapper = styled.div`
       background: #f4f7f4;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: end;
       padding: 4px;
       gap: 5px;
-	  p {
-		margin-left: 10px;
-	  }
-	  div{
-		display: flex;
-		gap: 10px;
-	  }
+      p {
+        margin-left: 10px;
+      }
+      div {
+        display: flex;
+        gap: 10px;
+      }
     }
     &.Box {
       width: 100%;
@@ -149,7 +149,7 @@ Wrapper.WrapTable = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     border-bottom: 1px solid #ccc;
-	padding-bottom: 20px;
+    padding-bottom: 20px;
     gap: 20px;
 
     .inputUpload {
@@ -157,7 +157,7 @@ Wrapper.WrapTable = styled.div`
       width: 100%;
     }
 
- .Wrapper-input-f {
+    .Wrapper-input-f {
       position: relative;
       display: flex;
       justify-content: center;
@@ -171,7 +171,7 @@ Wrapper.WrapTable = styled.div`
       background-size: cover;
       width: 100%;
       max-width: 311px;
-	  height: 120px;
+      height: 100%;
       margin: 0 7% 15px 0;
 
       label {
@@ -218,10 +218,14 @@ Wrapper.WrapTable = styled.div`
   .se-wrapper-inner {
     min-height: 370px !important;
   }
-  .image-link-box{
-	display: flex;
-	flex-direction: column;
-	width: 311px;
+  .image-link-box {
+    display: flex;
+    flex-direction: column;
+    width: 311px;
+    height: 178px;
   }
- 
+
+  .inputbox {
+    width: 450px;
+  }
 `;

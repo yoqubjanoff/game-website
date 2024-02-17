@@ -1,7 +1,7 @@
 import { Wrapper } from "./style";
 import loading from '../../assets/images/loading.svg'
 
-const Loading = () => {
+const LoadingAdmin = () => {
 	return (
 		<Wrapper>
 			<Wrapper.Box>
@@ -11,4 +11,4 @@ const Loading = () => {
 	);
 };
 
-export default Loading;
+export default LoadingAdmin;

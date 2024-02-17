@@ -13,8 +13,9 @@ Wrapper.Header = styled.div`
 	background: #f4f7f4;
 	display: flex;
 	align-items: center;
-	margin: 0 20px 0 0;
+	margin: 0 20px 10px 0;
 	padding: 0 15px;
+
 `;
 Wrapper.HeaderTitle = styled.p`
 	color: #000;

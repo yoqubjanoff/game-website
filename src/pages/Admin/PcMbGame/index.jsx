@@ -10,7 +10,7 @@ import Table from '../../../components/Reuseable/CustomTable';
 import Pagination from '../../../components/Reuseable/Pagination';
 import request from '../../../services/request';
 
-const Blog = () => {
+const PcMbGame  = () => {
 	const column = TalentTableHeader()
 	const { t } = useTranslation();
 	const query = useSearch();
@@ -27,7 +27,7 @@ const Blog = () => {
 			const res = await request.get(`/admin/blogs${search || ''}`);
 			setPagination(res?.data?.pagination);
 			dispatch({
-				type: 'setBlogs',
+				type: 'setPartners',
 				payload: res?.data?.data,
 			});
 			setLoading(false);
@@ -43,7 +43,7 @@ const Blog = () => {
 		<Wrapper>
 			<div className="FlexBox">
 				<div className="ColumnBox">
-					<p className="Header">{t('adminPage.blog')}</p>
+					<p className="Header">{t('adminPage.partner')}</p>
 					<div className="TagBox">
 						<div className="FlexBox">
 							<div></div>
@@ -51,7 +51,7 @@ const Blog = () => {
 								bg={'#0B3A48'}
 								width={'150px'}
 								height={'42px'}
-								onClick={() => navigate('/admin/blog/add')}
+								onClick={() => navigate('/admin/partner/add')}
 							>
 								{t('adminPage.add')}
 							</Button>
@@ -70,4 +70,4 @@ const Blog = () => {
 	);
 };
 
-export default Blog;
+export default PcMbGame;

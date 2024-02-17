@@ -2,14 +2,15 @@ export const initialState = {
 	userData: {
 		title: '',
 		content: '',
+		imageUrl: '',
 	},
 	selected: {},
-	faqList: [],
+	partnerList: [],
 };
 export const reducer = (state, action) => {
 	switch (action.type) {
-		case 'setFaqAllData':
-			return { ...state, faqList: action.payload };
+		case 'setPartners':
+			return { ...state, partnerList: action.payload };
 		case 'setSelected':
 			return { ...state, selected: action.payload };
 		default:

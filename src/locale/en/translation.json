@@ -58,6 +58,22 @@
     "weekly": "Weekly",
     "monthly": "Monthly",
     "registrants": "New registrants",
-    "visits": "Total visits"
+    "visits": "Total visits",
+    "add": "Add",
+    "image": "Image",
+    "title": "Title",
+    "date": "Date",
+    "action": "Action",
+    "desc": "Description",
+    "cansel": "Cansel",
+    "submit": "Submit",
+    "status": "Status",
+    "blogPlaceholder": "Enter title !",
+    "textBlog": "Content",
+    "upload": "Upload a cover",
+    "remember": "Video you tube link or picture must be uploaded !",
+    "partner": "Partners",
+  "pcmbgame": "PC MB Games"
+
   }
 }

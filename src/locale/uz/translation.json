@@ -63,6 +63,19 @@
   "weekly": "Haftalik",
   "monthly": "Oylik",
   "registrants": "Yangi ro'yxatdan o'tganlar",
-  "visits": "Jami tashriflar"
+  "visits": "Jami tashriflar",
+  "add": "Qo'shish",
+  "image": "Rasm",
+  "title": "Sarlavha",
+  "date": "Sana",
+  "action": "Harkat",
+  "desc": "Tarif",
+  "cansel": "Bekor qilish",
+  "submit": "Yuborish",
+  "status": "Holat",
+  "remember" : "Videoni you tube havolasini yoki rasmni yuklash shart !",
+  "upload": "Muqova yuklang",
+  "partner": "Hamkorlar",
+  "pcmbgame": "PC MB O'yinlar"
  }
 }
