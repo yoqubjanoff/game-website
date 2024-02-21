@@ -1,22 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import box1 from "../../assets/images/blogimg1.jpg";
-import box2 from "../../assets/images/blogimg2.jpg";
-import box3 from "../../assets/images/blogimg3.jpg";
-import box4 from "../../assets/images/blogimg4.jpg";
-import './index.css'
-import BlogComponent from '../../components/Blog';
-import BoxBlog from '../../components/Reuseable/BoxBlog';
+import "./index.css";
+import BlogComponent from "../../components/Blog";
+import BoxBlog from "../../components/Reuseable/BoxBlog";
+import request from "../../services/request";
+import { useTranslation } from "react-i18next";
 
 const Blog = () => {
+  const { t, i18n } = useTranslation();
+  const [blogData, setBlogData] = useState([]);
+
+  const getBlogs = async () => {
+    try {
+      const res = await request.get(
+        `/public/blogs?lan=${localStorage.getItem("i18nextLng")}`
+      );
+      setBlogData(res?.data?.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    getBlogs();
+  }, [i18n.language]);
+
   return (
-    <main className='pswrapper'>
-      <BlogComponent/>
-      <BoxBlog imageSrc={box1} title={'Interview'} desc={'On 24.09.2023, the largest games exhibition in Uzbekistan was held, in which the best game developers from all over Uzbekistan took part. Most of the developers are young guys with great motivation and desire to develop the gaming industry of Uzbekistan. The exhibition featured both mobile and computer games created using Unity and Unreal engine programs.​FacebookLinkedInInstagram'} />
-      <BoxBlog imageSrc={box2} title={'Interview'} desc={'On 24.09.2023, the largest games exhibition in Uzbekistan was held, in which the best game developers from all over Uzbekistan took part. Most of the developers are young guys with great motivation and desire to develop the gaming industry of Uzbekistan. The exhibition featured both mobile and computer games created using Unity and Unreal engine programs.​FacebookLinkedInInstagram'} />
-      <BoxBlog imageSrc={box3} title={'Interview'} desc={'On 24.09.2023, the largest games exhibition in Uzbekistan was held, in which the best game developers from all over Uzbekistan took part. Most of the developers are young guys with great motivation and desire to develop the gaming industry of Uzbekistan. The exhibition featured both mobile and computer games created using Unity and Unreal engine programs.​FacebookLinkedInInstagram'} />
-      <BoxBlog imageSrc={box4} title={'Interview'} desc={'On 24.09.2023, the largest games exhibition in Uzbekistan was held, in which the best game developers from all over Uzbekistan took part. Most of the developers are young guys with great motivation and desire to develop the gaming industry of Uzbekistan. The exhibition featured both mobile and computer games created using Unity and Unreal engine programs.​FacebookLinkedInInstagram'}/>
+    <main className="pswrapper">
+      <BlogComponent />
+      {blogData?.map((blog) => (
+        <BoxBlog
+          key={blog.id}
+          imageSrc={blog.blogPhotoUrl}
+          videoId={blog.videoUrl || "no-video"}
+          title={blog?.title}
+          desc={blog?.content}
+        />
+      ))}
     </main>
-  )
-}
+  );
+};
 
 export default Blog;

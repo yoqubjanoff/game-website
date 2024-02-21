@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Wrapper } from './style';
 import { TalentTableHeader } from './header';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useBlogContex } from '../../../context/useContext';
+import { usePartnerContext } from '../../../context/useContext';
 import useSearch from '../../../services/Search';
 import { useTranslation } from 'react-i18next';
 import Button from '../../../components/Reuseable/Button';
@@ -18,13 +18,13 @@ const Partners  = () => {
 	const [loading, setLoading] = useState(false);
 	const [searchValue, setSearchValue] = useState('');
 	const { search } = useLocation();
-	const [{ blogs }, dispatch] = useBlogContex();
+	const [{ partnerList }, dispatch] = usePartnerContext();
 
 	const navigate = useNavigate();
 	const getBlogs = async () => {
 		setLoading(true);
 		try {
-			const res = await request.get(`/admin/blogs${search || ''}`);
+			const res = await request.get(`/admin/partners${search || ''}`);
 			setPagination(res?.data?.pagination);
 			dispatch({
 				type: 'setPartners',
@@ -58,7 +58,7 @@ const Partners  = () => {
 						</div>
 					</div>
 					<Wrapper.WrapTable>
-						<Table column={column} rowData={blogs} loading={loading} />
+						<Table column={column} rowData={partnerList} loading={loading} />
 					</Wrapper.WrapTable>
 					<Pagination
 						current={Number(query.get('page')) || 0}

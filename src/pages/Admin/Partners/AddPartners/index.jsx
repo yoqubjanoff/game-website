@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Wrapper } from "./style";
 import { useNavigate, useParams } from "react-router-dom";
-import { useBlogContex } from "../../../../context/useContext";
+import { usePartnerContext } from "../../../../context/useContext";
 import BgFile from "../../../../assets/icons/upload.svg";
 import { useTranslation } from "react-i18next";
 import Button from "../../../../components/Reuseable/Button";
@@ -16,23 +16,20 @@ import Popup from "../../../../components/Reuseable/Popup";
 const AddPartners = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [{ selected }, dispatch] = useBlogContex();
+  const [{ selected }, dispatch] = usePartnerContext();
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const [state, setState] = useState({
-    title: selected?.title || "",
-    blogPhotoUrl: selected?.blogPhotoUrl || null,
+    url: selected?.url || "",
+    attachmentId: selected?.attachmentId || "",
+    partnerPhotoUrl: selected?.partnerPhotoUrl || null,
     isActive: selected?.isActive || false,
   });
 
   const [urlFormData, setUrlFormData] = useState();
   const [photoId, setPhotoId] = useState();
 
-  const {
-    isActive,
-    title,
-    blogPhotoUrl,
-  } = state;
+  const { isActive, url, partnerPhotoUrl, attachmentId } = state;
 
   const handleInputChange = async (e) => {
     const files = e.target.files[0];
@@ -52,43 +49,46 @@ const AddPartners = () => {
       if (resData) {
         Toast({
           type: "success",
-          message: t("w252"),
+          message: "Successfully uploaded",
         });
       }
-      setPhotoId(id);
+      setState({
+        ...state,
+        attachmentId: id, 
+      });
       setUrlFormData(fileUrl);
     } catch (error) {
       console.log(error);
+      Toast({
+        type: "warning",
+        message: "Error uploading",
+      });
     }
   };
+
   const saveQuestion = async () => {
     setLoading(true);
     if (!id) {
-      if (
-        title && photoId
-      ) {
+      if (url) {
         try {
-          const res = await request.post("/admin/blog", {
+          const res = await request.post("/admin/partners", {
             data: {
-              title: title,
+              id: id.slice(1),
+              url: url,
+              attachmentId: photoId,
               partnerPhotoUrl: urlFormData,
               isActive: isActive,
             },
           });
           setLoading(false);
 
-          navigate("/admin/blog");
+          navigate("/admin/partner");
           Toast({
             type: "success",
-            message: t("w252"),
+            message: "Successfully",
           });
           setState({
-            titleUz: "",
-            contentUz: "",
-            titleRu: "",
-            contentRu: "",
-            titleEn: "",
-            contentEn: "",
+            url: "",
             blogPhotoUrl: "",
             videoUrl: "",
             isActive: false,
@@ -109,14 +109,14 @@ const AddPartners = () => {
         });
       }
     } else {
-      if (
-        title && photoId
-      ) {
+      if (url && id) {
         try {
-          const res = await request.put(`/admin/partner`, {
+          const res = await request.put(`/admin/partners`, {
             data: {
-              title: title,
-              partnerPhotoUrl: urlFormData,
+              id: id.slice(1),
+              url: url,
+              attachmentId: photoId,
+              partnerPhotoUrl: partnerPhotoUrl,
               isActive: isActive,
             },
             transactionTime: "2023-08-14T15:43:01.8152087",
@@ -126,7 +126,7 @@ const AddPartners = () => {
           navigate(`/admin/partner`);
           Toast({
             type: "success",
-            message: t("w252"),
+            message: "Successfully",
           });
           dispatch({
             type: "setSelected",
@@ -155,20 +155,19 @@ const AddPartners = () => {
 
   const handleTitleChange = (e) => {
     const { name, value } = e.target;
+
     setState({
       ...state,
       [name]: value,
     });
   };
 
-
-  console.log(state);
   return (
     <Wrapper>
       {loading && <LoadingAdmin />}
       <div className="ColumnBox">
         <p setState className="Header">
-          {id ? t("adminPage.add") : t('adminPage.partner')}
+          {id ? t("adminPage.add") : t("adminPage.partner")}
         </p>
         <div className="TagBoxEnd" style={{ gap: "15px" }}>
           <div>
@@ -186,14 +185,7 @@ const AddPartners = () => {
               height={"42px"}
               color="#0B3A48"
               onClick={() => {
-                navigate(-1);
-                setState({
-                  ...state,
-                  blogPhotoUrl: null,
-                  title: "",
-                  content: "",
-                  attachmentId: "",
-                });
+                navigate("/admin/partner");
                 dispatch({
                   type: "setSelected",
                   payload: {},
@@ -219,12 +211,12 @@ const AddPartners = () => {
               <Input
                 width={"100%"}
                 placeholder={"title"}
-                header="Sarlavhani kiriting !"
+                header="URL ni kiriting faqat url kirita olasiz"
                 color={"#000"}
                 hc={"#000"}
-                name={"title"}
+                name={"url"}
                 onChange={handleTitleChange}
-                value={title}
+                value={url}
                 margin={"0 0 25px 0"}
               />
             </div>
@@ -234,7 +226,7 @@ const AddPartners = () => {
                 className="Wrapper-input-f"
                 style={{
                   backgroundImage: `url('${
-                    urlFormData ? urlFormData : state.blogPhotoUrl
+                    urlFormData ? urlFormData : state.partnerPhotoUrl
                   }')`,
                   cursor: "pointer",
                 }}
@@ -249,14 +241,14 @@ const AddPartners = () => {
                   onChange={handleInputChange}
                 />
                 <div>
-                  {urlFormData || state.blogPhotoUrl ? (
+                  {urlFormData || state.partnerPhotoUrl ? (
                     <div></div>
                   ) : (
                     t("adminPage.upload")
                   )}
                 </div>
                 <img
-                  src={urlFormData || state.blogPhotoUrl ? "" : BgFile}
+                  src={urlFormData || state.partnerPhotoUrl ? "" : BgFile}
                   alt="upload img"
                 />
               </label>

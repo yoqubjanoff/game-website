@@ -2,11 +2,11 @@ import React, { useEffect, useRef } from "react";
 import { HeaderStyle } from "./style";
 import logo from "../../assets/icons/logoImg.svg";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";;
+import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
 
 const Header = ({ timeline, ease }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   let logoRef = useRef(null);
 
   let nav__text1 = useRef(null);
@@ -51,6 +51,11 @@ const Header = ({ timeline, ease }) => {
       ease: ease,
     });
   }, []);
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem("i18nextLng", lng);
+  };
 
   return (
     <HeaderStyle>
@@ -100,9 +105,24 @@ const Header = ({ timeline, ease }) => {
             </HeaderStyle.Nav>
             <HeaderStyle.LangBox>
               <HeaderStyle.LangItem ref={(el) => (langRef = el)}>
-                <HeaderStyle.LangBtn onClick={() => i18n.changeLanguage('en')}>En</HeaderStyle.LangBtn>
-                <HeaderStyle.LangBtn onClick={() => i18n.changeLanguage('ru')}>Ru</HeaderStyle.LangBtn>
-                <HeaderStyle.LangBtn onClick={() => i18n.changeLanguage('uz')}>Uz</HeaderStyle.LangBtn>
+                <HeaderStyle.LangBtn
+                  className={`${i18n.language === "EN" ? "active" : ""}`}
+                  onClick={() => changeLanguage("EN")}
+                >
+                  En
+                </HeaderStyle.LangBtn>
+                <HeaderStyle.LangBtn
+                  className={`${i18n.language === "RU" ? "active" : ""}`}
+                  onClick={() => changeLanguage("RU")}
+                >
+                  Ru
+                </HeaderStyle.LangBtn>
+                <HeaderStyle.LangBtn
+                  className={`${i18n.language === "UZ" ? "active" : ""}`}
+                  onClick={() => changeLanguage("UZ")}
+                >
+                  Uz
+                </HeaderStyle.LangBtn>
               </HeaderStyle.LangItem>
             </HeaderStyle.LangBox>
           </HeaderStyle.NavLangBox>

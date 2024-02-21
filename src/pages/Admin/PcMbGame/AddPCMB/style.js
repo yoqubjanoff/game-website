@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
       background: #f4f7f4;
       display: flex;
       align-items: center;
-      justify-content: end;
+      justify-content: space-between;
       padding: 4px;
       gap: 5px;
       p {
@@ -34,6 +34,10 @@ export const Wrapper = styled.div`
       div {
         display: flex;
         gap: 10px;
+      }
+      .selectbox {
+        width: 250px;
+        height: 44px;
       }
     }
     &.Box {
@@ -171,8 +175,8 @@ Wrapper.WrapTable = styled.div`
       background-size: cover;
       width: 100%;
       max-width: 311px;
-      height: 100%;
-      margin: 0 7% 15px 0;
+      height: 120px;
+      margin: 0 7% 35px 0;
 
       label {
         margin-top: 6px;
@@ -222,10 +226,5 @@ Wrapper.WrapTable = styled.div`
     display: flex;
     flex-direction: column;
     width: 311px;
-    height: 178px;
-  }
-
-  .inputbox {
-    width: 450px;
   }
 `;

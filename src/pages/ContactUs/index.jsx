@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ContactStyle } from "./style";
 import phone from "../../assets/icons/phone.svg";
 import email from "../../assets/icons/email.svg";
@@ -7,10 +7,66 @@ import telegram from "../../assets/icons/telegram.svg";
 import instagram from "../../assets/icons/instagram.svg";
 import facebook from "../../assets/icons/facebook.svg";
 import { useTranslation } from "react-i18next";
-
+import request from "../../services/request";
+import Swal from "sweetalert2";
+import Toast from "../../components/Reuseable/Toast";
 
 const Contact = () => {
   const { t } = useTranslation();
+  const [message, setMessage] = useState({
+    fullName: "",
+    phoneNumber: "",
+    email: "",
+    comment: "",
+  });
+
+  const handleTitleChange = (e) => {
+    const { name, value } = e.target;
+
+    setMessage({
+      ...message,
+      [name]: value,
+    });
+  };
+console.log(message);
+  const handleSave = async () => {
+    if (
+      message.comment &&
+      message.email &&
+      message.fullName &&
+      message.phoneNumber
+    ) {
+      try {
+        const res = await request.post("public/call-request", {
+          data: {
+            fullName: message.fullName,
+            phoneNumber: `+${message.phoneNumber}`,
+            email: message.email,
+            comment: message.comment,
+          },
+        });
+        if (res.status === 200)  {
+          Toast({
+            type: "success",
+            message: "Successfully",
+          }),
+            setMessage({
+              fullName: "",
+              phoneNumber: "",
+              email: "",
+              comment: "",
+            });
+        } else {
+          Swal.fire("serverdan xatolik yoki internet");
+        }
+      } catch (error) {
+        console.error(error);
+        Swal.fire("serverdan xatolik yoki internet");
+      }
+    } else {
+      Swal.fire("Malumotlarni xammasini kiriting ");
+    }
+  };
 
   return (
     <ContactStyle>
@@ -19,20 +75,48 @@ const Contact = () => {
           <ContactStyle.InfoBox>
             <ContactStyle.MainItems>
               <ContactStyle.Items>
-                <ContactStyle.Title>{t("home.header.nav.contactUs")}</ContactStyle.Title>
+                <ContactStyle.Title>
+                  {t("home.header.nav.contactUs")}
+                </ContactStyle.Title>
               </ContactStyle.Items>
               <ContactStyle.Items>
-                <ContactStyle.Iput1 type="text" placeholder={t("contactPage.fullName")} />
+                <ContactStyle.Iput1
+                  type="text"
+                  value={message.fullName}
+                  placeholder={t("contactPage.fullName")}
+                  onChange={handleTitleChange}
+                  name="fullName"
+                />
               </ContactStyle.Items>
               <ContactStyle.Items>
-                <ContactStyle.Iput1 type="number" placeholder={t("contactPage.phoneNumber")} />
-                <ContactStyle.Iput1 type="email" placeholder={t("contactPage.email")} />
+                <ContactStyle.Iput1
+                  type="number"
+                  value={message.phoneNumber}
+                  placeholder={t("contactPage.phoneNumber")}
+                  onChange={handleTitleChange}
+                  name="phoneNumber"
+                />
+                <ContactStyle.Iput1
+                  type="email"
+                  placeholder={t("contactPage.email")}
+                  onChange={handleTitleChange}
+                  name="email"
+                  value={message.email}
+                />
               </ContactStyle.Items>
               <ContactStyle.Items>
-                <ContactStyle.Iput4 type="text" placeholder={t("contactPage.message")} />
+                <ContactStyle.Iput4
+                  type="text"
+                  placeholder={t("contactPage.message")}
+                  onChange={handleTitleChange}
+                  name="comment"
+                  value={message.comment}
+                />
               </ContactStyle.Items>
               <ContactStyle.Items>
-                <ContactStyle.Btn>{t("contactPage.send")}</ContactStyle.Btn>
+                <ContactStyle.Btn onClick={handleSave}>
+                  {t("contactPage.send")}
+                </ContactStyle.Btn>
               </ContactStyle.Items>
               <ContactStyle.Items>
                 <div className="socbox">
@@ -113,5 +197,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-

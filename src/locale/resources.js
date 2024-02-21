@@ -1,16 +1,16 @@
-import en from './en/translation.json';
-import uz from './uz/translation.json';
-import ru from './ru/translation.json';
+import EN from './en/translation.json';
+import UZ from './uz/translation.json';
+import RU from './ru/translation.json';
 
 const resources = {
-  en: {
-    translation: en
+  EN: {
+    translation: EN
   },
-  uz: {
-    translation: uz
+  UZ: {
+    translation: UZ
   },
-  ru: {
-    translation: ru
+  RU: {
+    translation: RU
   }
 };
 

@@ -86,7 +86,16 @@ HeaderStyle.Nav = styled.nav`
 
 HeaderStyle.LangBox = styled.ul``;
 
-HeaderStyle.LangItem = styled.li``;
+HeaderStyle.LangItem = styled.li`
+.active {
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+`;
 
 HeaderStyle.LangBtn = styled.button`
   cursor: pointer;
@@ -98,13 +107,7 @@ HeaderStyle.LangBtn = styled.button`
   font-weight: 500;
   line-height: normal;
 
-  &:focus-within {
-    color: #fff;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-  }
+  
   &:first-of-type {
     padding-right: 10px;
     border-right: 1px solid rgba(255, 255, 255, 0.4);

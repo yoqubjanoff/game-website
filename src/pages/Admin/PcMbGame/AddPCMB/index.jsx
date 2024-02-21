@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Wrapper } from "./style";
 import { useNavigate, useParams } from "react-router-dom";
-import { useBlogContex } from "../../../../context/useContext";
+import { useBlogContex, usePcMbContext } from "../../../../context/useContext";
 import BgFile from "../../../../assets/icons/upload.svg";
 import { useTranslation } from "react-i18next";
 import Button from "../../../../components/Reuseable/Button";
@@ -12,27 +12,47 @@ import Switch from "../../../../components/Reuseable/Switch";
 import Input from "../../../../components/Reuseable/Input";
 import request from "../../../../services/request";
 import Popup from "../../../../components/Reuseable/Popup";
+import Select from "../../../../components/Reuseable/Select";
 
-const AddPartners = () => {
+const AddPcMgGame = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [{ selected }, dispatch] = useBlogContex();
+  const [{ selected }, dispatch] = usePcMbContext();
   const { id } = useParams();
+  const [options, setOptions] = useState([
+    { id: 1, caption: "For Pc Game", title: "PC"},
+    { id: 2, caption: "For Mb Game",title: "MOBILE" },
+  ]);
+
   const [loading, setLoading] = useState(false);
   const [state, setState] = useState({
-    title: selected?.title || "",
-    blogPhotoUrl: selected?.blogPhotoUrl || null,
+    typeOfGame: selected?.typeOfGame || "",
+    titleUz: selected?.titleUz || "",
+    titleRu: selected?.titleRu || "",
+    titleEn: selected?.titleEn || "",
+    videoUrl: selected?.videoUrl || "",
+    contentUz: selected?.contentUz || ``,
+    contentRu: selected?.contentRu || ``,
+    contentEn: selected?.contentEn || ``,
+    gamePhotoUrl: selected?.gamePhotoUrl || null,
     isActive: selected?.isActive || false,
   });
 
   const [urlFormData, setUrlFormData] = useState();
-  const [photoId, setPhotoId] = useState();
 
   const {
     isActive,
-    title,
-    blogPhotoUrl,
+    typeOfGame,
+    titleUz,
+    titleRu,
+    titleEn,
+    contentUz,
+    contentEn,
+    contentRu,
+    videoUrl,
+    gamePhotoUrl,
   } = state;
+
 
   const handleInputChange = async (e) => {
     const files = e.target.files[0];
@@ -48,48 +68,63 @@ const AddPartners = () => {
       });
 
       const { fileUrl } = resData?.data?.data;
-      const { id } = resData?.data?.data;
       if (resData) {
         Toast({
           type: "success",
-          message: t("w252"),
+          message: "Successfully",
         });
       }
-      setPhotoId(id);
+
       setUrlFormData(fileUrl);
     } catch (error) {
       console.log(error);
     }
   };
+
+
   const saveQuestion = async () => {
     setLoading(true);
     if (!id) {
       if (
-        title && photoId
+        titleEn &&
+        titleRu &&
+        titleUz &&
+        contentEn &&
+        contentUz &&
+        contentRu &&
+        (videoUrl || gamePhotoUrl)
       ) {
         try {
-          const res = await request.post("/admin/blog", {
+          const res = await request.post("/admin/games", {
             data: {
-              title: title,
-              partnerPhotoUrl: urlFormData,
+              typeOfGame: typeOfGame,
+              titleUz: titleUz,
+              contentUz: contentUz,
+              titleRu: titleRu,
+              contentRu: contentRu,
+              titleEn: titleEn,
+              contentEn: contentEn,
+              gamePhotoUrl: urlFormData,
+              videoUrl: videoUrl,
               isActive: isActive,
             },
           });
           setLoading(false);
 
-          navigate("/admin/blog");
+          navigate("/admin/pcmbgame");
           Toast({
             type: "success",
-            message: t("w252"),
+            message: "Successfully",
           });
           setState({
+            typeOfGame: "",
             titleUz: "",
             contentUz: "",
             titleRu: "",
             contentRu: "",
             titleEn: "",
             contentEn: "",
-            blogPhotoUrl: "",
+            gamePhotoUrl: "",
             videoUrl: "",
             isActive: false,
           });
@@ -110,24 +145,41 @@ const AddPartners = () => {
       }
     } else {
       if (
-        title && photoId
+        typeOfGame &&
+        titleEn &&
+        titleRu &&
+        titleUz &&
+        contentEn &&
+        contentUz &&
+        contentRu &&
+        (videoUrl || gamePhotoUrl)
       ) {
         try {
-          const res = await request.put(`/admin/partner`, {
-            data: {
-              title: title,
-              partnerPhotoUrl: urlFormData,
-              isActive: isActive,
+          const res = await request.put(
+            `/admin/games`,
+            {
+              data: {
+                id: id.slice(1),
+                typeOfGame: typeOfGame,
+                titleUz: titleUz,
+                contentUz: contentUz,
+                titleRu: titleRu,
+                contentRu: contentRu,
+                titleEn: titleEn,
+                contentEn: contentEn,
+                gamePhotoUrl: urlFormData,
+                videoUrl: videoUrl,
+                isActive: isActive,
+              },
             },
-            transactionTime: "2023-08-14T15:43:01.8152087",
-          });
+            Toast({
+              type: "success",
+              message: "Successfully",
+            })
+          );
           setLoading(false);
+          navigate(`/admin/pcmbgame`);
 
-          navigate(`/admin/partner`);
-          Toast({
-            type: "success",
-            message: t("w252"),
-          });
           dispatch({
             type: "setSelected",
             payload: null,
@@ -137,6 +189,7 @@ const AddPartners = () => {
           });
         } catch (error) {
           setLoading(false);
+          console.log(error);
           Popup({
             title: error?.response?.data?.resultMsg,
             type: "warning",
@@ -160,17 +213,30 @@ const AddPartners = () => {
       [name]: value,
     });
   };
+const selectTheme = (theme) => {
+setState({...state,
+  typeOfGame: theme.title
+});
+};
 
-
-  console.log(state);
   return (
     <Wrapper>
       {loading && <LoadingAdmin />}
       <div className="ColumnBox">
         <p setState className="Header">
-          {id ? t("adminPage.add") : t('adminPage.partner')}
+          {id ? t("adminPage.add") : t("adminPage.pcmbgame")}
         </p>
         <div className="TagBoxEnd" style={{ gap: "15px" }}>
+          <Select
+            width={"250px"}
+            height={"40px"}
+            options={options}
+            value={typeOfGame}
+            header={"Before choose theme"}
+						onChange={(e) => selectTheme(e)}
+
+          />
+          <p>{t("adminPage.remember2")}</p>
           <div>
             {" "}
             <Wrapper.Flex>
@@ -178,7 +244,7 @@ const AddPartners = () => {
                 onClick={(v) => setState({ ...state, isActive: v })}
                 checked={isActive ? 1 : 0}
               />{" "}
-              {t("adminPage.action")}
+              {t("adminPage.status")}
             </Wrapper.Flex>
             <Button
               bg={"#fff"}
@@ -189,7 +255,7 @@ const AddPartners = () => {
                 navigate(-1);
                 setState({
                   ...state,
-                  blogPhotoUrl: null,
+                  gamePhotoUrl: null,
                   title: "",
                   content: "",
                   attachmentId: "",
@@ -222,10 +288,18 @@ const AddPartners = () => {
                 header="Sarlavhani kiriting !"
                 color={"#000"}
                 hc={"#000"}
-                name={"title"}
+                name={"titleUz"}
                 onChange={handleTitleChange}
-                value={title}
+                value={titleUz}
                 margin={"0 0 25px 0"}
+              />
+              <TextareaComponent
+                className="textarea"
+                name="contentUz"
+                height={"100px"}
+                header="Mazmun"
+                onChange={handleTitleChange}
+                value={contentUz}
               />
             </div>
             <div className="image-link-box">
@@ -234,7 +308,7 @@ const AddPartners = () => {
                 className="Wrapper-input-f"
                 style={{
                   backgroundImage: `url('${
-                    urlFormData ? urlFormData : state.blogPhotoUrl
+                    urlFormData ? urlFormData : state.gamePhotoUrl
                   }')`,
                   cursor: "pointer",
                 }}
@@ -249,17 +323,73 @@ const AddPartners = () => {
                   onChange={handleInputChange}
                 />
                 <div>
-                  {urlFormData || state.blogPhotoUrl ? (
+                  {urlFormData || state.gamePhotoUrl ? (
                     <div></div>
                   ) : (
                     t("adminPage.upload")
                   )}
                 </div>
                 <img
-                  src={urlFormData || state.blogPhotoUrl ? "" : BgFile}
+                  src={urlFormData || state.gamePhotoUrl ? "" : BgFile}
                   alt="upload img"
                 />
               </label>
+              <Input
+                width={"100%"}
+                header="You Tube havolasini kiriting"
+                color={"#000"}
+                hc={"#000"}
+                name={"videoUrl"}
+                onChange={handleTitleChange}
+                value={videoUrl}
+                margin={"0 0 25px 0"}
+              />
+            </div>
+          </div>
+          <div className="blogTwoInput">
+            <div className="inputbox">
+              <Input
+                width={"100%"}
+                placeholder={"title"}
+                header="Введите заголовок !"
+                color={"#000"}
+                hc={"#000"}
+                name={"titleRu"}
+                onChange={handleTitleChange}
+                value={titleRu}
+                margin={"0 0 25px 0"}
+              />
+              <TextareaComponent
+                className="textarea"
+                name="contentRu"
+                height={"100px"}
+                header="Содержание"
+                onChange={handleTitleChange}
+                value={contentRu}
+              />
+            </div>
+          </div>
+          <div className="blogTwoInput">
+            <div className="inputbox">
+              <Input
+                width={"100%"}
+                placeholder={"title"}
+                header={t("adminPage.blogPlaceholder")}
+                color={"#000"}
+                hc={"#000"}
+                name={"titleEn"}
+                onChange={handleTitleChange}
+                value={titleEn}
+                margin={"0 0 25px 0"}
+              />
+              <TextareaComponent
+                className="textarea"
+                name="contentEn"
+                height={"100px"}
+                header={t("adminPage.textBlog")}
+                onChange={handleTitleChange}
+                value={contentEn}
+              />
             </div>
           </div>
         </Wrapper.WrapTable>
@@ -268,4 +398,4 @@ const AddPartners = () => {
   );
 };
 
-export default AddPartners;
+export default AddPcMgGame;

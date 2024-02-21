@@ -1,21 +1,21 @@
 import { lazy } from 'react';
 const Home = lazy(() => import('../pages/Admin/Home/index'));
 const Blog = lazy(() => import('../pages/Admin/Blog/index'));
-const Partners = lazy(() => import('../pages/Admin/Partners/index'));
-const PcMbGame = lazy(() => import('../pages/Admin/PcMbGame/index'));
-const AddParners = lazy(() => import('../pages/Admin/Partners/AddPartners/index'));
 const AddBlog = lazy(() => import('../pages/Admin/Blog/AddBlog/index'));
+const Partners = lazy(() => import('../pages/Admin/Partners/index'));
+const AddPartners = lazy(() => import('../pages/Admin/Partners/AddPartners/index'));
+const PcMbGame = lazy(() => import('../pages/Admin/PCMBgame'));
+const AddPcMgGame = lazy(() => import('../pages/Admin/PCMBgame/AddPCMB'));
+
 
 export const SidebarData = [
 	{
 		id: 1,
-		title: 'Home',
 		path: '/admin',
 		component: Home,
 	},
 	{
 		id: 2,
-		title: 'Talents',
 		path: '/admin/blog',
 		component: Blog,
 	},
@@ -44,21 +44,35 @@ export const SidebarData = [
 	{
 		id: 6,
 		path: '/admin/partner/add',
-		component: AddParners,
+		component: AddPartners,
 		hidden: true,
 	},
 	,
 	{
 		id: 7,
-		path: '/admin/partner/modify/:id',
-		component: AddParners,
+		path: '/admin/partner/edit/:id',
+		component: AddPartners,
 		hidden: true,
 	},
 	,
 	{
-		id: 5,
+		id: 8,
 		path: '/admin/pcmbgame',
 		component: PcMbGame,
+		hidden: true,
+	},
+	,
+	{
+		id: 9,
+		path: '/admin/pcmbgame/add',
+		component: AddPcMgGame,
+		hidden: true,
+	},
+	,
+	{
+		id: 10,
+		path: '/admin/pcmbgame/edit/:id',
+		component: AddPcMgGame,
 		hidden: true,
 	},
 ];

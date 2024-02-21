@@ -2,39 +2,46 @@ import React, { useState, useEffect } from 'react';
 import { Wrapper } from './style';
 import { TalentTableHeader } from './header';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useBlogContex } from '../../../context/useContext';
+import { usePcMbContext } from '../../../context/useContext';
 import useSearch from '../../../services/Search';
 import { useTranslation } from 'react-i18next';
 import Button from '../../../components/Reuseable/Button';
 import Table from '../../../components/Reuseable/CustomTable';
 import Pagination from '../../../components/Reuseable/Pagination';
 import request from '../../../services/request';
+import Swal from 'sweetalert2';
 
-const PcMbGame  = () => {
+const PcMbGame = () => {
 	const column = TalentTableHeader()
 	const { t } = useTranslation();
 	const query = useSearch();
 	const [pagination, setPagination] = useState({});
 	const [loading, setLoading] = useState(false);
-	const [searchValue, setSearchValue] = useState('');
 	const { search } = useLocation();
-	const [{ blogs }, dispatch] = useBlogContex();
+	const [{ pcmbGames }, dispatch] = usePcMbContext();
 
 	const navigate = useNavigate();
 	const getBlogs = async () => {
 		setLoading(true);
 		try {
-			const res = await request.get(`/admin/blogs${search || ''}`);
+			const res = await request.get(`/admin/games${search || ''}`);
 			setPagination(res?.data?.pagination);
 			dispatch({
-				type: 'setPartners',
+				type: 'setGames',
 				payload: res?.data?.data,
 			});
 			setLoading(false);
 		} catch (error) {
 			console.error(error);
+			Swal.fire({
+				icon: 'error',
+				title: 'Xatolik',
+				text: error.message,
+			});
 		}
-	};
+	}; 
+	
+
 	useEffect(() => {
 		getBlogs();
 	}, [search,localStorage.getItem('i18nextLng')]);
@@ -43,7 +50,7 @@ const PcMbGame  = () => {
 		<Wrapper>
 			<div className="FlexBox">
 				<div className="ColumnBox">
-					<p className="Header">{t('adminPage.partner')}</p>
+					<p className="Header">{t('adminPage.pcmbgame')}</p>
 					<div className="TagBox">
 						<div className="FlexBox">
 							<div></div>
@@ -51,14 +58,14 @@ const PcMbGame  = () => {
 								bg={'#0B3A48'}
 								width={'150px'}
 								height={'42px'}
-								onClick={() => navigate('/admin/partner/add')}
+								onClick={() => navigate('/admin/pcmbgame/add')}
 							>
 								{t('adminPage.add')}
 							</Button>
 						</div>
 					</div>
 					<Wrapper.WrapTable>
-						<Table column={column} rowData={blogs} loading={loading} />
+						<Table column={column} rowData={pcmbGames} loading={loading} />
 					</Wrapper.WrapTable>
 					<Pagination
 						current={Number(query.get('page')) || 0}

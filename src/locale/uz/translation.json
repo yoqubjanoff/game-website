@@ -74,8 +74,11 @@
   "submit": "Yuborish",
   "status": "Holat",
   "remember" : "Videoni you tube havolasini yoki rasmni yuklash shart !",
+  "remember2" : "Content joylashdan avval qaysi bo'limga yuklashni tanlang !",
   "upload": "Muqova yuklang",
   "partner": "Hamkorlar",
-  "pcmbgame": "PC MB O'yinlar"
+  "pcmbgame": "PC MB O'yinlar",
+  "homeTitle": "Kelgan xabarlar",
+  "phoneNumber": "Telefon raqam"
  }
 }

@@ -1,5 +1,5 @@
 import { Wrapper } from "./style";
-import { usePartnerContext } from "../../../context/useContext";
+import {useHomeContext } from "../../../context/useContext";
 import { useNavigate, useParams } from "react-router-dom";
 import trash from "../../../assets/icons/trashIcon.svg";
 import penIcon from "../../../assets/icons/pen.svg";
@@ -14,13 +14,13 @@ const ActionRenderer = ({ data }) => {
   const { t } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
-  const [selected, dispatch] = usePartnerContext();
+  const [, dispatch] = useHomeContext();
 
   const getAdmins = async () => {
     try {
-      const res = await request.get("/admin/partners");
+      const res = await request.get("/admin/call-request");
       dispatch({
-        type: "setPartners",
+        type: "setHome",
         payload: res?.data?.data,
       });
     } catch (error) {
@@ -29,11 +29,11 @@ const ActionRenderer = ({ data }) => {
   };
   const deleteF = async () => {
     try {
-      const res = await request.delete(`/admin/partners/${data?.id}`);
+      const res = await request.delete(`/admin/call-request/${data?.id}`);
       getAdmins();
       Toast({
         type: "success",
-        message: "Successfully",
+        message: "Succesfully",
       });
     } catch (error) {
       Swal.fire(error?.response?.data?.resultMsg);
@@ -48,35 +48,11 @@ const ActionRenderer = ({ data }) => {
       type: "question",
     });
   };
-  const editFunc = async () => {
-    const res = await request.get(`/admin/partners/${data.id}`);
-    dispatch({
-      type: "setSelected",
-      payload: res?.data?.data,
-    });
-
-    navigate(`/admin/partner/edit/:${data?.id}`);
-  };
   return (
-    <Wrapper.Flex style={{ width: "100%", justifyContent: "start" }}>
+    <Wrapper.Flex style={{ width: "100%", justifyContent: "center" }}>
       <Wrapper.Box onClick={deleteFunc}>
         <img src={trash} alt="delet icon" />
       </Wrapper.Box>
-      <Wrapper.Box onClick={editFunc}>
-        <img src={penIcon} alt="delet icon" />
-      </Wrapper.Box>
-    </Wrapper.Flex>
-  );
-};
-
-const RendererPhoto = ({ data }) => {
-  return (
-    <Wrapper.Flex>
-      <img
-        className="blogImgRen"
-        src={data?.partnerPhotoUrl}
-        alt="image partner"
-      />
     </Wrapper.Flex>
   );
 };
@@ -87,26 +63,36 @@ const RendererDate = ({ data }) => {
 };
 
 const RendererTitle = ({ data }) => {
-  return (
-    <Wrapper.Flex>
-      <a href={data?.url} target="_blanck">{data?.url?.slice(0, 35)}...</a>
-    </Wrapper.Flex>
-  );
+    return <Wrapper.Flex>{data?.fullName}</Wrapper.Flex>;
+  
+};
+const RendererDesc = ({ data }) => {
+    return <Wrapper.Flex>{data?.comment?.slice(0,15)}...</Wrapper.Flex>;
+};
+
+const RendererEmail = ({ data }) => {
+  return <Wrapper.Flex>{data?.email}</Wrapper.Flex>;
+};
+
+const RenderNumber = ({ data }) => {
+  return <Wrapper.Flex>{data?.phoneNumber}</Wrapper.Flex>;
 };
 
 const RendererStatus = ({ data }) => {
   const { t } = useTranslation();
   const statusChange = async (v) => {
+    console.log(v);
     try {
-      const res = await request.put(`/admin/partners`, {
+      const res = await request.put(`/admin/call-request`, {
         data: {
           id: data.id,
           isActive: v,
         },
       });
+
       Toast({
         type: "success",
-        message: "Successfully added",
+        message: "Succesfully",
       });
     } catch (error) {
       Swal.fire(error?.code);
@@ -115,7 +101,7 @@ const RendererStatus = ({ data }) => {
   };
 
   return (
-    <Wrapper.Flex style={{ justifyContent: "center", width: "100%" }}>
+    <Wrapper.Flex>
       <Switch
         onClick={(e) => statusChange(e)}
         checked={data?.isActive ? 1 : 0}
@@ -130,30 +116,33 @@ export const TalentTableHeader = () => {
 
   return [
     {
-      headerName: t("adminPage.image"),
-      cellRenderer: RendererPhoto,
-      flex: 0.6,
-    },
-
-    {
       headerName: t("adminPage.title"),
       cellRenderer: RendererTitle,
-      flex: 1,
+      flex: 0.7,
+    },
+    {
+      headerName: t("adminPage.desc"),
+      cellRenderer: RendererDesc,
+      flex: 0.5,
+    },
+    {
+      headerName: t("adminPage.phoneNumber"),
+      cellRenderer: RenderNumber,
+      flex: 0.5,
     },
     {
       headerName: t("adminPage.date"),
       cellRenderer: RendererDate,
-      flex: 0.7,
+      flex: 0.3,
+    },
+    {
+      headerName: t("contactPage.email"),
+      cellRenderer: RendererEmail,
+      flex: 0.3,
     },
     {
       headerName: t("adminPage.action"),
       cellRenderer: ActionRenderer,
-      flex: 0.6,
-    },
-    ,
-    {
-      headerName: t("adminPage.action"),
-      cellRenderer: RendererStatus,
       flex: 0.6,
     },
   ];

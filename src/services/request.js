@@ -47,24 +47,24 @@ request.interceptors.response.use(
 		return response;
 	},
 	(err) => {
-		if (err?.response?.status === 401 || err?.response?.status === 403) {
-			if (
-				window.location.pathname !== '/signin' &&
-				window.location.pathname !== '/' &&
-				window.location.pathname !== '/register' &&
-				window.location.pathname?.search('admin/sign-in') < 0 &&
-				window.location.pathname?.search('reset') < 0 &&
-				window.location.pathname?.search('verify') < 0
-			) {
-				if(window.location.pathname?.search('admin') > 0){
-					(window.location.pathname = '/admin/sign-in')
-				}
-			} else {
-				return Promise.reject(err);
-			}
-		} else {
-			return Promise.reject(err);
-		}
+	// 	if (err?.response?.status === 401 || err?.response?.status === 403) {
+	// 		if (
+	// 			window.location.pathname !== '/register' &&
+	// 			window.location.pathname !== '/' &&
+	// 			window.location.pathname !== '/register' &&
+	// 			window.location.pathname?.search('/register') < 0 &&
+	// 			window.location.pathname?.search('reset') < 0 &&
+	// 			window.location.pathname?.search('verify') < 0
+	// 		) {
+	// 			if(window.location.pathname?.search('admin') > 0){
+	// 				(window.location.pathname = '/register')
+	// 			}
+	// 		} else {
+	// 			return Promise.reject(err);
+	// 		}
+	// 	} else {
+	// 		return Promise.reject(err);
+	// 	}
 
 	},
 );

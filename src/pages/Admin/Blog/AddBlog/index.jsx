@@ -31,7 +31,7 @@ const AddBlog = () => {
     isActive: selected?.isActive || false,
   });
 
-  const [urlFormData, setUrlFormData] = useState(); 
+  const [urlFormData, setUrlFormData] = useState();
 
   const {
     isActive,
@@ -80,11 +80,10 @@ const AddBlog = () => {
         titleUz &&
         contentEn &&
         contentUz &&
-        contentRu &&
-        (videoUrl || blogPhotoUrl)
+        contentRu
       ) {
         try {
-          const res = await request.post("/admin/blog", {
+          const res = await request.post("/admin/blogs", {
             data: {
               titleUz: titleUz,
               contentUz: contentUz,
@@ -96,25 +95,24 @@ const AddBlog = () => {
               videoUrl: videoUrl,
               isActive: isActive,
             },
-          
           });
           setLoading(false);
 
           navigate("/admin/blog");
           Toast({
             type: "success",
-            message: t("w252"),
+            message: t("Succesfully"),
           });
           setState({
-            titleUz: '',
-              contentUz: '',
-              titleRu: '',
-              contentRu: '',
-              titleEn: '',
-              contentEn: '',
-              blogPhotoUrl: '',
-              videoUrl: '',
-              isActive: false,
+            titleUz: "",
+            contentUz: "",
+            titleRu: "",
+            contentRu: "",
+            titleEn: "",
+            contentEn: "",
+            blogPhotoUrl: "",
+            videoUrl: "",
+            isActive: false,
           });
         } catch (error) {
           setLoading(false);
@@ -142,8 +140,9 @@ const AddBlog = () => {
         (videoUrl || blogPhotoUrl)
       ) {
         try {
-          const res = await request.put(`/admin/blog`, {
+          const res = await request.put(`/admin/blogs`, {
             data: {
+              id: id.slice(1),
               titleUz: titleUz,
               contentUz: contentUz,
               titleRu: titleRu,
@@ -153,16 +152,15 @@ const AddBlog = () => {
               blogPhotoUrl: urlFormData,
               videoUrl: videoUrl,
               isActive: isActive,
-            },
-            transactionTime: "2023-08-14T15:43:01.8152087",
-          });
-          setLoading(false);
-
-          navigate(`/admin/blog`);
+            }
+          },
           Toast({
             type: "success",
-            message: t("w252"),
-          });
+            message: t("Succesfully "),
+          }));
+          setLoading(false);
+          navigate(`/admin/blog`);
+          
           dispatch({
             type: "setSelected",
             payload: null,
@@ -172,6 +170,7 @@ const AddBlog = () => {
           });
         } catch (error) {
           setLoading(false);
+          console.log(error);
           Popup({
             title: error?.response?.data?.resultMsg,
             type: "warning",
@@ -195,7 +194,8 @@ const AddBlog = () => {
       [name]: value,
     });
   };
-  console.log(state);
+
+  
   return (
     <Wrapper>
       {loading && <LoadingAdmin />}
