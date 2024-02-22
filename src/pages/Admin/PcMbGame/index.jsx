@@ -11,7 +11,7 @@ import Pagination from '../../../components/Reuseable/Pagination';
 import request from '../../../services/request';
 import Swal from 'sweetalert2';
 
-const PcMbGame = () => {
+const Pcmainpage = () => {
 	const column = TalentTableHeader()
 	const { t } = useTranslation();
 	const query = useSearch();
@@ -77,4 +77,4 @@ const PcMbGame = () => {
 	);
 };
 
-export default PcMbGame;
+export default Pcmainpage;

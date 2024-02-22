@@ -4,8 +4,8 @@ const Blog = lazy(() => import('../pages/Admin/Blog'));
 const AddBlog = lazy(() => import('../pages/Admin/Blog/AddBlog'));
 const Partners = lazy(() => import('../pages/Admin/Partners'));
 const AddPartners = lazy(() => import('../pages/Admin/Partners/AddPartners'));
-const PcMbGame = lazy(() => import('../pages/Admin/Pcmbgame/index'));
-const AddPcMgGame = lazy(() => import('../pages/Admin/Pcmbgame/Addpcmbgame'));
+const Pcmbgame = lazy(() => import('../pages/Admin/Pcmbgame/index'));
+const Addpcmbgame = lazy(() => import('../pages/Admin/Pcmbgame/Addpcmbgame'));
 
 
 export const SidebarData = [
@@ -58,21 +58,21 @@ export const SidebarData = [
 	{
 		id: 8,
 		path: '/admin/pcmbgame',
-		component: PcMbGame,
+		component: Pcmbgame,
 		hidden: true,
 	},
 	,
 	{
 		id: 9,
 		path: '/admin/pcmbgame/add',
-		component: AddPcMgGame,
+		component: Addpcmbgame,
 		hidden: true,
 	},
 	,
 	{
 		id: 10,
 		path: '/admin/pcmbgame/edit/:id',
-		component: AddPcMgGame,
+		component: Addpcmbgame,
 		hidden: true,
 	},
 ];
