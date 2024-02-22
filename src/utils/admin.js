@@ -1,11 +1,11 @@
 import { lazy } from 'react';
-const Home = lazy(() => import('../pages/Admin/Home/index'));
-const Blog = lazy(() => import('../pages/Admin/Blog/index'));
-const AddBlog = lazy(() => import('../pages/Admin/Blog/AddBlog/index'));
-const Partners = lazy(() => import('../pages/Admin/Partners/index'));
-const AddPartners = lazy(() => import('../pages/Admin/Partners/AddPartners/index'));
-const PcMbGame = lazy(() => import('../pages/Admin/PCMBgame/index'));
-const AddPcMgGame = lazy(() => import('../pages/Admin/PCMBgame/AddPCMB/index'));
+const Home = lazy(() => import('../pages/Admin/Home'));
+const Blog = lazy(() => import('../pages/Admin/Blog'));
+const AddBlog = lazy(() => import('../pages/Admin/Blog/AddBlog'));
+const Partners = lazy(() => import('../pages/Admin/Partners'));
+const AddPartners = lazy(() => import('../pages/Admin/Partners/AddPartners'));
+const PcMbGame = lazy(() => import('../pages/Admin/PCMBgame'));
+const AddPcMgGame = lazy(() => import('../pages/Admin/PCMBgame/AddPcMbgame'));
 
 
 export const SidebarData = [

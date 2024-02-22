@@ -74,10 +74,9 @@
     "remember": "Video you tube link or picture must be uploaded !",
     "partner": "Partners",
     "pcmbgame": "PC MB Games",
-  "remember2" : "Choose which section to upload before posting content!",
-  "homeTitle": "Incoming messages",
-  "phoneNumber": "Phone number"
-
-
+    "remember2": "Choose which section to upload before posting content!",
+    "homeTitle": "Incoming messages",
+    "phoneNumber": "Phone number",
+    "link": "Link"
   }
 }

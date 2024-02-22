@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { OurStyle } from "./style";
 import {
   Navigation,
@@ -7,21 +7,37 @@ import {
   A11y,
   EffectCoverflow,
 } from "swiper/modules";
+import request from "../../../services/request";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/effect-coverflow";
-import partners1 from "../../../assets/images/partners1.png";
-import partners2 from "../../../assets/images/partners2.png";
-import partners3 from "../../../assets/images/partners3.png";
-import partners4 from "../../../assets/images/partners4.png";
-import partners5 from "../../../assets/images/partners5.png";
 import { useTranslation } from "react-i18next";
+import Swal from "sweetalert2";
 
 const OurPartner = () => {
   const { t } = useTranslation();
+  const [our, setOur] = useState([]);
+
+  const getBlogs = async () => {
+    try {
+      const res = await request.get(`/public/partners`);
+      setOur(res?.data?.data);
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        icon: "error",
+        title: "Server bilan xatolik",
+        text: "An error occurred while loading data. Please check your internet connection and server status.",
+      });
+    }
+  };
+
+  useEffect(() => {
+    getBlogs();
+  }, []);
 
   return (
     <OurStyle>
@@ -37,7 +53,7 @@ const OurPartner = () => {
                 A11y,
                 EffectCoverflow,
               ]}
-              effect={"coverflow"}
+              effect="coverflow"
               grabCursor
               centeredSlides={true}
               loop={true}
@@ -57,36 +73,22 @@ const OurPartner = () => {
               pagination={{ clickable: true }}
               scrollbar={{ draggable: false }}
             >
-              <SwiperSlide>
-                <OurStyle.Img src={partners1} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <OurStyle.Img src={partners2} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <OurStyle.Img src={partners3} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <OurStyle.Img src={partners3} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <OurStyle.Img src={partners5} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <OurStyle.Img src={partners3} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <OurStyle.Img src={partners2} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <OurStyle.Img src={partners4} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <OurStyle.Img src={partners5} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <OurStyle.Img src={partners1} />
-              </SwiperSlide>
+              {our.map((partner) => (
+                <SwiperSlide key={partner.id}>
+                  <a
+                    href={partner.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={partner.partnerPhotoUrl}
+                      alt={partner.id}
+                      width={"283px"}
+                      height={"215px"}
+                    />
+                  </a>
+                </SwiperSlide>
+              ))}
             </Swiper>
           </OurStyle.CarouselBox>
         </OurStyle.Wrapper>

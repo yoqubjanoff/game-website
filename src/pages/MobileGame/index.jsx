@@ -11,19 +11,30 @@ import { useTranslation } from "react-i18next";
 
 import MobileGame from '../../components/MobileGame';
 import request from '../../services/request';
+import Loading from '../../components/Loading';
+import Swal from 'sweetalert2';
 
 const MobileGames = () => {
   const { t, i18n } = useTranslation();
   const [games, setGames] = useState([]);
-  const PC = "PC"
+  const [loading , setLoading] = useState(true);
+
+  const MOBILE = "MOBILE"
   const getMobile = async () => {
     try {
       const res = await request.get(
-        `/public/games?type=${PC}&lan=${localStorage.getItem("i18nextLng")}`
+        `/public/games?type=${MOBILE}&lan=${localStorage.getItem("i18nextLng")}`
       );
       setGames(res?.data?.data);
+      setLoading(false);  
     } catch (error) {
       console.error(error);
+      setLoading(false);  
+      Swal.fire({
+        icon: 'error',
+        title: 'Server bilan xatolik',
+        text: 'An error occurred while loading data. Please check your internet connection and server status.',
+      });
     }
   };
   useEffect(() => {
@@ -31,13 +42,21 @@ const MobileGames = () => {
   }, [i18n.language]);
   console.log(games);
   return (
-    <main className='pswrapper'>
+    <div className='pswrapper'>
       <MobileGame/>
-      <Box imageSrc={box1} title={'Billy'} desc={'Mine crystals and destroy enemies with Billy using the built-in Scratch programming window '} backgroundImage={box1}/>
-      <Box imageSrc={boxImg2} title={'The Denominator'} desc={'Mine crystals and destroy enemies with Billy using the built-in Scratch programming window'} backgroundImage={box2}/>
-      <Box imageSrc={boxImg3} title={'AO Oni'} desc={'Mine crystals and destroy enemies with Billy using the built-in Scratch programming window'} backgroundImage={box3}/>
-      <Box imageSrc={boxImg4} title={'Shoot Strike'} desc={'Mine crystals and destroy enemies with Billy using the built-in Scratch programming window'} backgroundImage={boxImg4}/>
-    </main>
+       { loading ? (<Loading />) : ( 
+        games?.map((game) => (
+          <Box
+            key={game?.id}
+            imageSrc={game?.gamePhotoUrl}
+            title={game?.title}
+            videoId={game?.videoUrl}
+            desc={game?.content}
+            backgroundImage={game?.gamePhotoUrl}
+          />
+        ))
+      )}
+    </div>
   )
 }
 

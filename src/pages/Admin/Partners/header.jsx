@@ -136,7 +136,7 @@ export const TalentTableHeader = () => {
     },
 
     {
-      headerName: t("adminPage.title"),
+      headerName: t("adminPage.link"),
       cellRenderer: RendererTitle,
       flex: 1,
     },

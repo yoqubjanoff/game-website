@@ -5,6 +5,7 @@ import BoxBlog from "../../components/Reuseable/BoxBlog";
 import request from "../../services/request";
 import { useTranslation } from "react-i18next";
 import Loading from "../../components/Loading";
+import Swal from "sweetalert2";
 
 const Blog = () => {
   const { t, i18n } = useTranslation();
@@ -21,6 +22,11 @@ const Blog = () => {
     } catch (error) {
       console.error(error);
       setLoading(false);
+      Swal.fire({
+        icon: 'error',
+        title: 'Server bilan xatolik',
+        text: 'An error occurred while loading data. Please check your internet connection and server status.',
+      });
     }
   };
 

@@ -5,6 +5,7 @@ import "./index.css";
 import { useTranslation } from "react-i18next";
 import request from "../../services/request";
 import Loading from "../../components/Loading";
+import Swal from "sweetalert2";
 
 const Pcgame = () => {
   const { t, i18n } = useTranslation();
@@ -23,6 +24,11 @@ const Pcgame = () => {
       } catch (error) {
         console.error(error);
         setLoading(false);
+        Swal.fire({
+          icon: 'error',
+          title: 'Server bilan xatolik',
+          text: 'An error occurred while loading data. Please check your internet connection and server status.',
+        });
       }
     };
     getMobile();

@@ -55,6 +55,7 @@ const AddPartners = () => {
       setState({
         ...state,
         attachmentId: id, 
+        partnerPhotoUrl: fileUrl
       });
       setUrlFormData(fileUrl);
     } catch (error) {
@@ -69,11 +70,10 @@ const AddPartners = () => {
   const saveQuestion = async () => {
     setLoading(true);
     if (!id) {
-      if (url) {
+      if (partnerPhotoUrl) {
         try {
           const res = await request.post("/admin/partners", {
             data: {
-              id: id.slice(1),
               url: url,
               attachmentId: photoId,
               partnerPhotoUrl: urlFormData,
@@ -109,7 +109,7 @@ const AddPartners = () => {
         });
       }
     } else {
-      if (url && id) {
+      if (partnerPhotoUrl) {
         try {
           const res = await request.put(`/admin/partners`, {
             data: {
@@ -162,6 +162,8 @@ const AddPartners = () => {
     });
   };
 
+
+  console.log(state);
   return (
     <Wrapper>
       {loading && <LoadingAdmin />}
