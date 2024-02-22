@@ -14,7 +14,7 @@ import request from "../../../../services/request";
 import Popup from "../../../../components/Reuseable/Popup";
 import Select from "../../../../components/Reuseable/Select";
 
-const AddPcMgGame = () => {
+const Addpcmbgame = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [{ selected }, dispatch] = usePcMbContext();
@@ -396,4 +396,4 @@ setState({...state,
   );
 };
 
-export default AddPcMgGame;
+export default Addpcmbgame;
