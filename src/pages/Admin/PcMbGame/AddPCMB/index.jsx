@@ -91,8 +91,7 @@ const AddPcMgGame = () => {
         titleUz &&
         contentEn &&
         contentUz &&
-        contentRu &&
-        (videoUrl || gamePhotoUrl)
+        contentRu
       ) {
         try {
           const res = await request.post("/admin/games", {
@@ -151,8 +150,7 @@ const AddPcMgGame = () => {
         titleUz &&
         contentEn &&
         contentUz &&
-        contentRu &&
-        (videoUrl || gamePhotoUrl)
+        contentRu
       ) {
         try {
           const res = await request.put(

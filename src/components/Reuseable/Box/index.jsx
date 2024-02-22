@@ -1,18 +1,37 @@
 import React, { useEffect, useState } from "react";
 import { BoxStyle } from "./style";
+import tempImg from "../../../assets/images/box1.jpg";
 
-const Box = ({ title, desc, imageSrc,backgroundImage }) => {
-
+const Box = ({ title, desc, imageSrc, backgroundImage, videoId }) => {
+  let videoIdFromUrl;
+  if (videoId) {
+    videoIdFromUrl = videoId.includes("youtu.be")
+      ? videoId.split("/").pop()
+      : videoId.split("v=").pop();
+  }
   return (
     <BoxStyle>
       <BoxStyle.Container>
-        <BoxStyle.Wrapper bgimage={backgroundImage}>
+        <BoxStyle.Wrapper bgimage={imageSrc ? backgroundImage : tempImg}>
           <BoxStyle.TextBox>
             <BoxStyle.Title>{title}</BoxStyle.Title>
             <BoxStyle.Desc>{desc}</BoxStyle.Desc>
           </BoxStyle.TextBox>
           <BoxStyle.ImgBox>
-            <BoxStyle.Img src={imageSrc} alt='game images' />
+            {imageSrc ? (
+              <BoxStyle.Img src={imageSrc} />
+            ) : (
+              videoId && (
+                <iframe
+                  className="ytb"
+                  src={`https://www.youtube.com/embed/${videoIdFromUrl}?autoplay=1&loop=1&mute=1`}
+                  title="YouTube video"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              )
+            )}
           </BoxStyle.ImgBox>
         </BoxStyle.Wrapper>
       </BoxStyle.Container>
@@ -20,6 +39,5 @@ const Box = ({ title, desc, imageSrc,backgroundImage }) => {
   );
 };
 
+
 export default Box;
-
-

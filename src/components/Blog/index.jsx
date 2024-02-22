@@ -8,6 +8,7 @@ const BlogComponent = () => {
     <PcStyle>
         <PcStyle.Wrapper>
             <PcStyle.Title>{t("home.header.nav.blog")}</PcStyle.Title>
+            <PcStyle.TitleBg>{t("home.header.nav.blog")}</PcStyle.TitleBg>
         </PcStyle.Wrapper>
     </PcStyle>
   )

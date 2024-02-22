@@ -136,6 +136,17 @@ BoxStyle.ImgBox = styled.div`
   &:nth-child(1)::before {
     animation-delay: -3s;
   }
+
+  .ytb{
+    width: 98.8%;
+  height: 98.8%;
+  position: absolute;
+  top: 3px;
+  bottom: 0px;
+  left: 5px;
+  right: 0;
+  z-index: 1;
+  }
 `;
 BoxStyle.Img = styled.img`
  width: 98.8%;

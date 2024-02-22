@@ -1,22 +1,51 @@
-import React from 'react'
-import PcGame from '../../components/Pcgame'
-import Box from '../../components/Reuseable/Box'
-import box1 from "../../assets/images/blogimg1.jpg";
-import box2 from "../../assets/images/blogimg2.jpg";
-import box3 from "../../assets/images/blogimg3.jpg";
-import box4 from "../../assets/images/blogimg4.jpg";
-import './index.css'
+import React, { useEffect, useState } from "react";
+import PcGame from "../../components/Pcgame";
+import Box from "../../components/Reuseable/Box";
+import "./index.css";
+import { useTranslation } from "react-i18next";
+import request from "../../services/request";
+import Loading from "../../components/Loading";
 
 const Pcgame = () => {
-  return (
-    <main className='pswrapper'>
-      <PcGame/>
-      <Box imageSrc={box1} title={'Billy'} desc={'Mine crystals and destroy enemies with Billy using the built-in Scratch programming window '} backgroundImage={box1}/>
-      <Box imageSrc={box2} title={'The Denominator'} desc={'Mine crystals and destroy enemies with Billy using the built-in Scratch programming window'} backgroundImage={box2}/>
-      <Box imageSrc={box3} title={'AO Oni'} desc={'Mine crystals and destroy enemies with Billy using the built-in Scratch programming window'} backgroundImage={box3}/>
-      <Box imageSrc={box4} title={'Shoot Strike'} desc={'Mine crystals and destroy enemies with Billy using the built-in Scratch programming window'} backgroundImage={box4}/>
-    </main>
-  )
-}
+  const { t, i18n } = useTranslation();
+  const [games, setGames] = useState([]);
+  const [loading , setLoading] = useState(true);
+  const PC = "PC";
 
-export default Pcgame
+  useEffect(() => {
+    const getMobile = async () => {
+      try {
+        const res = await request.get(
+          `/public/games?type=${PC}&lan=${localStorage.getItem("i18nextLng")}`
+        );
+        setGames(res?.data?.data);
+        setLoading(false);  
+      } catch (error) {
+        console.error(error);
+        setLoading(false);
+      }
+    };
+    getMobile();
+  }, [i18n.language]);
+
+  console.log(games);
+  return (
+    <div className="pswrapper">
+      <PcGame />
+      { loading ? (<Loading />) : ( 
+        games?.map((game) => (
+          <Box
+            key={game?.id}
+            imageSrc={game?.gamePhotoUrl}
+            title={game?.title}
+            videoId={game?.videoUrl}
+            desc={game?.content}
+            backgroundImage={game?.gamePhotoUrl}
+          />
+        ))
+      )}
+    </div>
+  );
+};
+
+export default Pcgame;

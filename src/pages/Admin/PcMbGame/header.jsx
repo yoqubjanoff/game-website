@@ -69,12 +69,50 @@ const ActionRenderer = ({ data }) => {
 };
 
 const RendererPhoto = ({ data }) => {
+  const getVideoIdFromUrl = (videoUrl) => {
+    if (!videoUrl) return null;
+
+    if (videoUrl.includes("youtu.be")) {
+      return videoUrl.split("/").pop();
+    } else {
+      return videoUrl.split("v=").pop();
+    }
+  };
+
+  const renderMedia = (gamePhotoUrl, videoUrl) => {
+    const photoAvailable = !!gamePhotoUrl;
+    const videoAvailable = !!videoUrl;
+
+    if (videoAvailable) {
+      const videoId = getVideoIdFromUrl(videoUrl);
+      if (videoId) {
+        return (
+          <iframe
+            className="blogImgRen"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&mute=1`}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;mute; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        );
+      }
+    }
+
+    if (photoAvailable) {
+      return <img className="blogImgRen" src={gamePhotoUrl} alt="image site" />;
+    }
+
+    return null; // Agar rasm va video ham bo'sh bo'lsa, hech narsa chiqarmaymiz
+  };
+
   return (
     <Wrapper.Flex>
-      <img className="blogImgRen" src={data?.blogPhotoUrl} alt="image site" />
+      {renderMedia(data?.gamePhotoUrl, data?.videoUrl)}
     </Wrapper.Flex>
   );
 };
+
 
 const RendererDate = ({ data }) => {
   const slicedClock = data?.typeOfGame?.slice(0, 10);
@@ -85,8 +123,7 @@ const RendererTitle = ({ data }) => {
   return <Wrapper.Flex>{data?.titleUz?.slice(0, 20)}...</Wrapper.Flex>;
 };
 const RendererDesc = ({ data }) => {
-    return <Wrapper.Flex>{data?.contentUz?.slice(0,20)}...</Wrapper.Flex>;
-  
+  return <Wrapper.Flex>{data?.contentUz?.slice(0, 20)}...</Wrapper.Flex>;
 };
 
 const RendererStatus = ({ data }) => {
