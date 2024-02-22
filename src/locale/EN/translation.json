@@ -1,0 +1,82 @@
+{
+  "home": {
+    "header": {
+      "nav": {
+        "home": "Home",
+        "pcGames": "PC Games",
+        "mobileGames": "Mobile Games",
+        "blog": "Blogs",
+        "contactUs": "Contact Us"
+      }
+    },
+    "hero": {
+      "title": " Covering every aspect of",
+      "titlePie": "Game Development",
+      "desc": "Explore a world of possibilities with our forward-thinking IT strategies. Our team of experts harnesses the latest technologies to ensure your business not only keeps pace but stays ahead of the curve",
+      "btn": "Contact Us"
+    },
+    "target": {
+      "title": "Who we are?",
+      "desc": "Explore a world of possibilities with our forward-thinking IT strategies. Our team of experts harnesses the latest technologies to ensure your business not only keeps pace but stays ahead of the curve"
+    },
+    "number": {
+      "Employees": "Exmployees",
+      "Projects": "Projects",
+      "Customers": "Customers",
+      "Offices": "Offices"
+    },
+    "team": {
+      "title": "Best Team",
+      "desc": "Our team consists of more than 100 developers and strives to create new interesting and challenging projects. Our team is always searching diligently and has a good experience in applying new technologies"
+    },
+    "program": {
+      "title": "Programs we use to create games"
+    },
+    "makes": {
+      "title": "What makes us stand up !",
+      "desc": "The motivation that makes us always work on our field and develop is that we love our field. With the games we create, we have our place not only in the domestic but also in the world market."
+    },
+    "our": {
+      "title": "Our partners"
+    }
+  },
+  "contactPage": {
+    "fullName": "Full Name",
+    "phoneNumber": "Phone number",
+    "email": "E-mail",
+    "message": "Message",
+    "send": "Send "
+  },
+  "adminPage": {
+    "admin": "Home",
+    "blog": "Blogs",
+    "pcMbGame": "PC & MB games",
+    "statistics": "Statistics",
+    "statements": "Messages",
+    "ourPartners": "Our partners",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "registrants": "New registrants",
+    "visits": "Total visits",
+    "add": "Add",
+    "image": "Image",
+    "title": "Title",
+    "date": "Date",
+    "action": "Action",
+    "desc": "Description",
+    "cansel": "Cansel",
+    "submit": "Submit",
+    "status": "Status",
+    "blogPlaceholder": "Enter title !",
+    "textBlog": "Content",
+    "upload": "Upload a cover",
+    "remember": "Video you tube link or picture must be uploaded !",
+    "partner": "Partners",
+    "pcmbgame": "PC MB Games",
+    "remember2": "Choose which section to upload before posting content!",
+    "homeTitle": "Incoming messages",
+    "phoneNumber": "Phone number",
+    "link": "Link"
+  }
+}

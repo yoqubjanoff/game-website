@@ -1,0 +1,85 @@
+{
+  "home": {
+    "header": {
+      "nav": {
+        "home": "Bosh sahifa",
+        "pcGames": "PC o'yinlari",
+        "mobileGames": "Mobil o’yinlar",
+        "blog": "Bloglar",
+        "contactUs": "Biz bilan bog’lan"
+      }
+    },
+    "hero": {
+      "title": "O‘yinlar yaratish bo‘yicha",
+      "titlePie": "iqtidorli jamoa",
+      "desc": "IT Investment Center - IT-ta'lim, frilans, creative iqtisodiyot va uni ichiga va kiruvchi oyin razrabotkasi bilan shugullanadi"
+    }
+    ,
+    "target": {
+      "title": "Biz kimmiz?",
+      "titlePie": "jihatlari rivojlantiriladi",
+      "desc": "Bizning jamoamiz 100 dan ortiq dasturchilardan iborat bolib, yangi qiziqarli va yuqori darajadagi loyihalarni yaratishga intiladi.",
+      "btn": "Biz bilan bog’lan"
+    }
+    ,
+    "number": {
+      "Employees" :"Xodimlar",
+      "Projects" :"Loyihalar",
+      "Customers" :"Mijozlar",
+      "Offices" :"Ofislar"
+    }
+    ,
+    "team": {
+      "title" :"Eng yaxshi jamoa",
+      "desc" :"Bizning jamoamiz 100 dan ortiq dastirchidan iborat bolib, yangi qiziqarli va qiyin loyihalarni yaratishga intiladi. Bizni jamoamiz doimo izlanuvchan tirishqoq va yangi texnologiyalarni qo'llash boyicha yaxshi tajribaga ega."
+    },
+    "program": {
+      "title": "O'yinlar yaratish uchun foydalanadigan dasturlarimiz"
+    }
+    ,
+    "makes": {
+      "title" :"Nega rivojlanishdan to'htamaymiz !",
+      "desc" :"Bizni doimo o'z sohamiz ustida ishlab rivojlanishimizga majbur qilayotgan motiv bu biz o'z sohamizni yaxshi ko'rishimizdir. Biz yaratyotgan o'yinlarimiz bilan nafaqat ichki balki jahon bozorida xam o'z o'rnimizga egamiz."
+    },
+    "our": {
+      "title" :"Bizning hamkorlar"
+    }
+  },
+  "contactPage": {
+    "fullName": "Ism Sharifingiz",
+    "phoneNumber": "Telefon raqam",
+    "email": "Eletron pochta",
+    "message": "Xabar",
+    "send": "Yuborish"
+  },
+ "adminPage" :{
+  "admin": "Bosh sahifa",
+  "blog": "Bloglar",
+  "pcMbGame": "PC & MB o'yinlar",
+  "statistics": "Statiskilar",
+  "statements": "Xabarlar",
+  "ourPartners": "Hamkorlarimiz",
+  "daily": "Kundalik",
+  "weekly": "Haftalik",
+  "monthly": "Oylik",
+  "registrants": "Yangi ro'yxatdan o'tganlar",
+  "visits": "Jami tashriflar",
+  "add": "Qo'shish",
+  "image": "Rasm",
+  "title": "Sarlavha",
+  "date": "Sana",
+  "action": "Harkat",
+  "desc": "Tarif",
+  "cansel": "Bekor qilish",
+  "submit": "Yuborish",
+  "status": "Holat",
+  "remember" : "Videoni you tube havolasini yoki rasmni yuklash shart !",
+  "remember2" : "Content joylashdan avval qaysi bo'limga yuklashni tanlang !",
+  "upload": "Muqova yuklang",
+  "partner": "Hamkorlar",
+  "pcmbgame": "PC MB O'yinlar",
+  "homeTitle": "Kelgan xabarlar",
+  "phoneNumber": "Telefon raqam",
+  "link" : "Havola"
+ }
+}
