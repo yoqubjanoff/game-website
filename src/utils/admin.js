@@ -4,8 +4,8 @@ const Blog = lazy(() => import('../pages/Admin/Blog/index'));
 const AddBlog = lazy(() => import('../pages/Admin/Blog/AddBlog/index'));
 const Partners = lazy(() => import('../pages/Admin/Partners/index'));
 const AddPartners = lazy(() => import('../pages/Admin/Partners/AddPartners/index'));
-const PcMbGame = lazy(() => import('../pages/Admin/PCMBgame'));
-const AddPcMgGame = lazy(() => import('../pages/Admin/PCMBgame/AddPCMB'));
+const PcMbGame = lazy(() => import('../pages/Admin/PCMBgame/index'));
+const AddPcMgGame = lazy(() => import('../pages/Admin/PCMBgame/AddPCMB/index'));
 
 
 export const SidebarData = [
