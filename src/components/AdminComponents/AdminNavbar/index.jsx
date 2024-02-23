@@ -20,13 +20,13 @@ const Navbar = () => {
       />
       <Wrapper.LangBox>
         <Wrapper.LangItem>
-          <Wrapper.LangBtn onClick={() => i18n.changeLanguage("en")}>
+          <Wrapper.LangBtn onClick={() => i18n.changeLanguage("EN")}>
             En
           </Wrapper.LangBtn>
-          <Wrapper.LangBtn onClick={() => i18n.changeLanguage("ru")}>
+          <Wrapper.LangBtn onClick={() => i18n.changeLanguage("RU")}>
             Ru
           </Wrapper.LangBtn>
-          <Wrapper.LangBtn onClick={() => i18n.changeLanguage("uz")}>
+          <Wrapper.LangBtn onClick={() => i18n.changeLanguage("UZ")}>
             Uz
           </Wrapper.LangBtn>
         </Wrapper.LangItem>

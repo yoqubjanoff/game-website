@@ -77,6 +77,8 @@
     "remember2": "Choose which section to upload before posting content!",
     "homeTitle": "Incoming messages",
     "phoneNumber": "Phone number",
-    "link": "Link"
+    "link": "Link",
+    "errore" : "An error occurred while loading data. Please check your internet connection and server status.",
+  "ertitle": "Error with the server"
   }
 }

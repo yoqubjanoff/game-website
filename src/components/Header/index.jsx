@@ -30,7 +30,6 @@ const Header = ({ timeline, ease }) => {
       1,
       {
         scale: 1.5,
-        opacity: 0,
         y: -50,
         stagger: {
           amount: 0.1,
@@ -71,37 +70,47 @@ const Header = ({ timeline, ease }) => {
 
           <HeaderStyle.NavLangBox>
             <HeaderStyle.Nav>
-              <Link className="link" to={"/"} ref={(el) => (nav__text1 = el)}>
-                {t("home.header.nav.home")}
-              </Link>
-              <Link
-                className="link"
-                to={"/pcgame"}
-                ref={(el) => (nav__text2 = el)}
-              >
-                {t("home.header.nav.pcGames")}
-              </Link>
-              <Link
-                className="link"
-                to={"/mobilegame"}
-                ref={(el) => (nav__text3 = el)}
-              >
-                {t("home.header.nav.mobileGames")}
-              </Link>
-              <Link
-                className="link"
-                to={"/blog"}
-                ref={(el) => (nav__text4 = el)}
-              >
-                {t("home.header.nav.blog")}
-              </Link>
-              <Link
-                className="link"
-                to={"/contact"}
-                ref={(el) => (nav__text5 = el)}
-              >
-                {t("home.header.nav.contactUs")}
-              </Link>
+              <div>
+                <Link className="link" to={"/"} ref={(el) => (nav__text1 = el)}>
+                  {t("home.header.nav.home")}
+                </Link>
+              </div>
+              <div>
+                <Link
+                  className="link"
+                  to={"/pcgame"}
+                  ref={(el) => (nav__text2 = el)}
+                >
+                  {t("home.header.nav.pcGames")}
+                </Link>
+              </div>
+              <div>
+                <Link
+                  className="link"
+                  to={"/mobilegame"}
+                  ref={(el) => (nav__text3 = el)}
+                >
+                  {t("home.header.nav.mobileGames")}
+                </Link>
+              </div>
+              <div>
+                <Link
+                  className="link"
+                  to={"/blog"}
+                  ref={(el) => (nav__text4 = el)}
+                >
+                  {t("home.header.nav.blog")}
+                </Link>
+              </div>
+              <div>
+                <Link
+                  className="link"
+                  to={"/contact"}
+                  ref={(el) => (nav__text5 = el)}
+                >
+                  {t("home.header.nav.contactUs")}
+                </Link>
+              </div>
             </HeaderStyle.Nav>
             <HeaderStyle.LangBox>
               <HeaderStyle.LangItem ref={(el) => (langRef = el)}>

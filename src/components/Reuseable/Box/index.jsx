@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BoxStyle } from "./style";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import tempImg from "../../../assets/images/box1.jpg";
 
 const Box = ({ title, desc, imageSrc, backgroundImage, videoId }) => {
@@ -14,14 +16,15 @@ const Box = ({ title, desc, imageSrc, backgroundImage, videoId }) => {
       <BoxStyle.Container>
         <BoxStyle.Wrapper bgimage={imageSrc ? backgroundImage : tempImg}>
           <BoxStyle.TextBox>
-            <BoxStyle.Title>{title}</BoxStyle.Title>
-            <BoxStyle.Desc>{desc}</BoxStyle.Desc>
+            <BoxStyle.TextBox>
+              {<BoxStyle.Title>{title}</BoxStyle.Title>}
+              {<BoxStyle.Desc>{desc}</BoxStyle.Desc>}
+            </BoxStyle.TextBox>
           </BoxStyle.TextBox>
           <BoxStyle.ImgBox>
             {imageSrc ? (
               <BoxStyle.Img src={imageSrc} />
             ) : (
-              videoId && (
                 <iframe
                   className="ytb"
                   src={`https://www.youtube.com/embed/${videoIdFromUrl}?autoplay=1&loop=1&mute=1`}
@@ -30,7 +33,7 @@ const Box = ({ title, desc, imageSrc, backgroundImage, videoId }) => {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
-              )
+              
             )}
           </BoxStyle.ImgBox>
         </BoxStyle.Wrapper>
@@ -38,6 +41,5 @@ const Box = ({ title, desc, imageSrc, backgroundImage, videoId }) => {
     </BoxStyle>
   );
 };
-
 
 export default Box;

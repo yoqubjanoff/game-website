@@ -80,6 +80,8 @@
   "pcmbgame": "PC MB O'yinlar",
   "homeTitle": "Kelgan xabarlar",
   "phoneNumber": "Telefon raqam",
-  "link" : "Havola"
- }
+  "link" : "Havola",
+  "errore" : "Maʼlumotlarni yuklashda xatolik yuz berdi. Internetga ulanishingiz va server holatini tekshiring.",
+  "ertitle": " Server bilan xatolik"
+}
 }

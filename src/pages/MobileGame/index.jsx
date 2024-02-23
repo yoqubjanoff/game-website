@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Box from '../../components/Reuseable/Box'
-import box1 from "../../assets/images/blogimg1.jpg";
-import box2 from "../../assets/images/blogimg2.jpg";
-import boxImg2 from "../../assets/images/blogimg2.jpg";
-import boxImg3 from "../../assets/images/blogimg3.jpg";
-import boxImg4 from "../../assets/images/blogimg4.jpg";
-import box3 from "../../assets/images/blogimg3.jpg";
 import './index.css'
 import { useTranslation } from "react-i18next";
 
@@ -32,8 +26,8 @@ const MobileGames = () => {
       setLoading(false);  
       Swal.fire({
         icon: 'error',
-        title: 'Server bilan xatolik',
-        text: 'An error occurred while loading data. Please check your internet connection and server status.',
+        title: t("adminPage.ertitle"),
+        text: t("adminPage.errore"),
       });
     }
   };
