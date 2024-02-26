@@ -27,6 +27,7 @@ const Input = ({
 	width,
 	focused,
 	maxLength,
+	disabled
 }) => {
 	const [mouse, setMouse] = useState(false);
 	const [blur, setBlur] = useState(false);
@@ -84,6 +85,7 @@ const Input = ({
 				{blur && suffix && <Icon height={height}>{suffix}</Icon>}
 
 				<Container.Input
+					disabled={disabled}
 					bg={bg}
 					value={val}
 					onChange={onChangeFunction}

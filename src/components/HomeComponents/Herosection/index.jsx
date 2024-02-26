@@ -54,6 +54,8 @@ const Hero = () => {
     });
   }, []);
 
+  
+
   return (
     <HeroStyle ref={imgRef} id="herosection">
       <HeroVideo autoPlay loop muted ref={videoRef}>
@@ -61,7 +63,7 @@ const Hero = () => {
       </HeroVideo>
       <HeroStyle.Container>
         <HeroStyle.Textbox>
-          <HeroStyle.Title>
+          <HeroStyle.Title >
             {t("home.hero.title")}{" "}
             <HeroStyle.ColorTitle>
               {t("home.hero.titlePie")}

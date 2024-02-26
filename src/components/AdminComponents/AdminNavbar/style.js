@@ -82,7 +82,15 @@ Wrapper.Element = styled.div`
 		first ? '12px 12px 0px 0px' : '0 0 12px 12px'};
 	cursor: pointer;
 `;
-Wrapper.LangBox = styled.ul``;
+Wrapper.LangBox = styled.ul`
+.active {
+    color: #37A67E;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+`;
 
 Wrapper.LangItem = styled.li``;
 

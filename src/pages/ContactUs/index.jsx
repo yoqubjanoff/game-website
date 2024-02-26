@@ -22,20 +22,43 @@ const Contact = () => {
 
   const handleTitleChange = (e) => {
     const { name, value } = e.target;
-
     setMessage({
       ...message,
       [name]: value,
     });
   };
-console.log(message);
+
   const handleSave = async () => {
-    if (
-      message.comment &&
-      message.email &&
-      message.fullName &&
-      message.phoneNumber
-    ) {
+    if (message.comment && message.fullName && message.phoneNumber) {
+      if (!isValidEmail(message.email)) {
+        Toast({
+          type: "error",
+          message: t("adminPage.email_format"),
+        });
+        return;
+      }
+      if (message.fullName.length < 10) {
+        Toast({
+          type: "error",
+          message: t("contactPage.nameLength"),
+        });
+        return;
+      }
+      if (message.phoneNumber.length < 7) {
+        Toast({
+          type: "error",
+          message: t("Telefon raqamingiz juda qisqa"),
+        });
+        return;
+      }
+      if (message.comment.length < 5 || message.comment.length > 400) {
+        Toast({
+          type: "error",
+          message: "Email kamida 5 ta va maksimum 400 ta belgidan iborat bo'lishi kerak",
+        });
+        return;
+      }
+
       try {
         const res = await request.post("public/call-request", {
           data: {
@@ -45,27 +68,35 @@ console.log(message);
             comment: message.comment,
           },
         });
-        if (res.status === 200)  {
+        if (res.status === 200) {
           Toast({
             type: "success",
             message: "Successfully",
-          }),
-            setMessage({
-              fullName: "",
-              phoneNumber: "",
-              email: "",
-              comment: "",
-            });
+          });
+          setMessage({
+            fullName: "",
+            phoneNumber: "",
+            email: "",
+            comment: "",
+          });
         } else {
-          Swal.fire("serverdan xatolik yoki internet");
+          Swal.fire(t("adminPage.error"));
         }
       } catch (error) {
         console.error(error);
-        Swal.fire("serverdan xatolik yoki internet");
+        Swal.fire(t("adminPage.errore"));
       }
     } else {
-      Swal.fire("Malumotlarni xammasini kiriting ");
+      Toast({
+        type: "warning",
+        message: t("adminPage.fill"),
+      });
     }
+  };
+
+  const isValidEmail = (email) => {
+    const emailRegex = /\S+@\S+\.\S+/;
+    return emailRegex.test(email);
   };
 
   return (

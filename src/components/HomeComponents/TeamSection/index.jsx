@@ -24,7 +24,7 @@ const TeamSection = () => {
       scrollTrigger: {
         trigger: el,
         start: "center bottom",
-        end: "bottom center",
+        end: "bottom 50%+=100px",
         scrub: true, 
       },
     });

@@ -3,6 +3,7 @@ import { Wrapper } from "./style";
 import { useNavigate, useParams } from "react-router-dom";
 import { useBlogContex } from "../../../../context/useContext";
 import BgFile from "../../../../assets/icons/upload.svg";
+import del from "../../../../assets/icons/trashIcon.svg";
 import { useTranslation } from "react-i18next";
 import Button from "../../../../components/Reuseable/Button";
 import LoadingAdmin from "../../../../components/Loading copy";
@@ -47,30 +48,48 @@ const AddBlog = () => {
 
   const handleInputChange = async (e) => {
     const files = e.target.files[0];
-
+    const allowedTypes = ["image/jpeg", "image/png", "image/svg+xml"];
+  
+    // Tekshirish
+    if (!allowedTypes.includes(files.type)) {
+      // Rasmlar jpg, png va svg formatida bo'lishi kerak
+      Toast({
+        type: "error",
+        message: "Faqat JPG, PNG yoki SVG formatidagi rasmlarni yuklashingiz mumkin",
+      });
+      return;
+    }
+  
     try {
       const formData = new FormData();
       formData.append("file", files);
-
+  
       const resData = await request.post("/file/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-
+  
       const { fileUrl } = resData?.data?.data;
       if (resData) {
         Toast({
           type: "success",
-          message: t("w252"),
+          message: "Successfully",
         });
       }
-
+  
       setUrlFormData(fileUrl);
     } catch (error) {
       console.log(error);
+      Toast({
+        type: "error",
+        message: "Xatolik yuz berdi: " + error.message,
+      });
     }
   };
+  
+
+
   const saveQuestion = async () => {
     setLoading(true);
     if (!id) {
@@ -136,31 +155,33 @@ const AddBlog = () => {
         titleUz &&
         contentEn &&
         contentUz &&
-        contentRu &&
-        (videoUrl || blogPhotoUrl)
+        contentRu
       ) {
         try {
-          const res = await request.put(`/admin/blogs`, {
-            data: {
-              id: id.slice(1),
-              titleUz: titleUz,
-              contentUz: contentUz,
-              titleRu: titleRu,
-              contentRu: contentRu,
-              titleEn: titleEn,
-              contentEn: contentEn,
-              blogPhotoUrl: urlFormData,
-              videoUrl: videoUrl,
-              isActive: isActive,
-            }
-          },
-          Toast({
-            type: "success",
-            message: t("Succesfully "),
-          }));
+          const res = await request.put(
+            `/admin/blogs`,
+            {
+              data: {
+                id: id.slice(1),
+                titleUz: titleUz,
+                contentUz: contentUz,
+                titleRu: titleRu,
+                contentRu: contentRu,
+                titleEn: titleEn,
+                contentEn: contentEn,
+                blogPhotoUrl: urlFormData,
+                videoUrl: videoUrl,
+                isActive: isActive,
+              },
+            },
+            Toast({
+              type: "success",
+              message: t("Succesfully "),
+            })
+          );
           setLoading(false);
           navigate(`/admin/blog`);
-          
+
           dispatch({
             type: "setSelected",
             payload: null,
@@ -195,7 +216,6 @@ const AddBlog = () => {
     });
   };
 
-  
   return (
     <Wrapper>
       {loading && <LoadingAdmin />}
@@ -271,6 +291,18 @@ const AddBlog = () => {
               />
             </div>
             <div className="image-link-box">
+              <button
+                className="del-img"
+                onClick={() => {
+                  setUrlFormData("");
+                  setState({
+                    ...state,
+                    blogPhotoUrl: "",
+                  });
+                }}
+              >
+                <img src={del} alt="delete icon" />
+              </button>
               <label
                 htmlFor="file"
                 className="Wrapper-input-f"
@@ -282,9 +314,7 @@ const AddBlog = () => {
                 }}
               >
                 <input
-                  style={{
-                    opacity: 0,
-                  }}
+                  disabled={state.videoUrl && state.videoUrl}
                   name={"blogPhotoUrl"}
                   type="file"
                   id="file"
@@ -304,13 +334,14 @@ const AddBlog = () => {
               </label>
               <Input
                 width={"100%"}
-                header="You Tube havolasini kiriting"
+                header={t("adminPage.linkYoutube")}
                 color={"#000"}
                 hc={"#000"}
                 name={"videoUrl"}
                 onChange={handleTitleChange}
                 value={videoUrl}
                 margin={"0 0 25px 0"}
+                disabled={urlFormData && urlFormData}
               />
             </div>
           </div>

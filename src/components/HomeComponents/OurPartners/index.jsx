@@ -46,6 +46,11 @@ const OurPartner = () => {
           <OurStyle.Title>{t("home.our.title")}</OurStyle.Title>
           <OurStyle.CarouselBox>
             <Swiper
+             style={{
+              display: "flex",
+              alignItems: " center",
+              justifyContent: "center",
+            }}
               modules={[
                 Navigation,
                 Pagination,
@@ -58,6 +63,7 @@ const OurPartner = () => {
               centeredSlides={true}
               loop={true}
               slidesPerView={7}
+              
               coverflowEffect={{
                 rotate: 0,
                 stretch: 0,
@@ -72,6 +78,34 @@ const OurPartner = () => {
               }}
               pagination={{ clickable: true }}
               scrollbar={{ draggable: false }}
+              breakpoints={{
+                320: {
+                  slidesPerView: 2,
+                  spaceBetween: 20
+                },
+                // when window width is >= 480px
+                480: {
+                  slidesPerView: 3,
+                  spaceBetween: 30
+                },
+                // when window width is >= 640px
+                640: {
+                  slidesPerView: 4,
+                  spaceBetween: 40
+                },
+                840: {
+                  slidesPerView: 5,
+                  spaceBetween: 45
+                },
+                1040: {
+                  slidesPerView: 6,
+                  spaceBetween: 55
+                },
+                1350: {
+                  slidesPerView: 7,
+                  spaceBetween: 55
+                }
+              }}
             >
               {our.map((partner) => (
                 <SwiperSlide key={partner.id}>

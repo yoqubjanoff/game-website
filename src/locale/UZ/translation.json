@@ -50,7 +50,8 @@
     "phoneNumber": "Telefon raqam",
     "email": "Eletron pochta",
     "message": "Xabar",
-    "send": "Yuborish"
+    "send": "Yuborish",
+    "nameLength": "Ism sharifiz kamida 10 ta belgidan iborat bo'lishi kerak !"
   },
  "adminPage" :{
   "admin": "Bosh sahifa",
@@ -77,11 +78,14 @@
   "remember2" : "Content joylashdan avval qaysi bo'limga yuklashni tanlang !",
   "upload": "Muqova yuklang",
   "partner": "Hamkorlar",
-  "pcmbgame": "PC MB O'yinlar",
+  "pcmbgame": "O'yinlar",
   "homeTitle": "Kelgan xabarlar",
   "phoneNumber": "Telefon raqam",
   "link" : "Havola",
   "errore" : "Maʼlumotlarni yuklashda xatolik yuz berdi. Internetga ulanishingiz va server holatini tekshiring.",
-  "ertitle": " Server bilan xatolik"
+  "ertitle": " Server bilan xatolik",
+  "linkYoutube": "You Tube havolasini kiriting",
+  "fill": "Inputlarni barchasini to'ldiring !",
+  "email_format": "Iltimos, to'g'ri email formatini kiriting !"
 }
 }

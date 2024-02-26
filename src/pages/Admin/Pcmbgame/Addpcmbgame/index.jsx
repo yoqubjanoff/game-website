@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Wrapper } from "./style";
 import { useNavigate, useParams } from "react-router-dom";
 import { useBlogContex, usePcMbContext } from "../../../../context/useContext";
+import del from "../../../../assets/icons/trashIcon.svg";
 import BgFile from "../../../../assets/icons/upload.svg";
 import { useTranslation } from "react-i18next";
 import Button from "../../../../components/Reuseable/Button";
@@ -20,8 +21,8 @@ const Addpcmbgame = () => {
   const [{ selected }, dispatch] = usePcMbContext();
   const { id } = useParams();
   const [options, setOptions] = useState([
-    { id: 1, caption: "For Pc Game", title: "PC"},
-    { id: 2, caption: "For Mb Game",title: "MOBILE" },
+    { id: 1, caption: "For Pc Game", title: "PC" },
+    { id: 2, caption: "For Mb Game", title: "MOBILE" },
   ]);
 
   const [loading, setLoading] = useState(false);
@@ -53,20 +54,28 @@ const Addpcmbgame = () => {
     gamePhotoUrl,
   } = state;
 
-
   const handleInputChange = async (e) => {
     const files = e.target.files[0];
-
+    const allowedTypes = ["image/jpeg", "image/png", "image/svg+xml"];
+  
+    if (!allowedTypes.includes(files.type)) {
+      Toast({
+        type: "error",
+        message: "Faqat JPG, PNG yoki SVG formatidagi rasmlarni yuklashingiz mumkin",
+      });
+      return;
+    }
+  
     try {
       const formData = new FormData();
       formData.append("file", files);
-
+  
       const resData = await request.post("/file/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-
+  
       const { fileUrl } = resData?.data?.data;
       if (resData) {
         Toast({
@@ -74,13 +83,18 @@ const Addpcmbgame = () => {
           message: "Successfully",
         });
       }
-
+  
       setUrlFormData(fileUrl);
     } catch (error) {
       console.log(error);
+      Toast({
+        type: "error",
+        message: "Xatolik yuz berdi: " + error.message,
+      });
     }
   };
-
+  
+  
 
   const saveQuestion = async () => {
     setLoading(true);
@@ -136,7 +150,6 @@ const Addpcmbgame = () => {
         }
       } else {
         setLoading(false);
-
         Popup({
           title: "Please, fill the inputs",
           type: "warning",
@@ -211,11 +224,9 @@ const Addpcmbgame = () => {
       [name]: value,
     });
   };
-const selectTheme = (theme) => {
-setState({...state,
-  typeOfGame: theme.title
-});
-};
+  const selectTheme = (theme) => {
+    setState({ ...state, typeOfGame: theme.title });
+  };
 
   return (
     <Wrapper>
@@ -231,8 +242,7 @@ setState({...state,
             options={options}
             value={typeOfGame}
             header={"Before choose theme"}
-						onChange={(e) => selectTheme(e)}
-
+            onChange={(e) => selectTheme(e)}
           />
           <p>{t("adminPage.remember2")}</p>
           <div>
@@ -301,6 +311,18 @@ setState({...state,
               />
             </div>
             <div className="image-link-box">
+              <button
+                className="del-img"
+                onClick={() => {
+                  setUrlFormData("");
+                  setState({
+                    ...state,
+                    gamePhotoUrl: "",
+                  });
+                }}
+              >
+                <img src={del} alt="delete icon" />
+              </button>
               <label
                 htmlFor="file"
                 className="Wrapper-input-f"
@@ -312,6 +334,7 @@ setState({...state,
                 }}
               >
                 <input
+                  disabled={state.videoUrl && state.videoUrl}
                   style={{
                     opacity: 0,
                   }}
@@ -341,6 +364,7 @@ setState({...state,
                 onChange={handleTitleChange}
                 value={videoUrl}
                 margin={"0 0 25px 0"}
+                disabled={state.gamePhotoUrl || urlFormData}
               />
             </div>
           </div>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BoxStyle } from "./style";
-import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import tempImg from "../../../assets/images/box1.jpg";
+import Skeleton from "react-loading-skeleton";
 
 const Box = ({ title, desc, imageSrc, backgroundImage, videoId }) => {
   let videoIdFromUrl;
@@ -11,29 +11,52 @@ const Box = ({ title, desc, imageSrc, backgroundImage, videoId }) => {
       ? videoId.split("/").pop()
       : videoId.split("v=").pop();
   }
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (imageSrc || videoIdFromUrl) {
+      setLoading(false);
+    }
+  }, [imageSrc, videoIdFromUrl]);
+
   return (
     <BoxStyle>
       <BoxStyle.Container>
         <BoxStyle.Wrapper bgimage={imageSrc ? backgroundImage : tempImg}>
           <BoxStyle.TextBox>
             <BoxStyle.TextBox>
-              {<BoxStyle.Title>{title}</BoxStyle.Title>}
-              {<BoxStyle.Desc>{desc}</BoxStyle.Desc>}
+              {loading ? (
+                <Skeleton width={"100%"} height={90} />
+              ) : (
+                <BoxStyle.Title>{title}</BoxStyle.Title>
+              )}
+
+              {loading ? (
+                <Skeleton width={"100%"} height={5} count={10} />
+              ) : (
+                <BoxStyle.Desc>{desc}</BoxStyle.Desc>
+              )}
             </BoxStyle.TextBox>
           </BoxStyle.TextBox>
           <BoxStyle.ImgBox>
-            {imageSrc ? (
+            {loading ? (
+              <Skeleton
+                width={"100%"}
+                height={"100%"}
+                className="custom-skeleton-img"
+              />
+            ) : imageSrc ? (
               <BoxStyle.Img src={imageSrc} />
             ) : (
-                <iframe
-                  className="ytb"
-                  src={`https://www.youtube.com/embed/${videoIdFromUrl}?autoplay=1&loop=1&mute=1`}
-                  title="YouTube video"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                ></iframe>
-              
+              <iframe
+                className="ytb"
+                src={`https://www.youtube.com/embed/${videoIdFromUrl}?autoplay=1&loop=1&mute=1`}
+                title="YouTube video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
             )}
           </BoxStyle.ImgBox>
         </BoxStyle.Wrapper>

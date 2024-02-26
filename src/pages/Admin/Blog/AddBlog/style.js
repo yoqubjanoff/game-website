@@ -60,6 +60,15 @@ export const Wrapper = styled.div`
       cursor: pointer;
     }
   }
+  .del-img{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    background-color: transparent;
+    border: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
 `;
 Wrapper.Title = styled.p`
   color: ${({ last }) => (last ? "#fff" : " #0b3a48")};

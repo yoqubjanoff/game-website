@@ -42,6 +42,11 @@ HeroStyle.Title = styled.h1`
   font-style: normal;
   font-weight: bold;
   line-height: 95px;
+  @media only screen and (max-width: 1100px) {
+  font-size: 60px;
+  line-height: 70px;
+
+  }
 `;
 
 HeroStyle.ColorTitle = styled.span`
@@ -50,6 +55,11 @@ HeroStyle.ColorTitle = styled.span`
   font-style: normal;
   font-weight: 900;
   line-height: 95px;
+  @media only screen and (max-width: 1100px) {
+  font-size: 60px;
+  line-height: 70px;
+
+  }
 `;
 HeroStyle.Desc = styled.p`
   width: 100%;

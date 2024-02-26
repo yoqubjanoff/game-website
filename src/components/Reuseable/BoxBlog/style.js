@@ -35,6 +35,10 @@ export const BoxStyle = styled.section`
       transform: rotate(360deg);
     }
   }
+
+  @media only screen and (max-width: 1200px) {
+    height: 710px;
+  }
 `;
 
 BoxStyle.Container = styled.div`
@@ -46,8 +50,10 @@ BoxStyle.Container = styled.div`
 `;
 
 BoxStyle.Wrapper = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
+  gap: 50px;
   width: 100%;
   height: 600px;
   background-image: url(${(props) => props.bgimage});
@@ -66,13 +72,38 @@ BoxStyle.Wrapper = styled.div`
     backdrop-filter: blur(15px);
     z-index: -1;
   }
+  @media only screen and (max-width: 1600px) {
+    padding: 60px 122px 60px 120px;
+  }
+  @media only screen and (max-width: 1300px) {
+    padding: 40px 82px 40px 80px;
+  }
+  @media only screen and (max-width: 1200px) {
+    padding: 35px 72px 35px 70px;
+    height: 700px;
+  }
+  @media only screen and (max-width: 950px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 BoxStyle.TextBox = styled.div`
   width: 100%;
   max-width: 670px;
   margin-top: 50px;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+ 
+  @media only screen and (max-width: 950px) {
+    margin-top: 0px;
+    height: inherit;
+  }
 `;
 BoxStyle.Title = styled.h3`
+  width: 100%;
   color: #fff;
   font-size: 60px;
   font-style: normal;
@@ -80,6 +111,9 @@ BoxStyle.Title = styled.h3`
   line-height: normal;
   letter-spacing: 1.2px;
   margin-bottom: 15px;
+  @media only screen and (max-width: 1300px) {
+    font-size: 50px;
+  }
 `;
 BoxStyle.Desc = styled.p`
   width: 100%;
@@ -88,6 +122,7 @@ BoxStyle.Desc = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 35px;
+  overflow: auto;
 `;
 BoxStyle.ImgBox = styled.div`
   width: 100%;
@@ -115,7 +150,6 @@ BoxStyle.ImgBox = styled.div`
     height: 200%;
     animation: animate 12s linear infinite;
     box-shadow: 0 0 20px rgba(0, 246, 255, 0.5);
-   
   }
 
   &::before {
@@ -135,15 +169,15 @@ BoxStyle.ImgBox = styled.div`
   &:nth-child(1)::before {
     animation-delay: -3s;
   }
-  .ytb{
+  .ytb {
     width: 98.8%;
-  height: 98.8%;
-  position: absolute;
-  top: 3px;
-  bottom: 0px;
-  left: 5px;
-  right: 0;
-  z-index: 1;
+    height: 98.8%;
+    position: absolute;
+    top: 3px;
+    bottom: 0px;
+    left: 5px;
+    right: 0;
+    z-index: 1;
   }
 `;
 BoxStyle.Img = styled.img`

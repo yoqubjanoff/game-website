@@ -8,6 +8,10 @@ import { useTranslation } from "react-i18next";
 const Navbar = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem("i18nextLng", lng);
+  };
 
   return (
     <Wrapper>
@@ -20,15 +24,18 @@ const Navbar = () => {
       />
       <Wrapper.LangBox>
         <Wrapper.LangItem>
-          <Wrapper.LangBtn onClick={() => i18n.changeLanguage("EN")}>
+          <Wrapper.LangBtn className={`${i18n.language === "EN" ? "active" : ""}`}
+                  onClick={() => changeLanguage("EN")}>
             En
           </Wrapper.LangBtn>
-          <Wrapper.LangBtn onClick={() => i18n.changeLanguage("RU")}>
+          <Wrapper.LangBtn  className={`${i18n.language === "RU" ? "active" : ""}`}
+                  onClick={() => changeLanguage("RU")}>
             Ru
           </Wrapper.LangBtn>
-          <Wrapper.LangBtn onClick={() => i18n.changeLanguage("UZ")}>
+          <Wrapper.LangBtn  className={`${i18n.language === "UZ" ? "active" : ""}`}
+                  onClick={() => changeLanguage("UZ")}>
             Uz
-          </Wrapper.LangBtn>
+          </Wrapper.LangBtn>  
         </Wrapper.LangItem>
       </Wrapper.LangBox>
       <div className="">

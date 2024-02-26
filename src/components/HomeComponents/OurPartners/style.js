@@ -53,6 +53,11 @@ export const OurStyle = styled.section`
   .swiper-3d .swiper-slide-shadow-left {
     background-image: none !important;
   }
+  .swiper-slide {
+    @media only screen and (max-width:770px) {
+      margin: 0 !important;
+    }
+  }
 `;
 
 OurStyle.Container = styled.div``;

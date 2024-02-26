@@ -45,7 +45,8 @@
     "phoneNumber": "Phone number",
     "email": "E-mail",
     "message": "Message",
-    "send": "Send "
+    "send": "Send ",
+    "nameLength": "The name must be at least 10 characters long!"
   },
   "adminPage": {
     "admin": "Home",
@@ -73,12 +74,17 @@
     "upload": "Upload a cover",
     "remember": "Video you tube link or picture must be uploaded !",
     "partner": "Partners",
-    "pcmbgame": "PC MB Games",
+    "pcmbgame": "Games",
     "remember2": "Choose which section to upload before posting content!",
     "homeTitle": "Incoming messages",
     "phoneNumber": "Phone number",
     "link": "Link",
-    "errore" : "An error occurred while loading data. Please check your internet connection and server status.",
-  "ertitle": "Error with the server"
+    "errore": "An error occurred while loading data. Please check your internet connection and server status.",
+    "ertitle": "Error with the server",
+    "linkYoutube": "Enter the You Tube link",
+    "fill": "Fill in all the inputs!",
+    "email_format": "Please enter the correct email format!"
+
+
   }
 }

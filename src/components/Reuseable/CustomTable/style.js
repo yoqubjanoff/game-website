@@ -46,6 +46,7 @@ Wrapper.ColumnTrunCate = styled.div`
 
 Wrapper.Row = styled.div`
 	/* width: 100%; */
+	position: relative;
 	display: flex;
 	align-items: center;
 	border-bottom: 1px solid #e1e1e1;

@@ -47,6 +47,7 @@ BoxStyle.Container = styled.div`
 BoxStyle.Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 50px;
   width: 100%;
   height: 600px;
   background-image: url(${(props) => props.bgimage});
@@ -71,6 +72,7 @@ BoxStyle.TextBox = styled.div`
   width: 100%;
   max-width: 670px;
   margin-top: 50px;
+  overflow-x: auto;
 `;
 BoxStyle.Title = styled.h3`
   color: #fff;
@@ -80,6 +82,9 @@ BoxStyle.Title = styled.h3`
   line-height: normal;
   letter-spacing: 1.2px;
   margin-bottom: 15px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 BoxStyle.Desc = styled.p`
   width: 100%;
@@ -88,6 +93,7 @@ BoxStyle.Desc = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 35px;
+  overflow: auto;
 `;
 BoxStyle.ImgBox = styled.div`
   width: 100%;
@@ -104,7 +110,8 @@ BoxStyle.ImgBox = styled.div`
     content: "";
     position: absolute;
     background-image: conic-gradient(
-      transparent,transparent,
+      transparent,
+      transparent,
       #00f6ff,
       transparent,
       transparent,
@@ -121,8 +128,6 @@ BoxStyle.ImgBox = styled.div`
     animation-delay: -6s;
   }
 
-  
-
   @keyframes animate {
     0% {
       transform: rotate(0deg);
@@ -137,19 +142,8 @@ BoxStyle.ImgBox = styled.div`
     animation-delay: -3s;
   }
 
-  .ytb{
+  .ytb {
     width: 98.8%;
-  height: 98.8%;
-  position: absolute;
-  top: 3px;
-  bottom: 0px;
-  left: 5px;
-  right: 0;
-  z-index: 1;
-  }
-`;
-BoxStyle.Img = styled.img`
- width: 98.8%;
     height: 98.8%;
     position: absolute;
     top: 3px;
@@ -157,4 +151,39 @@ BoxStyle.Img = styled.img`
     left: 5px;
     right: 0;
     z-index: 1;
+  }
+  .loading {
+    width: 98.8%;
+    height: 98.8%;
+    position: absolute;
+    background-color: red;
+    top: 3px;
+    bottom: 0px;
+    left: 5px;
+    right: 0;
+    z-index: 10;
+  }
+  .custom-skeleton-img {
+    width: 98.8%;
+    height: 98.8%;
+    position: absolute;
+    top: 3px;
+    bottom: 0px;
+    left: 5px;
+    right: 0;
+    z-index: 20;
+  }
+  .react-loading-skeleton::after{
+    background: #ccc;
+  }
+`;
+BoxStyle.Img = styled.img`
+  width: 98.8%;
+  height: 98.8%;
+  position: absolute;
+  top: 3px;
+  bottom: 0px;
+  left: 5px;
+  right: 0;
+  z-index: 1;
 `;

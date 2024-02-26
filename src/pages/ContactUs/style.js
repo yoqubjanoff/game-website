@@ -2,7 +2,7 @@ import styled from "styled-components";
 import boxImg3 from "../../assets/images/boxImg2.jpg";
 
 export const ContactStyle = styled.section`
-  padding: 208px 0 40px 0;
+  padding: 208px 15px 40px 15px;
   background-color:  #041122;
 `;
 
@@ -127,6 +127,7 @@ ContactStyle.Iput1 = styled.input`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  -webkit-appearance: none;
   &::placeholder {
     color: #fff;
     font-size: 14px;

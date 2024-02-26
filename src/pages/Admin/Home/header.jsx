@@ -2,13 +2,14 @@ import { Wrapper } from "./style";
 import {useHomeContext } from "../../../context/useContext";
 import { useNavigate, useParams } from "react-router-dom";
 import trash from "../../../assets/icons/trashIcon.svg";
-import penIcon from "../../../assets/icons/pen.svg";
+import message from "../../../assets/icons/comment.svg";
 import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
 import request from "../../../services/request";
 import Toast from "../../../components/Reuseable/Toast";
 import Switch from "../../../components/Reuseable/Switch";
 import Popup from "../../../components/Reuseable/Popup";
+import { useState } from "react";
 
 const ActionRenderer = ({ data }) => {
   const { t } = useTranslation();
@@ -67,7 +68,18 @@ const RendererTitle = ({ data }) => {
   
 };
 const RendererDesc = ({ data }) => {
-    return <Wrapper.Flex>{data?.comment?.slice(0,15)}...</Wrapper.Flex>;
+  const [hover, setHover] = useState(false);
+  return (
+    <Wrapper.BoxIcon 
+      bgImage={`url(${message})`}
+      type={"comment"}
+      onMouseOver={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <Wrapper.Comment hover={hover ? 1 : 0}>
+        {data?.comment}
+      </Wrapper.Comment>
+    </Wrapper.BoxIcon>)
 };
 
 const RendererEmail = ({ data }) => {

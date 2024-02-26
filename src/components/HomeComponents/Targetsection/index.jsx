@@ -23,7 +23,7 @@ const Target = () => {
       scrollTrigger: {
         trigger: el,
         start: "center bottom",
-        end: "center center",
+        end: "bottom 50%+=100px",
         scrub: true, 
       },
     });

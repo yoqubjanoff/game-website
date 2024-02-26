@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import Button from "../../../../components/Reuseable/Button";
 import LoadingAdmin from "../../../../components/Loading copy";
 import Toast from "../../../../components/Reuseable/Toast";
-import TextareaComponent from "../../../../components/Reuseable/Textarea";
+import del from "../../../../assets/icons/trashIcon.svg";
 import Switch from "../../../../components/Reuseable/Switch";
 import Input from "../../../../components/Reuseable/Input";
 import request from "../../../../services/request";
@@ -33,39 +33,59 @@ const AddPartners = () => {
 
   const handleInputChange = async (e) => {
     const files = e.target.files[0];
-
+  
+    // Fayl mavjud emas yoki turiga mos emasligini tekshirish
+    if (!files || !["image/jpeg", "image/png", "image/svg+xml"].includes(files.type)) {
+      Toast({
+        type: "error",
+        message: "Faqat JPG, PNG yoki SVG formatidagi rasmlarni yuklashingiz mumkin",
+      });
+      return;
+    }
+  
+    // Fayl hajmini tekshirish
+    if (files.size > 1024 * 1024 * 5) { // 5 MB dan katta fayllarni qabul qilmaslik
+      Toast({
+        type: "error",
+        message: "Fayl hajmi juda katta. Iltimos, kichikroq faylni yuklang",
+      });
+      return;
+    }
+  
     try {
       const formData = new FormData();
       formData.append("file", files);
-
+  
       const resData = await request.post("/file/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-
-      const { fileUrl } = resData?.data?.data;
-      const { id } = resData?.data?.data;
+  
+      const { fileUrl, id } = resData?.data?.data;
       if (resData) {
         Toast({
           type: "success",
-          message: "Successfully uploaded",
+          message: "Rasm muvaffaqiyatli yuklandi",
         });
       }
+  
       setState({
         ...state,
-        attachmentId: id, 
-        partnerPhotoUrl: fileUrl
+        attachmentId: id,
+        partnerPhotoUrl: fileUrl,
       });
       setUrlFormData(fileUrl);
     } catch (error) {
       console.log(error);
       Toast({
         type: "warning",
-        message: "Error uploading",
+        message: "Xatolik yuz berdi",
       });
     }
   };
+  
+  
 
   const saveQuestion = async () => {
     setLoading(true);
@@ -162,7 +182,6 @@ const AddPartners = () => {
     });
   };
 
-
   console.log(state);
   return (
     <Wrapper>
@@ -223,6 +242,20 @@ const AddPartners = () => {
               />
             </div>
             <div className="image-link-box">
+              <button
+                className="del-img"
+                onClick={() => {
+                  setState({
+                    ...state,
+                    attachmentId: "", // Rasmning ID-sini tozalash
+                    partnerPhotoUrl: "", // Rasmning URL-sini tozalash
+                  });
+                  setUrlFormData("");
+                }}
+                
+              >
+                <img src={del} alt="delete icon" />
+              </button>
               <label
                 htmlFor="file"
                 className="Wrapper-input-f"
