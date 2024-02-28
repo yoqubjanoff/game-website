@@ -20,6 +20,10 @@ HeroStyle.Textbox = styled.div`
   max-width: 929px;
   position: relative;
   padding-top: 170px;
+  @media only screen and (max-width: 1100px) {
+    padding-top: 0px;
+  }
+  
   .first-img {
     cursor: pointer;
     transition: 0.3s ease-in-out;
@@ -33,31 +37,31 @@ HeroStyle.Textbox = styled.div`
     left: -10px;
     z-index: -1;
   }
+
+  .titlebox{
+    @media only screen and (max-width: 776px) {
+    margin-bottom: 15px;
+  }
+  }
 `;
 
 HeroStyle.Title = styled.h1`
   width: 100%;
   color: #fff;
-  font-size: 70px;
+  font-size: calc(24px + 46 * (100vw / 1800));
   font-style: normal;
   font-weight: bold;
-  line-height: 95px;
-  @media only screen and (max-width: 1100px) {
-  font-size: 60px;
-  line-height: 70px;
-
-  }
+  
 `;
 
 HeroStyle.ColorTitle = styled.span`
+  width: 100%;
   color: #00f6ff;
-  font-size: 70px;
+  font-size: calc(24px + 46 * (100vw / 1800));
   font-style: normal;
   font-weight: 900;
-  line-height: 95px;
   @media only screen and (max-width: 1100px) {
-  font-size: 60px;
-  line-height: 70px;
+ 
 
   }
 `;

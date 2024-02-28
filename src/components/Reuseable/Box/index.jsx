@@ -53,9 +53,9 @@ const Box = ({ title, desc, imageSrc, backgroundImage, videoId }) => {
                 className="ytb"
                 src={`https://www.youtube.com/embed/${videoIdFromUrl}?autoplay=1&loop=1&mute=1`}
                 title="YouTube video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
               ></iframe>
             )}
           </BoxStyle.ImgBox>

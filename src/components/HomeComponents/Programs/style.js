@@ -122,73 +122,107 @@ ProgStyle.Wrapper = styled.div`
     animation-delay: 2s;
   }
 
+  .items  p {
+    position: absolute;
+    width: fit-content;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    z-index:10;
+    top: 221px;
+    transition: 0.4s ease-in-out;
+  }
+  .items:hover{
+    box-shadow: 7px 5px 33px 28px rgba(0,246,255,0.34);
+  }
+  .items:hover  p {
+    top: 10px;
+  }
+  .items:hover .pozitsiya1{
+    background-image: none;
+  }
+  .items:hover .pozitsiya2{
+    background-image: none;
+  }
+  .items:hover .pozitsiya3{
+    background-image: none;
+  }
+  .items:hover .pozitsiya4{
+    background-image: none;
+  }
+  .items:hover .pozitsiya5{
+    background-image: none;
+  }
+  .items:hover .pozitsiya6{
+    background-image: none;
+  }
+  .items:hover::after,
+.items:hover::before {
+  display: none;
+}
+
   .pozitsiya1 {
-  position: absolute;
-  background-image: url(${img1});
-  background-position: center;
-  background-size: 110%; 
-  background-repeat: no-repeat;
-  width: 98%;
-  height: 98%;
-  z-index: 1;
-}
-.pozitsiya2 {
-  position: absolute;
-  background-image: url(${img2});
-  background-position: center;
-  background-size: 110%; 
-  background-repeat: no-repeat;
-  width: 98%;
-  height: 98%;
-  z-index: 1;
-}
-.pozitsiya3 {
-  position: absolute;
-  background-image: url(${img3});
-  background-position: center;
-  background-size: 110%; 
-  background-repeat: no-repeat;
-  width: 98%;
-  height: 98%;
-  z-index: 1;
-}
-.pozitsiya4 {
-  position: absolute;
-  background-image: url(${img4});
-  background-position: center;
-  background-size: 110%; 
-  background-repeat: no-repeat;
-  width: 98%;
-  height: 98%;
-  z-index: 1;
-}
-.pozitsiya5 {
-  position: absolute;
-  background-image: url(${img5});
-  background-position: center;
-  background-size: 110%; 
-  background-repeat: no-repeat;
-  width: 98%;
-  height: 98%;
-  z-index: 1;
-}
-.pozitsiya6 {
-  position: absolute;
-  background-image: url(${img6});
-  background-position: center;
-  background-size: 110%; 
-  background-repeat: no-repeat;
-  width: 98%;
-  height: 98%;
-  z-index: 1;
-}
+    position: absolute;
+    background-image: url(${img1});
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 98%;
+    height: 98%;
+    z-index: 1;
+    transition: background-image 0.4s ease-in-out; 
+  }
+  .pozitsiya2 {
+    position: absolute;
+    background-image: url(${img2});
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 98%;
+    height: 98%;
+    z-index: 1;
+  }
+  .pozitsiya3 {
+    position: absolute;
+    background-image: url(${img3});
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 98%;
+    height: 98%;
+    z-index: 1;
+  }
+  .pozitsiya4 {
+    position: absolute;
+    background-image: url(${img4});
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 98%;
+    height: 98%;
+    z-index: 1;
+  }
+  .pozitsiya5 {
+    position: absolute;
+    background-image: url(${img5});
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 98%;
+    height: 98%;
+    z-index: 1;
+  }
+  .pozitsiya6 {
+    position: absolute;
+    background-image: url(${img6});
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 98%;
+    height: 98%;
+    z-index: 1;
+  }
 `;
 ProgStyle.Title = styled.h3`
   width: 100%;
   max-width: 750px;
   text-align: center;
   color: #fff;
-  font-size: 56px;
+  font-size: calc(24px + 40 * (100vw / 1800));
   font-style: normal;
   font-weight: 700;
   line-height: 60px;

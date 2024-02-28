@@ -9,6 +9,7 @@ const MakesSec = () => {
   const {t} = useTranslation()
      
   const imgRef = useRef(null);
+  const titleRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -29,12 +30,31 @@ const MakesSec = () => {
     });
   }, []);
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const el = titleRef.current;
+    gsap.set(el, { opacity: 0, transformOrigin: "bottom bottom", y:350});
+    gsap.to(el, {
+      opacity: 1,
+      y: 0, 
+      duration: 3,
+      ease: "power2.out",
+      delay: 1,
+      scrollTrigger: {
+        trigger: el,
+        start: "center bottom",
+        end: "center center",
+        scrub: true, 
+      },
+    });
+  }, []);
+
   return (
     <MakeStyle>
       <MakeStyle.Container>
         <MakeStyle.Wrapper>
-          <MakeStyle.TextBox>
-            <MakeStyle.Title>
+          <MakeStyle.TextBox ref={titleRef}>
+            <MakeStyle.Title >
             {t('home.makes.title')}
             </MakeStyle.Title>
             <MakeStyle.Desc>

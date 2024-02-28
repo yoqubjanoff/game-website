@@ -17,7 +17,7 @@ const NumberSec = () => {
             <NumStyle.NumBox>
               <ScrollTrigger>
                 <NumStyle.Num className="number">
-                  {counterOn && <CountUp start={0} end={150} duration={2} delay={0} />}
+                  {counterOn && <CountUp start={0} end={100} duration={2} delay={0} />}
                 </NumStyle.Num>
               </ScrollTrigger>
               <NumStyle.Title>{t("home.number.Employees")}</NumStyle.Title>
@@ -25,7 +25,7 @@ const NumberSec = () => {
             <NumStyle.NumBox>
               <ScrollTrigger>
                 <NumStyle.Num className="number">
-                 {counterOn &&  <CountUp start={0} end={20} duration={2} delay={0} />}
+                 {counterOn &&  <CountUp start={0} end={50} duration={2} delay={0} />}
                 </NumStyle.Num>
               </ScrollTrigger>
               <NumStyle.Title>{t("home.number.Projects")}</NumStyle.Title>
@@ -33,7 +33,7 @@ const NumberSec = () => {
             <NumStyle.NumBox>
               <ScrollTrigger>
                 <NumStyle.Num className="number">
-                  {counterOn && <CountUp start={0} end={230} duration={2} delay={0} />}
+                  {counterOn && <CountUp start={0} end={28} duration={2} delay={0} />}
                 </NumStyle.Num>
               </ScrollTrigger>
               <NumStyle.Title>{t("home.number.Customers")}</NumStyle.Title>
@@ -41,7 +41,7 @@ const NumberSec = () => {
             <NumStyle.NumBox>
               <ScrollTrigger>
                 <NumStyle.Num className="number">
-                 {counterOn &&  <CountUp start={0} end={23} duration={2} delay={0} />}
+                 {counterOn &&  <CountUp start={0} end={5} duration={2} delay={0} />}
                 </NumStyle.Num>
               </ScrollTrigger>
               <NumStyle.Title>{t("home.number.Offices")}</NumStyle.Title>

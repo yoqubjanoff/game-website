@@ -4,12 +4,15 @@ import Logo from "../../../assets/icons/logo.svg";
 import adminImg from "../../../assets/icons/user.png";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import i18n from "../../../i18n";
+
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    console.log("ishladi", localStorage.setItem("i18nextLng", lng));
     localStorage.setItem("i18nextLng", lng);
   };
 

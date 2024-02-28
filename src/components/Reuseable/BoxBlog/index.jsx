@@ -19,13 +19,13 @@ const BoxBlog = ({ title, desc, imageSrc, backgroundImage, videoId }) => {
               <BoxStyle.Img src={imageSrc} />
             ) : (
               <iframe
-                className="ytb"
-                src={`https://www.youtube.com/embed/${videoIdFromUrl}?autoplay=1&loop=1&mute=1`}
-                title="YouTube video"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
+              className="ytb"
+              src={`https://www.youtube.com/embed/${videoIdFromUrl}?autoplay=1&loop=1&mute=1`}
+              title="YouTube video"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+            ></iframe>          
             )}
           </BoxStyle.ImgBox>
         </BoxStyle.Wrapper>

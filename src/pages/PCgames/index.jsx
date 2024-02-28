@@ -34,7 +34,7 @@ const Pcgame = () => {
     getMobile();
   }, [i18n.language]);
 
-  console.log(games);
+
   return (
     <div className="pswrapper">
       <PcGame />

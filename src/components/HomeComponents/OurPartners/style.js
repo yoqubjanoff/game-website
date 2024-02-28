@@ -39,6 +39,9 @@ export const OurStyle = styled.section`
     justify-content: center;
     gap: 30px;
     height: 283px;
+    @media only screen and (max-width:475px) {
+      gap: 0px;
+    }
   }
   .swiper-pagination {
     top: 232px;
@@ -53,15 +56,23 @@ export const OurStyle = styled.section`
   .swiper-3d .swiper-slide-shadow-left {
     background-image: none !important;
   }
+  .swiper-slide-prev {
+    margin-right: 0px;
+  }
   .swiper-slide {
-    @media only screen and (max-width:770px) {
-      margin: 0 !important;
+    @media only screen and (max-width: 770px) {
+      margin-right: 0;
     }
   }
 `;
 
 OurStyle.Container = styled.div``;
-OurStyle.Wrapper = styled.div``;
+OurStyle.Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`;
 OurStyle.Title = styled.h3`
   width: 100%;
   text-align: center;
@@ -69,7 +80,7 @@ OurStyle.Title = styled.h3`
   font-size: 56px;
   font-style: normal;
   font-weight: 700;
-  line-height: 60px;
+  font-size: calc(24px + 40 * (100vw / 1800));
   letter-spacing: 0.56px;
   margin-bottom: 44px;
 `;

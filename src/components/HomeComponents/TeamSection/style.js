@@ -39,7 +39,7 @@ Team.TexBox = styled.div`
 `;
 Team.Title = styled.h3`
   color: #fff;
-  font-size: 60px;
+  font-size: calc(24px + 40 * (100vw / 1800));
   font-style: normal;
   font-weight: 800;
   line-height: normal;

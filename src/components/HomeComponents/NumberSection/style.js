@@ -35,10 +35,17 @@ NumStyle.Wrapper = styled.ul`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  @media only screen and (max-width: 776px) {
+   flex-direction: column;
+   gap: 35px;
+  }
 `;
 NumStyle.NumBox = styled.li`
   display: flex;
   flex-direction: column;
+  @media only screen and (max-width: 776px) {
+   align-items: center;
+  }
 `;
 NumStyle.Num = styled.p`
   color: #fff;
@@ -47,6 +54,10 @@ NumStyle.Num = styled.p`
   font-weight: 800;
   line-height: normal;
   letter-spacing: 0.8px;
+  @media only screen and (max-width: 776px) {
+  font-size: 60px;
+   
+  }
 `;
 NumStyle.Title = styled.p`
   color: #fff;
@@ -54,4 +65,5 @@ NumStyle.Title = styled.p`
   font-style: normal;
   font-weight: 300;
   line-height: normal;
+  text-align: center;
 `;

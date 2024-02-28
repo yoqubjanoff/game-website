@@ -7,6 +7,9 @@ export const HeaderStyle = styled.header`
   background-color: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(5px);
   padding: 20px 0 0 0;
+  @media only screen and (max-width: 576px) {
+    
+  }
 `;
 
 HeaderStyle.Container = styled.div`
@@ -20,84 +23,91 @@ HeaderStyle.Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  @media only screen and (max-width: 576px) {
+   /* align-items: center; */
+  }
 
   .burgerMenu {
     height: 20px;
-    width: 50px;
+    width: 40px;
     display: none;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
     @media only screen and (max-width: 1000px) {
-    display: flex;
-  }
+      display: flex;
+    }
   }
   .burgerBar {
-  background-color: #fff;
-  width: 100%;
-  height: 2px;
-}
-.burgerBlack {
-  background-color: #000;
-  width: 100%;
-  height: 2px;
-}
-
-.menu {
-  width: 845px;
-  height: 100vh;
-  background-color: rgba(5, 28, 44, 0.6);
-  backdrop-filter: blur(150px) brightness(100%);
-  -webkit-backdrop-filter: blur(150px) brightness(100%);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-}
-
-.routes {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 36px;
-  @media screen and (max-width: 1550px) {
-    gap: 15px;
+    background-color: #fff;
+    width: 100%;
+    height: 2px;
   }
-}
-.hidden {
-  display: none;
-}
+  .burgerBlack {
+    background-color: #000;
+    width: 100%;
+    height: 2px;
+  }
 
-.visible {
-  display: flex;
-  align-items: center;
-  padding-left: 100px;
-}
-.burgerBar.clicked:nth-child(1) {
-  transform: rotate(45deg) translate(-0.3em, 1.25em);
-  transition: ease-out 0.4s;
-}
+  .menu {
+    width: 845px;
+    height: 100vh;
+    background-color: rgba(5, 28, 44, 0.6);
+    backdrop-filter: blur(150px) brightness(100%);
+    -webkit-backdrop-filter: blur(150px) brightness(100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
 
-.burgerBar.clicked:nth-child(2) {
-  transform: scale(0.005);
-  transition: ease-out 0.4s;
-}
-.burgerBar.clicked:nth-child(3) {
-  transform: rotate(135deg) translate(0.6em, 1em);
-  transition: ease-out 0.4s;
-}
+  .routes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 36px;
+    @media screen and (max-width: 1550px) {
+      gap: 15px;
+    }
+  }
+  .hidden {
+    display: none;
+  }
 
-/*unclicked*/
-.burgerBar.unclicked {
-  transform: rotate(0) translate(0);
-  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
-}
+  .visible {
+    display: flex;
+    align-items: center;
+    padding-left: 100px;
+  }
+  .burgerBar.clicked:nth-child(1) {
+    transform: rotate(45deg) translate(-0.3em, 1.25em);
+    transition: ease-out 0.4s;
+  }
+
+  .burgerBar.clicked:nth-child(2) {
+    transform: scale(0.005);
+    transition: ease-out 0.4s;
+  }
+  .burgerBar.clicked:nth-child(3) {
+    transform: rotate(135deg) translate(0.6em, 1em);
+    transition: ease-out 0.4s;
+  }
+
+  /*unclicked*/
+  .burgerBar.unclicked {
+    transform: rotate(0) translate(0);
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+  }
 `;
 
 HeaderStyle.Logo = styled.img`
   width: 100%;
-  max-width: 231px;
-  height: 88px;
+  max-width: 190px;
+  height: 68px;
+  @media only screen and (max-width: 576px) {
+    max-width: 150px;
+    height: 55px;
+  }
 `;
 
 HeaderStyle.NavLangBox = styled.div`

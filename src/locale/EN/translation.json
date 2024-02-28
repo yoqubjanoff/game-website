@@ -16,24 +16,30 @@
       "btn": "Contact Us"
     },
     "target": {
-      "title": "Who we are?",
-      "desc": "Explore a world of possibilities with our forward-thinking IT strategies. Our team of experts harnesses the latest technologies to ensure your business not only keeps pace but stays ahead of the curve"
+      "title": "About Us",
+      "desc": "IT Investments Center - deals with the IT education, freelancing, creative economy, which includes game development."
     },
     "number": {
-      "Employees": "Exmployees",
+      "Employees": "Exmployes",
       "Projects": "Projects",
       "Customers": "Customers",
       "Offices": "Offices"
     },
     "team": {
       "title": "Best Team",
-      "desc": "Our team consists of more than 100 developers and strives to create new interesting and challenging projects. Our team is always searching diligently and has a good experience in applying new technologies"
+      "desc": "Our team consists of more than 100 developers and strives to develop new creative and interesting projects. Our team is always inquisitive, diligent and has enough experience in using new technologies."
     },
     "program": {
-      "title": "Programs we use to create games"
-    },
+      "title": "Programs we use to create games",
+      "desc1": "Unity is a powerful, object-oriented, database-driven technology used to create games and applications.",
+      "desc2": "Unreal Engine (UE) is a game and software engine developed by Epic Games.",
+      "desc3": "ZBrush is a special program for drawing 3D models, editing and detailing models, as well as for creating 3D works.",
+      "desc4": "Blender is licensed under the GNU GPL and is owned by its contributors. That's why Blender is always free and open source.",
+      "desc5": "C# is a fully object-oriented language, while C++ is a language that can combine procedural and object-oriented code.",
+      "desc6": "Substance 3D Painter is 3D painting software that allows users to texture and add materials directly to 3D meshes in real time."
+    },  
     "makes": {
-      "title": "What makes us stand up !",
+      "title": "What makes us outstanding",
       "desc": "The motivation that makes us always work on our field and develop is that we love our field. With the games we create, we have our place not only in the domestic but also in the world market."
     },
     "our": {

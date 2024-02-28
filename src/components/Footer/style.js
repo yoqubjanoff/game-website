@@ -29,8 +29,8 @@ FooterStyle.Wrapper = styled.div`
   justify-content: space-between;
 `;
 FooterStyle.Logo = styled.img`
-  width: 231px;
-  height: 88px;
+  max-width: 190px;
+  height: 68px;
 `;
 FooterStyle.LoginNav = styled.div`
   display: flex;

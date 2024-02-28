@@ -35,19 +35,28 @@ TargetStyle.Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 TargetStyle.TextBox = styled.div`
   width: 100%;
   max-width: 668px;
+  @media only screen and (max-width: 776px) {
+   
+  }
 `;
 TargetStyle.Title = styled.h3`
   color: #fff;
-  font-size: 60px;
+  font-size: calc(24px + 40 * (100vw / 1800));
   font-style: normal;
   font-weight: 800;
   line-height: normal;
   letter-spacing: 1.2px;
+  @media only screen and (max-width: 776px) {
+   text-align:center;
+  }
 `;
 
 TargetStyle.Desc = styled.p`
@@ -56,6 +65,10 @@ TargetStyle.Desc = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 35px;
+  @media only screen and (max-width: 776px) {
+   text-align:center;
+   margin-bottom: 15px;
+  }
 `;
 
 TargetStyle.ImgBox = styled.div``;
