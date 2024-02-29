@@ -16,18 +16,18 @@ const Target = () => {
     const el = imgRef.current;
 
     if (isWideScreen) {
-      gsap.set(el, { opacity: 0, transformOrigin: "bottom bottom", y:350});
+      gsap.set(el, { opacity: 0, transformOrigin: "center center", y: 250 });
       gsap.to(el, {
         opacity: 1,
-        y: 0,
-        duration: 5,
-        ease: "power2.out",
-        delay: 5,
-        scrollTrigger: {
-          trigger: el,
-          start: "center bottom",
-          end: "center center",
-          scrub: true,
+      y: 0,
+      duration: 3,
+      ease: "power2.out",
+      delay: 10,
+      scrollTrigger: {
+        trigger: el,
+        start: "center bottom",
+        end: "center center",
+        scrub: true,
         },
       });
     } else {
@@ -52,11 +52,11 @@ const Target = () => {
     const title = titleRef.current;
 
     if (isWideScreen) {
-      gsap.set(title, { opacity: 0, transformOrigin: "bottom bottom", y:350});
+      gsap.set(title, { opacity: 0, transformOrigin: "center center", y: 250 });
       gsap.to(title, {
         opacity: 1,
         y: 0,
-        duration: 10,
+        duration: 3,
         ease: "power2.out",
         delay: 10,
         scrollTrigger: {

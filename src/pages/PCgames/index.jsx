@@ -25,9 +25,9 @@ const Pcgame = () => {
         console.error(error);
         setLoading(false);
         Swal.fire({
-          icon: 'error',
-          title: 'Server bilan xatolik',
-          text: 'An error occurred while loading data. Please check your internet connection and server status.',
+          icon: "error",
+          title: t("adminPage.ertitle"),
+          text: t("adminPage.errore"),
         });
       }
     };

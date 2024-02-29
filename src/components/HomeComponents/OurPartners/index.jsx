@@ -29,8 +29,8 @@ const OurPartner = () => {
       console.error(error);
       Swal.fire({
         icon: "error",
-        title: "Server bilan xatolik",
-        text: "An error occurred while loading data. Please check your internet connection and server status.",
+        title: t("adminPage.ertitle"),
+        text: t("adminPage.errore"),
       });
     }
   };

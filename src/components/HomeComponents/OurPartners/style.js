@@ -38,7 +38,7 @@ export const OurStyle = styled.section`
     display: flex;
     justify-content: center;
     gap: 30px;
-    height: 283px;
+    height: 350px;
     @media only screen and (max-width:475px) {
       gap: 0px;
     }
@@ -47,6 +47,7 @@ export const OurStyle = styled.section`
     top: 232px;
   }
   .swiper-pagination-bullet {
+ 
     width: 20px;
     height: 20px;
   }
